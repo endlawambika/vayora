@@ -1,8 +1,12 @@
-# ClimaPod website: ready for GitHub Pages and climapod.com
+# ClimaPod website: ready for GitHub Pages
 
-This folder is the complete ClimaPod website, written in plain HTML, CSS and JavaScript. It needs no build step, framework or server code, and nothing in it depends on Claude or any other platform. Upload these files to a GitHub repository and the site goes live.
+This folder is the complete ClimaPod website, written in plain HTML, CSS and JavaScript. It needs no build step, framework or server code, and nothing in it depends on Claude or any other platform. Upload these files to a GitHub repository and it goes live at a free GitHub address:
+
+**`https://<your-username>.github.io/<repository-name>/`**
 
 > This is a student project for a Consumer Behavior course at Great Lakes Institute of Management.
+
+> **Note on climapod.com:** that domain already belongs to another company (a greenhouse brand), so this version has no custom domain. To use a domain you own later, see Part 3.
 
 ---
 
@@ -14,10 +18,8 @@ product.html        Product
 pricing.html        Pricing
 inside.html         Inside (consumer behaviour strategy)
 404.html            Shown for any address that doesn't exist
-CNAME               Tells GitHub Pages to serve this site at climapod.com
-.nojekyll           Tells GitHub Pages to publish the files exactly as they are (hidden file)
+.nojekyll           Tells GitHub Pages to publish files exactly as they are (hidden file, optional)
 robots.txt          Search engine instructions
-sitemap.xml         Page list for search engines (uses https://climapod.com)
 README.md           This guide
 assets/
   css/styles.css    All styles, with the Inter and Manrope fonts embedded
@@ -25,114 +27,79 @@ assets/
   js/waitlist-store.js   Saves sign-ups (prototype or real backend)
   js/search-index.js     Data for the site search
   js/main.js        All interactions (menus, search, carousel, tabs, forms…)
-  img/favicon.svg   Browser tab icon
-  img/og-image.png  Preview image when the link is shared
+  img/              Favicon and link-preview image
   fonts/            Font licences (SIL Open Font License)
 ```
 
-All links between pages are relative, such as `product.html` and `pricing.html#compare`, so they work on GitHub Pages, on climapod.com, and when you open `index.html` straight from your computer.
+All links are relative (`product.html`, `pricing.html#compare`), so the site works inside a github.io repository folder, on any domain, and when you open `index.html` straight from your computer.
 
 ---
 
-## Part 1: Put the site on GitHub Pages
+## Part 1: Upload to GitHub
 
-You only need a free GitHub account and a web browser.
+1. **Create a repository.** On github.com, click **New repository**. Give it a name such as `climapod-website`, choose **Public**, and leave "Add a README" unticked. Click **Create repository**.
+2. **Upload the files.** Click **uploading an existing file**. Open this folder on your computer, select **everything inside it**, drag it into the browser, and click **Commit changes**.
+   - Upload the *contents*, not the folder itself and not the zip. `index.html` must appear at the top level of the repository.
+3. **Turn on GitHub Pages.** Go to **Settings → Pages**, and under **Build and deployment** set **Source: Deploy from a branch**, **Branch: `main`**, folder **`/ (root)`**. Click **Save**.
+4. **Wait 1–2 minutes**, then refresh **Settings → Pages**. A box appears saying *Your site is live at…* with a **Visit site** button.
 
-1. **Create a repository.** On github.com, click **New repository**. Give it any name (for example `climapod-website`), set it to **Public**, and leave "Add a README" unticked. Click **Create repository**.
+Your site is at `https://<your-username>.github.io/<repository-name>/`.
 
-2. **Upload the files.** On the new repository page, click **uploading an existing file**, or use **Add file → Upload files**.
-   - Open this folder on your computer, select **everything inside it**, and drag it into the browser. Folders such as `assets` upload with their contents.
-   - Don't upload the folder itself or the zip file. `index.html` must sit at the top level of the repository.
-   - Click **Commit changes**.
+> **Seeing code instead of a website?** That's GitHub showing you the file. Clicking `index.html` in the repository always shows its code. Open the **Visit site** link instead.
 
-3. **Check that `CNAME` is there.** It should appear in the file list. `.nojekyll` is a hidden file, so your computer may skip it. That's fine: the site works without it. To add it anyway, use **Add file → Create new file**, name it `.nojekyll`, leave it empty and commit.
-
-4. **Turn on GitHub Pages.** Go to **Settings → Pages**. Under **Build and deployment**, set:
-   - **Source:** Deploy from a branch
-   - **Branch:** `main`, folder **`/ (root)`**, then click **Save**
-
-5. **Wait a minute or two.** The **Actions** tab shows a "pages build and deployment" run. When it has a green tick, the site is published.
-
-Because the repository contains the `CNAME` file, GitHub fills in **climapod.com** as the custom domain automatically. Part 2 connects the domain itself.
-
-> **Want to preview on github.io first?** Delete the `CNAME` file from the repository. The site then appears at `https://<your-username>.github.io/<repository-name>/`, and all pages, links and images work there too. Add `CNAME` back (it contains one line: `climapod.com`) when you're ready to switch.
+**Tip:** name the repository exactly `<your-username>.github.io` and the site appears at `https://<your-username>.github.io/`, with no folder name on the end.
 
 ---
 
-## Part 2: Connect climapod.com
+## Part 2: Check it works
 
-Sign in to the company where you bought climapod.com (GoDaddy, Namecheap, Hostinger, Google/Squarespace Domains, Cloudflare, etc.) and open its **DNS settings** for the domain.
-
-### 1. Add these DNS records
-
-| Type | Name / Host | Value | Purpose |
-|---|---|---|---|
-| A | `@` | `185.199.108.153` | climapod.com → GitHub Pages |
-| A | `@` | `185.199.109.153` | |
-| A | `@` | `185.199.110.153` | |
-| A | `@` | `185.199.111.153` | |
-| AAAA | `@` | `2606:50c0:8000::153` | IPv6 (recommended) |
-| AAAA | `@` | `2606:50c0:8001::153` | |
-| AAAA | `@` | `2606:50c0:8002::153` | |
-| AAAA | `@` | `2606:50c0:8003::153` | |
-| CNAME | `www` | `<your-username>.github.io` | www.climapod.com → GitHub Pages |
-
-- Replace `<your-username>` with your GitHub username. Don't add the repository name.
-- **Delete any other A, AAAA or CNAME records for `@` or `www`**, such as the registrar's "parking page" records. Old records are the most common reason a custom domain doesn't work.
-- Some registrars write the host as blank or as `climapod.com` instead of `@`. They all mean the root domain.
-
-### 2. Confirm the domain in GitHub
-
-Go to **Settings → Pages → Custom domain**, make sure it says `climapod.com`, and click **Save**. GitHub runs a DNS check. It shows a green "DNS check successful" once your records are visible.
-
-DNS changes usually take a few minutes to a few hours, occasionally up to a day. If the check fails at first, wait and click **Check again**.
-
-### 3. Turn on HTTPS
-
-Once the DNS check passes, tick **Enforce HTTPS** on the same page. If the box is greyed out, GitHub is still issuing the security certificate. Come back in a little while.
-
-Your site is now live at **https://climapod.com**, and **www.climapod.com** redirects to it.
-
-### 4. Recommended: verify the domain
-
-On your GitHub **profile settings → Pages**, choose **Add a domain**, enter `climapod.com`, and add the TXT record GitHub shows you to your DNS. This stops anyone else from pointing a GitHub site at your domain.
-
----
-
-## Part 3: After it goes live, check
-
-- [ ] https://climapod.com opens with the padlock (HTTPS) showing
+- [ ] The **Visit site** link opens the ClimaPod home page with its full design
 - [ ] Home, Product, Pricing and Inside all open from the menu
-- [ ] The Product and Inside menus open their drop-down panels
-- [ ] Search opens with the Search button or the `/` key
-- [ ] The waitlist form shows errors when left empty, and a confirmation when filled in
-- [ ] https://climapod.com/anything-made-up shows the custom "This page isn't here" page
+- [ ] The Product and Inside menus open their drop-down panels, and Search opens with the `/` key
+- [ ] The waitlist form shows errors when empty and a confirmation when filled in
+- [ ] A made-up address such as `…/climapod-website/test` shows the "This page isn't here" page
 - [ ] The footer of every page shows the student-project statement
-- [ ] Pasting the link into WhatsApp or LinkedIn shows the ClimaPod preview image
+
+---
+
+## Part 3 (optional): Use a domain you own
+
+You need a domain registered in your name, for example from GoDaddy, Namecheap or Hostinger. Check availability at the registrar: `climapod.com` is taken, so you'd need a different name.
+
+1. In the repository, use **Add file → Create new file**. Name it `CNAME` and type your domain on one line (e.g. `yourdomain.com`). Commit.
+2. At your registrar's DNS settings, add:
+
+| Type | Host | Value |
+|---|---|---|
+| A | `@` | `185.199.108.153` |
+| A | `@` | `185.199.109.153` |
+| A | `@` | `185.199.110.153` |
+| A | `@` | `185.199.111.153` |
+| AAAA (optional) | `@` | `2606:50c0:8000::153`, `2606:50c0:8001::153`, `2606:50c0:8002::153`, `2606:50c0:8003::153` |
+| CNAME | `www` | `<your-username>.github.io` |
+
+   Remove any old A/AAAA/CNAME records for `@` and `www`.
+3. In **Settings → Pages → Custom domain**, confirm the domain and click **Save**. Wait for "DNS check successful", which can take from minutes to a day.
+4. Tick **Enforce HTTPS**.
 
 ---
 
 ## The waitlist form
 
-### As delivered: an honest prototype
-
-No backend is connected, so the form works as a front-end prototype only:
+As delivered, the form is an honest **front-end prototype**:
 - It checks every field and shows clear errors.
-- The form itself says nothing is sent to the ClimaPod team.
-- The confirmation says plainly that the details were **not sent** and no emails will follow.
-- Answers are kept only in the visitor's own browser, to spot duplicate sign-ups on that device. Nobody else, including you, can see them.
+- It says plainly that details are **not sent** to the ClimaPod team and that no emails will follow.
+- Answers stay only in the visitor's own browser.
 
-### Collecting real sign-ups
+To collect real sign-ups, edit `assets/js/config.js` on GitHub (pencil icon) and set `waitlistEndpoint`.
 
-Open `assets/js/config.js` on GitHub (click the file, then the pencil icon to edit) and set `waitlistEndpoint`. When it's set, the form sends each sign-up as JSON. The prototype notices disappear, and the confirmation switches to "You're on the waitlist".
-
-**Formspree (easiest, free tier):** create a form at formspree.io and copy its endpoint.
+**Formspree:** create a form at formspree.io, then set:
 
 ```js
 waitlistEndpoint: 'https://formspree.io/f/your-form-id',
 ```
 
-**Google Sheets (free):** in a Google Sheet, open **Extensions → Apps Script** and paste the script below. Then choose **Deploy → New deployment → Web app**, set **Who has access: Anyone**, and copy the web app URL.
+**Google Sheets:** in a Google Sheet, open **Extensions → Apps Script** and paste the script below. Then choose **Deploy → New deployment → Web app**, set **Who has access: Anyone**, and copy the web app URL.
 
 ```js
 function doPost(e) {
@@ -147,17 +114,7 @@ waitlistEndpoint: 'https://script.google.com/macros/s/…/exec',
 waitlistContentType: 'text/plain',
 ```
 
-Commit the change. The live site updates within a minute or two. Before collecting real personal data, add a short privacy note saying what you collect and how people can ask for it to be deleted.
-
----
-
-## Making changes
-
-**Small text changes:** edit the `.html` file on GitHub with the pencil icon and commit. Note:
-- The header, footer and pop-ups are repeated in each of the four pages, so change all four for anything that appears site-wide.
-- Site search reads from `assets/js/search-index.js`. If you rename a section, update its title there too.
-
-**Bigger changes:** use the editable source project, `climapod-source.zip`, which has the template-based builder. Edit the shared header or footer once, run `node build.mjs`, and upload the new contents of its `dist/` folder.
+Once an endpoint is set, the prototype notices disappear and the confirmation becomes "You're on the waitlist".
 
 ---
 
@@ -165,14 +122,12 @@ Commit the change. The live site updates within a minute or two. Before collecti
 
 | Problem | Fix |
 |---|---|
-| GitHub shows a 404 for the whole site | `index.html` isn't at the top of the repository. You probably uploaded the folder instead of its contents. Move the files to the root. |
-| Pages open but have no styling | The `assets` folder is missing or in the wrong place. It must sit next to `index.html`. |
-| "DNS check unsuccessful" | Wait (DNS can take hours), and make sure there are no leftover A/AAAA/CNAME records for `@` or `www` at your registrar. |
-| "Enforce HTTPS" is greyed out | The certificate is still being issued after the DNS check passes. Wait and refresh. |
-| The custom domain disappears from Settings | The `CNAME` file was deleted or renamed. Re-create it containing `climapod.com`. |
-| The site redirects to climapod.com before DNS is ready | That's the `CNAME` file working. Delete it temporarily to preview on github.io. |
+| "404 – There isn't a GitHub Pages site here" | Pages isn't switched on yet (Part 1, step 3), or it's still publishing. Wait 2 minutes. |
+| The whole site 404s, but Pages is on | `index.html` is inside a sub-folder. Move the files to the top level of the repository. |
+| You see HTML code | You're viewing the file on github.com. Use the **Visit site** link. |
+| No colours or layout | The `assets` folder is missing or misplaced. It must sit next to `index.html`. |
+| The site jumps to another website | A `CNAME` file points at a domain you don't control. Delete it. |
 
 ---
 
-© ClimaPod student concept. This is a student project for a Consumer Behavior course at Great Lakes Institute of Management.
 Fonts: Inter and Manrope (SIL Open Font License). Icons: Lucide (ISC licence). Illustrations: original artwork made for this project.
