@@ -1,0 +1,31 @@
+    <!-- UNSUBSCRIBE: sends a removal request for the waitlist to the Vayora team's inbox -->
+    <section class="order-result unsub-page" data-unsubscribe>
+      <div class="container container-narrow">
+        <div class="or-card unsub-card">
+          <div data-unsub-form-wrap>
+            <h1 id="unsub-title">Unsubscribe from the waitlist</h1>
+            <p class="lead">Enter the email you used to join. We'll remove it from the Vayora waitlist and stop sending you launch updates.</p>
+            <form class="unsub-form" novalidate data-unsubscribe-form aria-labelledby="unsub-title">
+              <div class="form-summary" role="alert" data-form-summary></div>
+              <div class="field">
+                <label for="unsub-email">Email</label>
+                <input class="input" id="unsub-email" name="email" type="email" autocomplete="email" inputmode="email" required maxlength="120" aria-describedby="unsub-email-err">
+                <p class="error-msg" id="unsub-email-err"></p>
+              </div>
+              <div class="hp-field" aria-hidden="true"><label for="unsub-hp">Leave this empty</label><input id="unsub-hp" name="_honey" type="text" tabindex="-1" autocomplete="off"></div>
+              <button class="btn btn-block" type="submit" data-submit>Unsubscribe</button>
+            </form>
+          </div>
+
+          <div class="unsub-done" hidden data-unsub-done tabindex="-1">
+            <div class="or-tick" aria-hidden="true">{{icon:circle-check}}</div>
+            <h1>You've unsubscribed</h1>
+            <p class="lead" data-unsub-msg></p>
+            <div class="btn-row">
+              <a class="btn" href="{{link:home}}">Back to Home</a>
+              <button class="btn btn-ghost" type="button" data-waitlist>Join again</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
