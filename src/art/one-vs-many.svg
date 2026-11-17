@@ -1,0 +1,43 @@
+<svg viewBox="0 0 560 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="ovm-title">
+  <title id="ovm-title">Comparison: four separate devices (a fan, an air purifier, a mini cooler and a plug-in mosquito repellent) next to one Vayora device that combines cooling, purification, humidity management and active mosquito capture in a rechargeable unit.</title>
+  <defs><linearGradient id="om-panel" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0A6FC2"/><stop offset="1" stop-color="#0E7490"/></linearGradient></defs>
+  <rect width="560" height="320" rx="24" fill="#F3F8FB"/>
+  <g font-family="Inter, sans-serif" font-size="12" font-weight="600" fill="#4A5667" text-anchor="middle">
+    <g transform="translate(40 60)">
+      <circle cx="40" cy="36" r="32" fill="#FFFFFF" stroke="#94A3B8" stroke-width="2"/><g fill="#CBD5E1"><path d="M40 36 L 40 8 A 10 14 0 0 1 52 30 Z"/><path d="M40 36 L 66 46 A 14 10 0 0 1 44 60 Z"/><path d="M40 36 L 18 52 A 10 14 0 0 1 22 24 Z"/></g><circle cx="40" cy="36" r="5" fill="#64748B"/>
+      <rect x="37" y="68" width="6" height="26" fill="#94A3B8"/><rect x="20" y="92" width="40" height="6" rx="3" fill="#94A3B8"/>
+      <text x="40" y="118">Fan</text></g>
+    <g transform="translate(150 54)">
+      <rect x="10" y="0" width="60" height="100" rx="14" fill="#FFFFFF" stroke="#94A3B8" stroke-width="2"/><g fill="#CBD5E1"><rect x="20" y="14" width="40" height="5" rx="2.5"/><rect x="20" y="24" width="40" height="5" rx="2.5"/><rect x="20" y="34" width="40" height="5" rx="2.5"/></g><circle cx="40" cy="70" r="12" fill="none" stroke="#94A3B8" stroke-width="2"/>
+      <text x="40" y="124">Air purifier</text></g>
+    <g transform="translate(40 190)">
+      <rect x="6" y="10" width="68" height="64" rx="10" fill="#FFFFFF" stroke="#94A3B8" stroke-width="2"/><rect x="14" y="20" width="52" height="30" rx="5" fill="#E2E8F0"/><path d="M32 58 q 8 10 0 14 q -8 -4 0 -14z" fill="#94A3B8"/>
+      <text x="40" y="96">Mini cooler</text></g>
+    <g transform="translate(150 196)">
+      <rect x="20" y="0" width="40" height="56" rx="8" fill="#FFFFFF" stroke="#94A3B8" stroke-width="2"/><rect x="28" y="10" width="24" height="18" rx="3" fill="#E2E8F0"/><g stroke="#94A3B8" stroke-width="3" stroke-linecap="round"><line x1="33" y1="56" x2="33" y2="66"/><line x1="47" y1="56" x2="47" y2="66"/></g>
+      <text x="40" y="90">Mosquito repellent</text></g>
+  </g>
+  <text x="140" y="30" text-anchor="middle" font-family="Manrope, sans-serif" font-weight="800" font-size="15" fill="#4A5667">Four separate devices</text>
+  <g fill="none" stroke="#0B7A73" stroke-width="3" stroke-linecap="round"><path d="M270 160 H 326"/><path d="M314 148 L 328 160 L 314 172"/></g>
+  <text x="443" y="30" text-anchor="middle" font-family="Manrope, sans-serif" font-weight="800" font-size="15" fill="#0D426D">One Vayora</text>
+  <rect x="338" y="44" width="210" height="256" rx="22" fill="#FFFFFF" stroke="#BDEFEA" stroke-width="2"/>
+  <g transform="translate(394 96) scale(1.05)">
+    
+    <ellipse cx="50" cy="136" rx="48" ry="6" fill="#0B2545" opacity=".16"/>
+    <path d="M5 64 C -2 -40 102 -40 95 64" fill="none" stroke="#8C949E" stroke-width="7" stroke-linecap="round"/>
+    <path d="M5 64 C -2 -40 102 -40 95 64" fill="none" stroke="#D5DAE0" stroke-width="3.5" stroke-linecap="round"/>
+    <rect x="28" y="10" width="36" height="12" rx="2" fill="#1B1E22"/>
+    <rect x="70" y="12" width="12" height="9" rx="2" fill="#2A2E33"/><circle cx="76" cy="18" r="2" fill="#7CC6F2"/>
+    <rect x="0" y="20" width="100" height="108" rx="18" fill="#26292E"/>
+    <rect x="3" y="23" width="94" height="102" rx="16" fill="none" stroke="#C7CCD2" stroke-width="3.2"/>
+    <rect x="9" y="31" width="54" height="86" rx="10" fill="#101215"/>
+    <line x1="14" y1="40" x2="58" y2="40" stroke="#4B525C" stroke-width="3.2" stroke-linecap="round"/><line x1="14" y1="50" x2="58" y2="50" stroke="#4B525C" stroke-width="3.2" stroke-linecap="round"/><line x1="14" y1="60" x2="58" y2="60" stroke="#4B525C" stroke-width="3.2" stroke-linecap="round"/><line x1="14" y1="70" x2="58" y2="70" stroke="#4B525C" stroke-width="3.2" stroke-linecap="round"/><line x1="14" y1="80" x2="58" y2="80" stroke="#4B525C" stroke-width="3.2" stroke-linecap="round"/><line x1="14" y1="90" x2="58" y2="90" stroke="#4B525C" stroke-width="3.2" stroke-linecap="round"/><line x1="14" y1="100" x2="58" y2="100" stroke="#4B525C" stroke-width="3.2" stroke-linecap="round"/><line x1="14" y1="110" x2="58" y2="110" stroke="#4B525C" stroke-width="3.2" stroke-linecap="round"/>
+    <rect x="67" y="31" width="25" height="86" rx="8" fill="#0B0D10"/>
+    <rect x="71" y="40" width="15" height="7" rx="1.5" fill="#EAF6FF"/>
+    <rect x="71" y="52" width="12" height="4" rx="1" fill="#B8C7D6"/>
+    <rect x="71" y="60" width="14" height="4" rx="1" fill="#B8C7D6"/>
+    <circle cx="79.5" cy="102" r="4.5" fill="none" stroke="#5ED3F3" stroke-width="1.8" class="pulse"/>
+    <rect x="14" y="127" width="10" height="4" rx="1.5" fill="#15171A"/><rect x="76" y="127" width="10" height="4" rx="1.5" fill="#15171A"/>
+  </g>
+  <g font-family="Inter, sans-serif" font-size="11" font-weight="600" fill="#0B7A73" text-anchor="middle"><text x="443" y="270">Cooling · Purification · Humidity</text><text x="443" y="286">MosquitoGuard · Rechargeable</text></g>
+</svg>

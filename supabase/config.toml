@@ -1,0 +1,19 @@
+# Supabase CLI settings for the Vayora checkout backend.
+# The checkout endpoints are called by anonymous shoppers and by Razorpay, so Supabase's JWT check is off;
+# each function does its own checks (order access token, Razorpay signatures).
+project_id = "vayora"
+
+[functions.create-order]
+verify_jwt = false
+
+[functions.verify-payment]
+verify_jwt = false
+
+[functions.record-payment-failure]
+verify_jwt = false
+
+[functions.get-order]
+verify_jwt = false
+
+[functions.razorpay-webhook]
+verify_jwt = false

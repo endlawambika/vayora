@@ -1,0 +1,15 @@
+{
+  "name": "vayora-website",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Vayora – Portable All-in-One Personal Climate Comfort Device. Student concept website for a Consumer Behaviour course at Great Lakes Institute of Management.",
+  "type": "module",
+  "engines": { "node": ">=18" },
+  "scripts": {
+    "build": "node build.mjs",
+    "serve": "node serve.mjs dist 4173",
+    "dev": "node build.mjs && node serve.mjs dist 4173",
+    "check": "node build.mjs && node scripts/check-links.mjs"
+  },
+  "license": "UNLICENSED"
+}

@@ -1,0 +1,281 @@
+    <!-- 1. HERO CAROUSEL — slide 1 is the core promise; slides 2–3 show it in two settings -->
+    <section class="hero" id="top" aria-roledescription="carousel" aria-label="Vayora highlights" data-carousel>
+      <div class="container">
+        <div class="slides">
+          <div class="slide is-active" role="group" aria-roledescription="slide" aria-label="1 of 3: Comfort anywhere">
+            <div class="hero-grid">
+              <div class="hero-copy">
+                <img class="hero-logo" src="{{asset:img/brand/vayora-logo.webp}}" alt="Vayora" width="669" height="240" fetchpriority="high" decoding="async">
+                <h1 id="hero-title" class="hero-tagline">Designed for the Vayu You Live In</h1>
+                <p class="hero-category">Personal climate comfort technology</p>
+                <p class="lead">Meet Vayora – an innovative portable personal comfort device that combines cooling, air purification, humidity management and active mosquito protection in one compact, rechargeable solution.</p>
+                <div class="btn-row">
+                  <a class="btn btn-buy" href="{{link:checkout}}">{{icon:wallet}}Buy Now · ₹4,999</a>
+                  <a class="btn btn-ghost" href="{{link:product}}">Explore Vayora</a>
+                  <button class="btn btn-ghost" type="button" data-waitlist>Join the Waitlist</button>
+                </div>
+              </div>
+              <div class="hero-stage hero-stage-art">
+                <img src="{{asset:img/photos/vayora-table.webp}}" srcset="{{asset:img/photos/vayora-table-800.webp}} 800w, {{asset:img/photos/vayora-table.webp}} 1600w" sizes="(min-width: 961px) 52vw, 100vw" width="1600" height="1194" alt="Vayora on a wooden table in a living room: a compact black and silver device with a steel carry handle, front vents and a display showing 26°C, 52% humidity and air quality" fetchpriority="high" decoding="async">
+                <div class="stage-caption"><span>Product render</span><span>Display readings are examples</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="slide" role="group" aria-roledescription="slide" aria-label="2 of 3: The design">
+            <div class="hero-grid">
+              <div class="hero-copy">
+                <span class="pill-status"><b>Design</b> Compact body, steel carry handle</span>
+                <h2 class="hero-h">Compact outside. Clever inside.</h2>
+                <p class="lead">A sturdy carry handle, a clear front display and airflow aimed at you from the front vents, with filtration, cooling, humidity care and MosquitoGuard built in.</p>
+                <div class="btn-row">
+                  <a class="btn" href="{{link:product#how-it-works}}">See how it works</a>
+                  <button class="btn btn-ghost" type="button" data-waitlist>Join the Waitlist</button>
+                </div>
+              </div>
+              <div class="hero-stage hero-stage-art">
+                <video class="stage-video" src="{{asset:video/vayora-product.mp4}}" poster="{{asset:img/photos/vayora-product-poster.webp}}" muted loop playsinline preload="metadata" width="1280" height="720" aria-label="Product animation: Vayora turns to show its sides, then blows cool air from its front vents"></video>
+                <div class="stage-caption"><span>Product animation</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="slide" role="group" aria-roledescription="slide" aria-label="3 of 3: Outdoors">
+            <div class="hero-grid">
+              <div class="hero-copy">
+                <span class="pill-status"><b>Outdoors</b> Rechargeable, with a carry handle</span>
+                <h2 class="hero-h">Take your comfort outside.</h2>
+                <p class="lead">Carry Vayora to the balcony, terrace or garden seat. It runs on its rechargeable battery, and MosquitoGuard draws mosquitoes into a removable chamber on its side.</p>
+                <div class="btn-row">
+                  <a class="btn" href="#features">Explore the features</a>
+                  <button class="btn btn-ghost" type="button" data-waitlist>Join the Waitlist</button>
+                </div>
+              </div>
+              <div class="hero-stage hero-stage-art">
+                <img src="{{asset:img/photos/vayora-picnic.webp}}" width="885" height="497" alt="Friends at a picnic table in a park, with Vayora on the table blowing cool air towards them" loading="lazy" decoding="async">
+                <div class="stage-caption"><span>Lifestyle render</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-controls">
+          <div class="carousel-dots">
+            <button type="button" aria-label="Show slide 1: Comfort anywhere" aria-current="true" data-goto="0"><span class="dot-label">Comfort anywhere</span><i></i></button>
+            <button type="button" aria-label="Show slide 2: The design" data-goto="1"><span class="dot-label">The design</span><i></i></button>
+            <button type="button" aria-label="Show slide 3: Outdoors" data-goto="2"><span class="dot-label">Outdoors</span><i></i></button>
+          </div>
+          <div class="carousel-buttons">
+            <button class="icon-btn" type="button" aria-label="Previous slide" data-carousel-prev>{{icon:chevron-left}}</button>
+            <button class="icon-btn" type="button" aria-label="Pause slideshow" data-carousel-pause><span data-icon-pause>{{icon:pause}}</span><span data-icon-play hidden>{{icon:play}}</span></button>
+            <button class="icon-btn" type="button" aria-label="Next slide" data-carousel-next>{{icon:chevron-right}}</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- USP STRIP -->
+    <section class="usp-strip" aria-label="At a glance">
+      <ul class="container usp">
+        <li>{{icon:blend}}<span><b>All-in-one</b>Cooling, air care and more</span></li>
+        <li>{{icon:handbag}}<span><b>Portable</b>Built-in carry handle</span></li>
+        <li>{{icon:battery-charging}}<span><b>Rechargeable</b>No socket needed while in use</span></li>
+        <li>{{icon:bug-off}}<span><b>MosquitoGuard</b>Active mosquito capture</span></li>
+      </ul>
+    </section>
+
+    <!-- 2. FEATURES -->
+    <section class="section" id="features" aria-labelledby="features-title" data-keywords="features functions cooling purification humidity mosquito battery rechargeable">
+      <div class="container">
+        <div class="section-head">
+          <h2 id="features-title">Multiple Functions. One Smart Device.</h2>
+          <p>Vayora brings together the comfort functions you'd usually need several appliances for.</p>
+        </div>
+        <div class="features-grid features-5">
+          <a class="feature-card" href="{{link:product#cooling}}">
+            <span class="ico">{{icon:snowflake}}</span>
+            <h3>Personal Air Cooling</h3>
+            <p>Provides directed airflow to help users stay comfortable in warm environments.</p>
+            <span class="more">Cooling mechanism {{icon:arrow-right}}</span>
+          </a>
+          <a class="feature-card" href="{{link:product#purification}}">
+            <span class="ico">{{icon:filter}}</span>
+            <h3>Air Purification</h3>
+            <p>An integrated filtration mechanism designed to help reduce dust and airborne particles.</p>
+            <span class="more">Air purification system {{icon:arrow-right}}</span>
+          </a>
+          <a class="feature-card" href="{{link:product#humidity}}">
+            <span class="ico">{{icon:droplets}}</span>
+            <h3>Humidity Management</h3>
+            <p>A humidity-management function designed to help improve personal comfort.</p>
+            <span class="more">Humidity management {{icon:arrow-right}}</span>
+          </a>
+          <a class="feature-card feature-card-mg" href="{{link:product#mosquitoguard}}">
+            <span class="ico">{{icon:bug-off}}</span>
+            <h3>Active Mosquito Protection</h3>
+            <p>MosquitoGuard combines scent-based attraction, UV-A light and a dedicated suction mechanism to capture mosquitoes inside a removable collection chamber.</p>
+            <span class="more">MosquitoGuard technology {{icon:arrow-right}}</span>
+          </a>
+          <a class="feature-card" href="{{link:product#portability}}">
+            <span class="ico">{{icon:battery-charging}}</span>
+            <h3>Rechargeable Portability</h3>
+            <p>A compact rechargeable design that allows users to carry the device across different environments.</p>
+            <span class="more">Portability and design {{icon:arrow-right}}</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. COMFORT WHEREVER YOU GO -->
+    <section class="section bg-white" id="comfort-anywhere" aria-labelledby="anywhere-title" data-keywords="home office work study travel hotel balcony terrace outdoor use cases">
+      <div class="container">
+        <div class="section-head">
+          <h2 id="anywhere-title">Comfort Wherever You Go</h2>
+          <p>No installation and no fixed spot. Pick it up by the handle and set it down wherever you need it.</p>
+        </div>
+        <div class="usecase-grid">
+          <article class="usecase-card reveal">
+            <div class="art">{{art:use-home}}</div>
+            <div class="body">
+              <span class="ico">{{icon:sofa}}</span>
+              <h3>Home Comfort</h3>
+              <p>Enjoy personal cooling and cleaner airflow while relaxing at home.</p>
+            </div>
+          </article>
+          <article class="usecase-card reveal">
+            <div class="art">{{art:use-work}}</div>
+            <div class="body">
+              <span class="ico">{{icon:laptop}}</span>
+              <h3>Workplace Comfort</h3>
+              <p>Stay comfortable while studying, working or attending meetings.</p>
+            </div>
+          </article>
+          <article class="usecase-card reveal">
+            <div class="art">{{art:use-travel}}</div>
+            <div class="body">
+              <span class="ico">{{icon:luggage}}</span>
+              <h3>Travel Companion</h3>
+              <p>Carry your personal comfort device during trips and hotel stays.</p>
+            </div>
+          </article>
+          <article class="usecase-card reveal">
+            <div class="art">{{art:use-outdoor}}</div>
+            <div class="body">
+              <span class="ico">{{icon:trees}}</span>
+              <h3>Outdoor Relaxation</h3>
+              <p>Experience personal airflow and comfort while sitting on balconies, terraces or outdoor seating areas.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. WHY VAYORA -->
+    <section class="section" id="why-vayora" aria-labelledby="why-title" data-keywords="why vayora usp benefits compare devices">
+      <div class="container why-grid">
+        <div class="art-frame why-art reveal">{{art:one-vs-many}}</div>
+        <div>
+          <p class="kicker">{{icon:sparkles}} Why Vayora?</p>
+          <h2 id="why-title">Why Carry Multiple Devices When One Can Do More?</h2>
+          <p class="lead mt-s">A fan for the heat, a purifier for the dust, a repellent for the mosquitoes. Vayora replaces that pile with one portable device.</p>
+          <ul class="why-list">
+            <li>{{icon:circle-check}}<span>Multiple comfort functions in one device</span></li>
+            <li>{{icon:circle-check}}<span>Compact and portable design</span></li>
+            <li>{{icon:circle-check}}<span>Rechargeable operation</span></li>
+            <li>{{icon:circle-check}}<span>Personal cooling</span></li>
+            <li>{{icon:circle-check}}<span>Integrated air purification</span></li>
+            <li>{{icon:circle-check}}<span>Active mosquito attraction and capture</span></li>
+            <li>{{icon:circle-check}}<span>Easy maintenance</span></li>
+            <li>{{icon:circle-check}}<span>Versatile usage environments</span></li>
+          </ul>
+          <div class="btn-row mt-m">
+            <a class="btn btn-buy" href="{{link:checkout}}">{{icon:wallet}}Buy Now · ₹4,999</a>
+            <a class="btn btn-ghost" href="{{link:product}}">Explore Vayora</a>
+            <button class="btn btn-ghost" type="button" data-waitlist>Join the Waitlist</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. EMOTIONAL POSITIONING -->
+    <section class="section feel" id="feel" aria-labelledby="feel-title">
+      {{art:lines}}
+      <div class="container" style="position:relative">
+        <h2 class="feel-statement" id="feel-title">Because comfort shouldn't stay behind in one room.</h2>
+        <ul class="feel-words">
+          <li><strong>Freedom</strong><span>No installation. Carry it to wherever you are.</span></li>
+          <li><strong>Comfort</strong><span>Your own airflow, aimed at you, not the whole room.</span></li>
+          <li><strong>Simplicity</strong><span>One device to charge, fill and carry instead of four.</span></li>
+          <li><strong>Easy upkeep</strong><span>Swap the lure cartridge, empty the chamber, rinse the pre-filter.</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ABOUT US + CONTACT -->
+    <section class="section about" id="about" aria-labelledby="about-title" data-keywords="company team contact phone call mission vision">
+      <div class="container about-grid">
+        <div class="about-copy">
+          <p class="kicker">{{icon:heart-handshake}} About us</p>
+          <h2 id="about-title">About Vayora</h2>
+          <p class="lead mt-s">Vayora is an innovative personal comfort brand focused on redefining everyday comfort through portable technology.</p>
+          <p>We aim to combine cooling, air purification, humidity management and active mosquito protection into one compact and convenient device that can be used across different environments.</p>
+        </div>
+        <div class="about-cards">
+          <article class="about-card mission">
+            <span class="ico">{{icon:target}}</span>
+            <div><h3>Our Mission</h3><p>To make personal comfort more convenient through innovative, portable and multifunctional technology.</p></div>
+          </article>
+          <article class="about-card vision">
+            <span class="ico">{{icon:telescope}}</span>
+            <div><h3>Our Vision</h3><p>A future where people can enjoy greater personal comfort wherever they go.</p></div>
+          </article>
+          <div class="contact-card" id="contact">
+            <div><h3>Contact</h3><p>Questions about Vayora? Give us a call.</p></div>
+            <a class="contact-call" href="tel:+919564910918">
+              <span class="phone-icon">{{icon:phone}}</span>
+              <span><small>Contact Number</small>9564910918</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. WAITLIST (inline) -->
+    <section class="section" id="join" aria-labelledby="join-title">
+      <div class="container">
+        <div class="waitlist-panel">
+          {{art:lines}}
+          <div class="waitlist-copy">
+            <h2 id="join-title">The Future of Personal Comfort Is Almost Here.</h2>
+            <p>Be among the first to discover Vayora. Join our waitlist to receive product launch updates and early access information.</p>
+            <ul class="waitlist-perks">
+              <li>{{icon:bell}}<span>Launch updates</span></li>
+              <li>{{icon:rocket}}<span>Early access information</span></li>
+              <li>{{icon:wallet}}<span>Free to join</span></li>
+            </ul>
+          </div>
+          <div class="waitlist-inline" data-waitlist-scope>
+            <form novalidate data-waitlist-form aria-label="Join the Vayora waitlist">
+              <div class="form-summary" role="alert" data-form-summary></div>
+              <div class="field">
+                <label for="wli-name">Name</label>
+                <input class="input" id="wli-name" name="name" type="text" autocomplete="name" required minlength="2" maxlength="80" aria-describedby="wli-name-err">
+                <p class="error-msg" id="wli-name-err"></p>
+              </div>
+              <div class="field">
+                <label for="wli-email">Email</label>
+                <input class="input" id="wli-email" name="email" type="email" autocomplete="email" inputmode="email" required maxlength="120" aria-describedby="wli-email-err">
+                <p class="error-msg" id="wli-email-err"></p>
+              </div>
+              <div class="hp-field" aria-hidden="true"><label for="wli-hp">Leave this empty</label><input id="wli-hp" name="_honey" type="text" tabindex="-1" autocomplete="off"></div>
+        <button class="btn btn-block" type="submit" data-submit>Join Waitlist</button>
+              <p class="form-foot" data-remote-only hidden>Your name and email are sent to the Vayora team and used only for launch updates. Call 9564910918 to have them removed.</p>
+            </form>
+            <div class="success" hidden data-success tabindex="-1">
+              <div class="tick">{{icon:check}}</div>
+              <h3 data-success-title>Thanks for your interest</h3>
+              <p data-success-msg></p>
+              <p class="small" data-success-storage></p>
+              <div class="btn-row"><a class="btn btn-ghost" href="{{link:product}}">Explore Vayora</a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>

@@ -1,0 +1,43 @@
+    <!-- ORDER CONFIRMATION: shown only after the server confirms a verified payment -->
+    <section class="order-result" aria-live="polite" data-order-success data-checkout-url="{{link:checkout}}">
+      <div class="container container-narrow">
+        <div class="or-card or-loading" data-or-loading>
+          <span class="spinner" aria-hidden="true"></span>
+          <p>Confirming your order…</p>
+        </div>
+
+        <div class="or-card or-success" data-or-success hidden tabindex="-1">
+          <img class="or-logo" src="{{asset:img/brand/vayora-logo.webp}}" alt="Vayora" width="669" height="240" decoding="async">
+          <div class="or-tick" aria-hidden="true">{{icon:circle-check}}</div>
+          <h1 id="or-title"><span aria-hidden="true">🎉 </span>Order Successfully Placed!</h1>
+          <p class="lead">Thank you for choosing Vayora. Your order has been successfully confirmed. We're excited to bring a better personal comfort experience to you.</p>
+          <dl class="or-details">
+            <div><dt>Order ID</dt><dd data-f="orderId"></dd></div>
+            <div><dt>Customer Name</dt><dd data-f="customerName"></dd></div>
+            <div><dt>Email Address</dt><dd data-f="email"></dd></div>
+            <div><dt>Product Name</dt><dd data-f="productName"></dd></div>
+            <div><dt>Quantity</dt><dd data-f="quantity"></dd></div>
+            <div><dt>Total Amount</dt><dd data-f="totalAmount"></dd></div>
+            <div><dt>Payment Status</dt><dd><span class="paid-pill" data-f="paymentStatus"></span></dd></div>
+            <div><dt>Order Date</dt><dd data-f="orderDate"></dd></div>
+            <div class="wide"><dt>Shipping Address</dt><dd data-f="shippingAddress"></dd></div>
+          </dl>
+          <p class="or-email" data-or-email>{{icon:mail}}<span></span></p>
+          <p class="or-tagline">Designed for the Vayu You Live In</p>
+          <div class="btn-row">
+            <a class="btn" href="{{link:product}}">Continue Shopping</a>
+            <a class="btn btn-ghost" href="{{link:home}}">Back to Home</a>
+          </div>
+        </div>
+
+        <div class="or-card or-problem" data-or-problem hidden tabindex="-1">
+          <span class="pay-result-icon">{{icon:circle-help}}</span>
+          <h1 data-or-problem-title>We couldn't confirm this order</h1>
+          <p data-or-problem-text>This link doesn't match a confirmed order.</p>
+          <div class="btn-row">
+            <a class="btn" href="{{link:checkout}}" data-or-problem-action>Go to checkout</a>
+            <a class="btn btn-ghost" href="tel:+919564910918">{{icon:phone}}Contact Support</a>
+          </div>
+        </div>
+      </div>
+    </section>

@@ -1,0 +1,20 @@
+<svg viewBox="0 0 480 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="fco-title">
+  <title id="fco-title">Diagram: warm air passes through a cooling pad kept damp by a small top-fill water tank, and leaves as cooler air.</title>
+  <defs><linearGradient id="fc-water" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#BFE0F7"/><stop offset="1" stop-color="#1E8FE6"/></linearGradient><pattern id="fc-honey" width="14" height="12" patternUnits="userSpaceOnUse"><path d="M0 6 L3.5 0 H10.5 L14 6 L10.5 12 H3.5 Z" fill="none" stroke="#1E8FE6" stroke-width="1.2"/></pattern></defs>
+  <rect width="480" height="320" rx="20" fill="#F3F8FB"/>
+  <g fill="none" stroke-linecap="round" stroke-width="3">
+    <path class="flow-line" d="M20 130 H 168" stroke="#F59E0B"/><path class="flow-line d1" d="M20 170 H 168" stroke="#F59E0B"/><path class="flow-line d2" d="M20 210 H 168" stroke="#F59E0B"/>
+    <path class="flow-line" d="M262 130 H 460" stroke="#0EA5E9"/><path class="flow-line d1" d="M262 170 H 460" stroke="#0EA5E9"/><path class="flow-line d2" d="M262 210 H 460" stroke="#0EA5E9"/>
+  </g>
+  <rect x="176" y="40" width="78" height="42" rx="10" fill="url(#fc-water)" stroke="#93CDF4" stroke-width="2"/>
+  <ellipse cx="215" cy="40" rx="18" ry="5" fill="#FFFFFF" stroke="#55B0EE" stroke-width="2"/><path d="M215 26 q 5 8 0 12 q -5 -4 0 -12z" fill="#1E8FE6"/>
+  <rect x="176" y="96" width="78" height="150" rx="10" fill="#DDEFFC"/><rect x="176" y="96" width="78" height="150" rx="10" fill="url(#fc-honey)"/>
+  <rect x="176" y="96" width="78" height="150" rx="10" fill="none" stroke="#1E8FE6" stroke-width="2"/>
+  <g fill="#55B0EE"><path d="M196 86 q 3 6 0 9 q -3 -3 0 -9z"/><path d="M215 88 q 3 6 0 9 q -3 -3 0 -9z"/><path d="M234 86 q 3 6 0 9 q -3 -3 0 -9z"/></g>
+  <g font-family="Inter, sans-serif" font-size="13" font-weight="600">
+    <text x="24" y="112" fill="#B45309">Warm air in</text>
+    <text x="215" y="272" text-anchor="middle" fill="#0D426D">Water-fed cooling pad</text>
+    <text x="215" y="290" text-anchor="middle" font-weight="500" font-size="11.5" fill="#4A5667">(small top-fill tank)</text>
+    <text x="456" y="112" text-anchor="end" fill="#0369A1">Cooler air out</text>
+  </g>
+</svg>

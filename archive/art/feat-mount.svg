@@ -1,0 +1,19 @@
+<svg viewBox="0 0 480 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="fm-title">
+  <title id="fm-title">Diagram of the proposed tool-free window fit: Vayora sits in the gap of a sliding window, and an adjustable filler panel extends to close the remaining opening.</title>
+  <rect x="24" y="24" width="432" height="272" rx="10" fill="#F3F9F9" stroke="#D3D9DF" stroke-width="2"/>
+  <rect x="40" y="40" width="200" height="240" fill="#E1E6EC" stroke="#FFFFFF" stroke-width="6"/>
+  <rect x="190" y="40" width="130" height="240" fill="#EBF4F3" stroke="#FFFFFF" stroke-width="6"/>
+  <rect x="186" y="40" width="4" height="240" fill="#C6CED7"/>
+  <rect x="326" y="42" width="114" height="112" rx="4" fill="#FFFFFF" stroke="#71C8C2" stroke-width="2" stroke-dasharray="6 5"/>
+  <rect x="326" y="152" width="114" height="128" rx="20" fill="#FFFFFF" stroke="#112645" stroke-width="2"/>
+  <circle cx="383" cy="182" r="12" fill="#112645"/>
+  <g fill="#193359"><rect x="360" y="204" width="6" height="58" rx="3"/><rect x="372" y="204" width="6" height="58" rx="3"/><rect x="384" y="204" width="6" height="58" rx="3"/><rect x="396" y="204" width="6" height="58" rx="3"/></g>
+  <g stroke="#112645" stroke-width="2.4" stroke-linecap="round" fill="none">
+    <path d="M383 132 V 62"/><path d="M375 72 L 383 60 L 391 72"/><path d="M375 122 L 383 134 L 391 122"/>
+  </g>
+  <g font-family="Inter, sans-serif" font-size="12.5" font-weight="600" fill="#112645">
+    <rect x="60" y="64" width="112" height="26" rx="13" fill="#FFFFFF"/><text x="116" y="81" text-anchor="middle">Sliding window</text>
+    <rect x="204" y="96" width="114" height="26" rx="13" fill="#112645"/><text x="261" y="113" text-anchor="middle" fill="#C1EDEA">Adjustable panel</text>
+    <line x1="300" y1="239" x2="326" y2="239" stroke="#112645" stroke-width="2"/><rect x="204" y="226" width="96" height="26" rx="13" fill="#FFFFFF"/><text x="252" y="243" text-anchor="middle">Vayora</text>
+  </g>
+</svg>

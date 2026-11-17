@@ -1,0 +1,36 @@
+<dialog class="waitlist-dialog" id="waitlist" aria-labelledby="waitlist-title" data-waitlist-dialog>
+    <div class="dialog-head">
+      <h2 id="waitlist-title">The Future of Personal Comfort Is Almost Here.</h2>
+      <p>Be among the first to discover Vayora. Join our waitlist to receive product launch updates and early access information.</p>
+      <button class="dialog-close" type="button" aria-label="Close" data-dialog-close>{{icon:x}}</button>
+    </div>
+    <div class="dialog-body" data-waitlist-scope>
+      <form id="waitlist-form" novalidate data-waitlist-form>
+        <div class="form-summary" role="alert" data-form-summary></div>
+        <div class="field">
+          <label for="wl-name">Name</label>
+          <input class="input" id="wl-name" name="name" type="text" autocomplete="name" autofocus required minlength="2" maxlength="80" aria-describedby="wl-name-err">
+          <p class="error-msg" id="wl-name-err"></p>
+        </div>
+        <div class="field">
+          <label for="wl-email">Email</label>
+          <input class="input" id="wl-email" name="email" type="email" autocomplete="email" inputmode="email" required maxlength="120" aria-describedby="wl-email-err">
+          <p class="error-msg" id="wl-email-err"></p>
+        </div>
+        <div class="hp-field" aria-hidden="true"><label for="wl-hp">Leave this empty</label><input id="wl-hp" name="_honey" type="text" tabindex="-1" autocomplete="off"></div>
+        <button class="btn btn-block" type="submit" data-submit>Join Waitlist</button>
+        <p class="form-foot" data-remote-only hidden>Your name and email are sent to the Vayora team and used only for launch updates. Call 9564910918 to have them removed.</p>
+      </form>
+
+      <div class="success" hidden data-success tabindex="-1">
+        <div class="tick">{{icon:check}}</div>
+        <h3 data-success-title>Thanks for your interest</h3>
+        <p data-success-msg></p>
+        <p class="small" data-success-storage></p>
+        <div class="btn-row">
+          <button class="btn" type="button" data-dialog-close>Done</button>
+          <a class="btn btn-ghost" href="{{link:product}}" data-dialog-close-link>Explore Vayora</a>
+        </div>
+      </div>
+    </div>
+  </dialog>

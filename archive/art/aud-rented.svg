@@ -1,0 +1,23 @@
+<svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="ar-title">
+  <title id="ar-title">Illustration: a moving box by an apartment door with a Vayora unit resting on top, ready to move to the next rented flat.</title>
+  <rect width="400" height="300" fill="#E0F4F3"/>
+  <rect y="236" width="400" height="64" fill="#C3E6E4"/>
+  <rect x="236" y="54" width="110" height="184" rx="4" fill="#FFFFFF"/>
+  <rect x="246" y="64" width="90" height="174" fill="#D8ECEB"/>
+  <circle cx="320" cy="152" r="5" fill="#425E5C"/>
+  <rect x="270" y="92" width="42" height="12" rx="3" fill="#FFFFFF"/>
+  <text x="291" y="101" text-anchor="middle" font-family="Inter, sans-serif" font-weight="700" font-size="7.5" fill="#112645">FLAT 4B</text>
+  <!-- boxes -->
+  <rect x="44" y="176" width="150" height="76" rx="4" fill="#D8C7A6"/>
+  <rect x="44" y="176" width="150" height="14" fill="#C9B691"/>
+  <rect x="112" y="176" width="14" height="76" fill="#E9DDC4"/>
+  <rect x="60" y="208" width="40" height="20" rx="2" fill="#F5EEDF"/>
+  <rect x="200" y="206" width="70" height="46" rx="4" fill="#CDBA95"/><rect x="200" y="206" width="70" height="10" fill="#BFAA82"/>
+  <!-- Vayora on top, with carry handle visible -->
+  <g class="pod"><rect x="103.6" y="115.5" width="36.8" height="4.8" rx="2.4" fill="#E2E8F0" stroke="#CBD5E1" stroke-width=".8"/><rect x="106.4" y="119.7" width="2.8" height="5.3" fill="#CBD5E1"/><rect x="134.9" y="119.7" width="2.8" height="5.3" fill="#CBD5E1"/><rect x="76.0" y="124.0" width="92.0" height="53.4" rx="12.8" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.2"/><rect x="83.4" y="132.5" width="47.8" height="36.3" rx="5.3" fill="#4B5563"/><rect x="87.0" y="137.9" width="40.5" height="2.4" rx="1.1" fill="#CBD5E1"/><rect x="87.0" y="144.3" width="40.5" height="2.4" rx="1.1" fill="#CBD5E1"/><rect x="87.0" y="150.7" width="40.5" height="2.4" rx="1.1" fill="#CBD5E1"/><rect x="87.0" y="157.1" width="40.5" height="2.4" rx="1.1" fill="#CBD5E1"/><rect x="87.0" y="163.5" width="40.5" height="2.4" rx="1.1" fill="#CBD5E1"/><rect x="136.7" y="132.5" width="23.9" height="36.3" rx="4.3" fill="#0B2545"/><rect x="140.4" y="138.4" width="12.9" height="4.3" rx="1" fill="#5EEAD4"/><rect x="140.4" y="146.4" width="9.2" height="2.7" rx="1" fill="#5EEAD4" opacity=".8"/><circle cx="148.7" cy="160.3" r="3.2" fill="none" stroke="#5EEAD4" stroke-width="1"/></g>
+  <path d="M76 92 C 96 60 156 60 176 92" fill="none" stroke="#207973" stroke-width="2.4" stroke-dasharray="4 6" stroke-linecap="round"/>
+  <path d="M172 84 l 5 9 l -10 1" fill="none" stroke="#207973" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- plant -->
+  <path d="M352 236 L 356 212 L 380 212 L 384 236 Z" fill="#F3F9F9"/>
+  <path d="M368 212 C 362 192 352 184 344 184 C 352 196 358 204 368 212 Z M368 212 C 372 194 382 184 392 182 C 386 196 378 204 368 212 Z" fill="#207973"/>
+</svg>

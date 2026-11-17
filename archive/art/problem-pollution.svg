@@ -1,0 +1,22 @@
+<svg viewBox="0 0 520 420" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="pp-title">
+  <title id="pp-title">Illustration: an open window on a hazy day with dust and pollution particles drifting into a bedroom and settling on the sill.</title>
+  <rect width="520" height="420" fill="#ECEAE2"/>
+  <rect x="70" y="50" width="250" height="280" rx="6" fill="#FBFAF6"/>
+  <rect x="86" y="66" width="218" height="248" fill="#D8D3C3"/>
+  <g fill="#C4BEAC"><rect x="86" y="190" width="50" height="124"/><rect x="140" y="160" width="44" height="154"/><rect x="190" y="206" width="56" height="108"/><rect x="250" y="176" width="54" height="138"/></g>
+  <circle cx="150" cy="110" r="22" fill="#EAD9B0" opacity=".6"/>
+  <rect x="86" y="66" width="218" height="248" fill="#D9CDB0" opacity=".38"/>
+  <rect x="86" y="66" width="104" height="248" fill="#FFFFFF" opacity=".16" stroke="#EFECE4" stroke-width="6"/>
+  <!-- open right half: particles stream in -->
+  <g fill="#8F8A79">
+    <g class="drift"><circle cx="230" cy="110" r="3"/><circle cx="280" cy="150" r="2.4"/><circle cx="330" cy="130" r="2.6"/><circle cx="372" cy="170" r="3.2"/><circle cx="410" cy="150" r="2.2"/></g>
+    <g class="drift b"><circle cx="250" cy="210" r="2.4"/><circle cx="300" cy="240" r="3"/><circle cx="352" cy="226" r="2.2"/><circle cx="398" cy="252" r="2.8"/><circle cx="446" cy="230" r="2.4"/></g>
+    <g class="drift c"><circle cx="260" cy="290" r="2.2"/><circle cx="340" cy="296" r="2.6"/><circle cx="420" cy="310" r="2"/><circle cx="470" cy="190" r="2.6"/><circle cx="460" cy="120" r="1.8"/></g>
+  </g>
+  <rect x="56" y="330" width="278" height="16" rx="3" fill="#FFFFFF"/>
+  <g fill="#A49E8B"><ellipse cx="120" cy="330" rx="16" ry="2.4"/><ellipse cx="200" cy="331" rx="22" ry="2.6"/><ellipse cx="282" cy="330" rx="14" ry="2.2"/></g>
+  <!-- bedside -->
+  <rect x="380" y="300" width="110" height="120" fill="#DCD8CC"/>
+  <rect x="396" y="270" width="12" height="30" fill="#B7B19E"/><path d="M382 272 L 422 272 L 412 246 L 392 246 Z" fill="#C8C2AF"/>
+  <rect x="430" y="284" width="44" height="16" rx="3" fill="#F7F5EF"/>
+</svg>

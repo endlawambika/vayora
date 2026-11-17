@@ -1,0 +1,22 @@
+<svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="hb-title">
+  <title id="hb-title">Proposed habit loop: the cue is opening the window or returning to the room, the routine is switching Vayora on, and the intended reward is a more comfortable room.</title>
+  <defs><marker id="hb-ah" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#112645"/></marker></defs>
+  <g fill="none" stroke="#112645" stroke-width="2.4">
+    <path d="M232 62 C 300 80 330 140 312 190" marker-end="url(#hb-ah)"/>
+    <path d="M252 238 C 210 262 170 262 140 240" marker-end="url(#hb-ah)"/>
+    <path d="M86 178 C 70 130 100 76 160 60" marker-end="url(#hb-ah)"/>
+  </g>
+  <g font-family="Inter, sans-serif" text-anchor="middle">
+    <circle cx="200" cy="58" r="40" fill="#C1EDEA"/>
+    <text x="200" y="54" font-family="Manrope, sans-serif" font-weight="800" font-size="15" fill="#112645">Cue</text>
+    <text x="200" y="72" font-size="10" fill="#1B3761">window opens</text>
+    <circle cx="300" cy="226" r="40" fill="#71C8C2"/>
+    <text x="300" y="222" font-family="Manrope, sans-serif" font-weight="800" font-size="15" fill="#0C1C34">Routine</text>
+    <text x="300" y="240" font-size="10" fill="#0C1C34">switch it on</text>
+    <circle cx="100" cy="226" r="40" fill="#112645"/>
+    <text x="100" y="222" font-family="Manrope, sans-serif" font-weight="800" font-size="15" fill="#FFFFFF">Reward</text>
+    <text x="100" y="240" font-size="10" fill="#C1EDEA">calmer room</text>
+    <text x="200" y="160" font-size="12" font-weight="600" fill="#8A5A12">Proposed habit,</text>
+    <text x="200" y="176" font-size="12" font-weight="600" fill="#8A5A12">not observed behaviour</text>
+  </g>
+</svg>

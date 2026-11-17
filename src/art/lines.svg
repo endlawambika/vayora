@@ -1,0 +1,9 @@
+<svg class="lines" viewBox="0 0 600 400" preserveAspectRatio="xMaxYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+  <g fill="none" stroke="#71C8C2" stroke-width="1.6" stroke-linecap="round">
+    <path d="M-20 300 C 120 240 240 330 380 250 S 560 160 640 200"/>
+    <path d="M-20 320 C 130 262 250 352 390 272 S 570 182 640 222" opacity=".8"/>
+    <path d="M-20 340 C 140 284 260 374 400 294 S 580 204 640 244" opacity=".6"/>
+    <path d="M-20 360 C 150 306 270 396 410 316 S 590 226 640 266" opacity=".4"/>
+    <path class="flow-line slow" d="M-20 280 C 110 218 230 308 370 228 S 550 138 640 178" stroke="#C1EDEA" stroke-width="2"/>
+  </g>
+</svg>

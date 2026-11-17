@@ -1,0 +1,152 @@
+    <!-- CHECKOUT -->
+    <section class="checkout-page" aria-labelledby="checkout-title" data-checkout data-success-url="{{link:order-success}}" data-logo="{{asset:img/brand/vayora-logo-email.png}}">
+      <div class="container">
+        <p class="crumb"><a href="{{link:home}}">Home</a> <span aria-hidden="true">/</span> <a href="{{link:product}}">Product</a> <span aria-hidden="true">/</span> <span>Checkout</span></p>
+        <div class="checkout-head">
+          <h1 id="checkout-title">Checkout</h1>
+          <ol class="checkout-steps" aria-label="Checkout steps">
+            <li class="is-current" aria-current="step"><span>1</span>Your details</li>
+            <li><span>2</span>Payment</li>
+            <li><span>3</span>Confirmation</li>
+          </ol>
+        </div>
+
+
+        <!-- Payment unsuccessful (failed or cancelled) -->
+        <div class="pay-result pay-failed" data-pay-failed hidden tabindex="-1" aria-labelledby="pay-failed-title">
+          <span class="pay-result-icon">{{icon:circle-x}}</span>
+          <h2 id="pay-failed-title">Payment Unsuccessful</h2>
+          <p>Your payment could not be completed. No successful payment has been recorded for this order. Please try again.</p>
+          <p class="small muted" data-pay-failed-reason></p>
+          <div class="btn-row">
+            <button class="btn" type="button" data-pay-retry>{{icon:refresh-cw}}Retry Payment</button>
+            <button class="btn btn-ghost" type="button" data-pay-return>Return to Cart</button>
+            <a class="btn btn-ghost" href="tel:+919564910918">{{icon:phone}}Contact Support</a>
+          </div>
+        </div>
+
+        <!-- Payment made but not yet confirmed (e.g. connection dropped during confirmation) -->
+        <div class="pay-result pay-pending" data-pay-pending hidden tabindex="-1" aria-labelledby="pay-pending-title">
+          <span class="pay-result-icon">{{icon:clock}}</span>
+          <h2 id="pay-pending-title">We're still confirming your payment</h2>
+          <p>Please don't pay again. If your payment went through, your order will be confirmed automatically within a few minutes.</p>
+          <div class="btn-row">
+            <a class="btn" href="{{link:order-success}}" data-pay-status-link>Check order status</a>
+            <a class="btn btn-ghost" href="tel:+919564910918">{{icon:phone}}Contact Support</a>
+          </div>
+        </div>
+
+        <div class="checkout-grid" data-checkout-main>
+          <form class="checkout-form" novalidate data-checkout-form aria-labelledby="checkout-title">
+            <div class="form-summary" role="alert" data-form-summary></div>
+
+            <fieldset class="co-card">
+              <legend>{{icon:user-round}}Contact details</legend>
+              <div class="field">
+                <label for="co-name">Full Name</label>
+                <input class="input" id="co-name" name="name" type="text" autocomplete="name" required maxlength="80" aria-describedby="co-name-err">
+                <p class="error-msg" id="co-name-err"></p>
+              </div>
+              <div class="field-row">
+                <div class="field">
+                  <label for="co-email">Email Address</label>
+                  <input class="input" id="co-email" name="email" type="email" autocomplete="email" inputmode="email" required maxlength="120" aria-describedby="co-email-hint co-email-err">
+                  <p class="field-hint" id="co-email-hint">Your order confirmation is sent here.</p>
+                  <p class="error-msg" id="co-email-err"></p>
+                </div>
+                <div class="field">
+                  <label for="co-mobile">Mobile Number</label>
+                  <div class="input-prefix"><span aria-hidden="true">+91</span><input class="input" id="co-mobile" name="mobile" type="tel" autocomplete="tel-national" inputmode="numeric" required maxlength="16" aria-describedby="co-mobile-hint co-mobile-err"></div>
+                  <p class="field-hint" id="co-mobile-hint">10-digit Indian mobile number.</p>
+                  <p class="error-msg" id="co-mobile-err"></p>
+                </div>
+              </div>
+            </fieldset>
+
+            <fieldset class="co-card">
+              <legend>{{icon:map-pin}}Shipping address</legend>
+              <div class="field-row">
+                <div class="field">
+                  <label for="co-house">House/Flat Number</label>
+                  <input class="input" id="co-house" name="house" type="text" autocomplete="address-line1" required maxlength="100" aria-describedby="co-house-err">
+                  <p class="error-msg" id="co-house-err"></p>
+                </div>
+                <div class="field">
+                  <label for="co-street">Street/Locality</label>
+                  <input class="input" id="co-street" name="street" type="text" autocomplete="address-line2" required maxlength="160" aria-describedby="co-street-err">
+                  <p class="error-msg" id="co-street-err"></p>
+                </div>
+              </div>
+              <div class="field-row">
+                <div class="field">
+                  <label for="co-city">City</label>
+                  <input class="input" id="co-city" name="city" type="text" autocomplete="address-level2" required maxlength="60" aria-describedby="co-city-err">
+                  <p class="error-msg" id="co-city-err"></p>
+                </div>
+                <div class="field">
+                  <label for="co-state">State</label>
+                  <select class="select" id="co-state" name="state" autocomplete="address-level1" required aria-describedby="co-state-err" data-states>
+                    <option value="">Choose your state</option>
+                  </select>
+                  <p class="error-msg" id="co-state-err"></p>
+                </div>
+              </div>
+              <div class="field-row">
+                <div class="field">
+                  <label for="co-pin">PIN Code</label>
+                  <input class="input" id="co-pin" name="pinCode" type="text" autocomplete="postal-code" inputmode="numeric" required maxlength="6" aria-describedby="co-pin-err">
+                  <p class="error-msg" id="co-pin-err"></p>
+                </div>
+                <div class="field">
+                  <label for="co-country">Country</label>
+                  <select class="select" id="co-country" name="country" autocomplete="country-name" required aria-describedby="co-country-hint co-country-err">
+                    <option value="India" selected>India</option>
+                  </select>
+                  <p class="field-hint" id="co-country-hint">We currently deliver within India.</p>
+                  <p class="error-msg" id="co-country-err"></p>
+                </div>
+              </div>
+            </fieldset>
+
+            <section class="co-card co-pay" aria-labelledby="co-pay-title">
+              <h2 id="co-pay-title">{{icon:lock}}Payment</h2>
+              <p>You'll pay in Razorpay's secure payment window. Vayora never sees or stores your card or UPI details.</p>
+              <ul class="pay-methods" aria-label="Payment methods">
+                <li>UPI</li><li>Debit Card</li><li>Credit Card</li><li>Net Banking</li>
+              </ul>
+              <button class="btn btn-block btn-pay" type="submit" data-pay><span data-pay-label>PAY NOW / PLACE ORDER</span><span class="btn-pay-amount" data-pay-amount>₹4,999</span></button>
+              <p class="pay-status" role="status" aria-live="polite" data-pay-status></p>
+              <p class="small muted pay-fine">Available methods depend on Razorpay. By placing the order you agree to pay the total shown.</p>
+            </section>
+          </form>
+
+          <aside class="order-summary" aria-labelledby="os-title">
+            <h2 id="os-title">Order summary</h2>
+            <div class="os-product">
+              <div class="os-thumb"><img src="{{asset:img/photos/vayora-product-square.webp}}" width="480" height="480" alt="Vayora, black and silver, with its steel carry handle and front display" decoding="async"></div>
+              <div>
+                <h3 data-os-name>Vayora – Portable All-in-One Personal Comfort Device</h3>
+                <p>Personal air cooling, air purification, humidity management and MosquitoGuard active mosquito capture in one compact, rechargeable device.</p>
+              </div>
+            </div>
+            <div class="os-qty">
+              <span id="os-qty-label">Quantity</span>
+              <div class="qty-stepper" role="group" aria-labelledby="os-qty-label">
+                <button type="button" class="qty-btn" aria-label="Decrease quantity" data-qty-minus>{{icon:minus}}</button>
+                <input class="qty-input" type="number" inputmode="numeric" min="1" max="5" value="1" aria-label="Quantity" data-qty>
+                <button type="button" class="qty-btn" aria-label="Increase quantity" data-qty-plus>{{icon:plus}}</button>
+              </div>
+            </div>
+            <p class="os-qty-note small muted" data-qty-note aria-live="polite"></p>
+            <dl class="os-lines">
+              <div><dt>Unit price</dt><dd data-os-unit>₹4,999</dd></div>
+              <div><dt>Subtotal</dt><dd data-os-subtotal>₹4,999</dd></div>
+              <div><dt>Shipping</dt><dd data-os-shipping>₹0</dd></div>
+              <div data-os-tax-row hidden><dt data-os-tax-label>Taxes</dt><dd data-os-tax>₹0</dd></div>
+              <div class="os-total"><dt>Total payable</dt><dd data-os-total>₹4,999</dd></div>
+            </dl>
+            <p class="os-secure">{{icon:shield-check}}<span>Secure payment by Razorpay</span></p>
+          </aside>
+        </div>
+      </div>
+    </section>

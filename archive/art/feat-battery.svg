@@ -1,0 +1,17 @@
+<svg viewBox="0 0 480 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="fb-title">
+  <title id="fb-title">Diagram: a battery gauge showing a target run time of three to four hours per charge, marked as a target still to be validated.</title>
+  <rect x="70" y="96" width="300" height="128" rx="28" fill="#FFFFFF" stroke="#112645" stroke-width="4"/>
+  <rect x="370" y="134" width="22" height="52" rx="8" fill="#112645"/>
+  <rect x="88" y="114" width="62" height="92" rx="14" fill="#112645"/>
+  <rect x="158" y="114" width="62" height="92" rx="14" fill="#1E7973"/>
+  <rect x="228" y="114" width="62" height="92" rx="14" fill="#71C8C2"/>
+  <rect x="298" y="114" width="54" height="92" rx="14" fill="#C1EDEA" stroke="#71C8C2" stroke-width="2" stroke-dasharray="5 5"/>
+  <g font-family="Manrope, sans-serif" font-weight="800" fill="#112645" text-anchor="middle">
+    <text x="240" y="64" font-size="30">3–4 hours</text>
+  </g>
+  <g font-family="Inter, sans-serif" font-size="13" fill="#425E5C" text-anchor="middle">
+    <text x="240" y="84">target run time per charge</text>
+    <text x="240" y="262">Run time will vary with fan speed and battery age.</text>
+    <text x="240" y="282">To be validated in prototype testing.</text>
+  </g>
+</svg>

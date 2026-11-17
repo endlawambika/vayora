@@ -1,0 +1,69 @@
+{{> announce}}
+  <header class="site-header" data-header>
+    <div class="container header-inner">
+      <a class="brand" href="{{link:home}}" aria-label="Vayora home">{{> logo}}</a>
+      <button class="search-btn search-btn-mobile" type="button" aria-label="Search the site" data-search-open>{{icon:search}}</button>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu" data-menu-toggle>
+        <span class="icon-open">{{icon:menu}}</span><span class="icon-close">{{icon:x}}</span>
+      </button>
+      <nav class="nav" id="site-nav" aria-label="Main">
+        <ul class="nav-list">
+          <li><a class="nav-link" href="{{link:home}}" data-nav="home" {{current:home}}>Home</a></li>
+          <li class="has-mega" data-mega>
+            <div class="nav-item">
+              <a class="nav-link" href="{{link:product}}" data-nav="product" {{current:product}}>Product</a>
+              <button class="mega-toggle" type="button" aria-expanded="false" aria-controls="mega-product" aria-label="Show the Product menu">{{icon:chevron-down}}</button>
+            </div>
+            <div class="mega" id="mega-product">
+              <div class="container mega-inner">
+                <div class="mega-col">
+                  <p class="mega-title">Explore the product</p>
+                  <ul>
+                    <li><a href="{{link:product}}">Product overview</a></li>
+                    <li><a href="{{link:product#how-it-works}}">How Vayora works</a></li>
+                    <li><a href="{{link:product#modules}}">Four modules inside</a></li>
+                    <li><a href="{{link:product#mosquitoguard}}">MosquitoGuard technology</a></li>
+                    <li><a href="{{link:product#specs}}">Specifications</a></li>
+                    <li><a href="{{link:product#faq}}">FAQs</a></li>
+                  </ul>
+                </div>
+                <div class="mega-col">
+                  <p class="mega-title">Functions</p>
+                  <ul>
+                    <li><a href="{{link:product#cooling}}">{{icon:snowflake}}Personal air cooling</a></li>
+                    <li><a href="{{link:product#purification}}">{{icon:filter}}Air purification</a></li>
+                    <li><a href="{{link:product#humidity}}">{{icon:droplets}}Humidity management</a></li>
+                    <li><a href="{{link:product#mosquitoguard}}">{{icon:bug-off}}Active mosquito protection</a></li>
+                    <li><a href="{{link:product#portability}}">{{icon:battery-charging}}Rechargeable portability</a></li>
+                  </ul>
+                </div>
+                <div class="mega-col">
+                  <p class="mega-title">Use it anywhere</p>
+                  <ul>
+                    <li><a href="{{link:home#comfort-anywhere}}">{{icon:house}}At home</a></li>
+                    <li><a href="{{link:home#comfort-anywhere}}">{{icon:laptop}}At work or study</a></li>
+                    <li><a href="{{link:home#comfort-anywhere}}">{{icon:luggage}}While travelling</a></li>
+                    <li><a href="{{link:home#comfort-anywhere}}">{{icon:trees}}Outdoors</a></li>
+                  </ul>
+                </div>
+                <a class="mega-card" href="{{link:pricing}}">
+                  <span class="mega-card-art"><img src="{{asset:img/photos/vayora-product-square.webp}}" width="480" height="480" alt="" loading="lazy" decoding="async"></span>
+                  <span class="mega-card-body">
+                    <strong>Vayora</strong>
+                    <span>Portable all-in-one personal climate comfort device</span>
+                    <span class="mega-price">₹4,999</span>
+                  </span>
+                </a>
+              </div>
+            </div>
+          </li>
+          <li><a class="nav-link" href="{{link:home#features}}">Features</a></li>
+          <li><a class="nav-link" href="{{link:home#about}}">About Us</a></li>
+          <li><a class="nav-link" href="{{link:pricing}}" data-nav="pricing" {{current:pricing}}>Pricing</a></li>
+          <li><a class="nav-link" href="{{link:home#contact}}">Contact</a></li>
+        </ul>
+        <button class="search-btn" type="button" data-search-open aria-label="Search the site">{{icon:search}}<span class="search-btn-label">Search</span></button>
+        <button class="btn btn-sm" type="button" data-waitlist>Join Waitlist</button>
+      </nav>
+    </div>
+  </header>

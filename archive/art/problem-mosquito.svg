@@ -1,0 +1,21 @@
+<svg viewBox="0 0 480 270" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="pm-title">
+  <title id="pm-title">Illustration: night in a bedroom with the window open for air, and a mosquito tracing a looping path toward the bed.</title>
+  <rect width="480" height="270" fill="#142947"/>
+  <rect x="40" y="40" width="130" height="150" rx="5" fill="#1B3761"/>
+  <rect x="50" y="50" width="110" height="130" fill="#0E1C31"/>
+  <circle cx="122" cy="88" r="16" fill="#E9E4C8"/><circle cx="130" cy="82" r="14" fill="#0E1C31"/>
+  <g fill="#E9E4C8"><circle cx="70" cy="70" r="1.4"/><circle cx="92" cy="120" r="1.2"/><circle cx="142" cy="140" r="1.2"/></g>
+  <rect x="50" y="50" width="56" height="130" fill="#FFFFFF" opacity=".05" stroke="#1B3761" stroke-width="4"/>
+  <rect x="250" y="170" width="210" height="50" rx="8" fill="#1E3D6B"/>
+  <rect x="250" y="196" width="210" height="44" rx="6" fill="#327D78"/>
+  <rect x="260" y="156" width="66" height="26" rx="10" fill="#D4E8E7"/>
+  <path d="M332 186 C 360 170 400 170 440 182 L 440 200 L 332 200 Z" fill="#4F9F99"/>
+  <path d="M150 120 C 210 80 250 160 290 110 S 330 60 352 120" fill="none" stroke="#C1EDEA" stroke-width="1.6" stroke-dasharray="3 6" opacity=".8"/>
+  <g transform="translate(356 128) rotate(18)">
+    <ellipse rx="9" ry="3.2" fill="#C1EDEA"/>
+    <ellipse cx="-2" cy="-7" rx="7" ry="3" fill="#C1EDEA" opacity=".45" transform="rotate(-30)"/>
+    <ellipse cx="3" cy="-7" rx="7" ry="3" fill="#C1EDEA" opacity=".45" transform="rotate(25)"/>
+    <g stroke="#C1EDEA" stroke-width="1.2" stroke-linecap="round"><path d="M-5 2 l -5 8 M0 3 l 0 9 M5 2 l 5 8 M9 0 l 9 2"/></g>
+  </g>
+  <text x="378" y="104" font-family="Inter, sans-serif" font-size="16" font-weight="700" fill="#C1EDEA" opacity=".75">bzz</text>
+</svg>

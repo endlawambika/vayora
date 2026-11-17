@@ -1,0 +1,33 @@
+<svg viewBox="0 0 760 330" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="elm-title">
+  <title id="elm-title">Elaboration Likelihood Model applied to Vayora. A visitor's motivation and ability to evaluate decide the route. The central route uses filtration, battery, design, portability and price information and leads to a more lasting attitude. The peripheral route uses visual appeal, brand identity, simple messaging and product imagery and leads to a more temporary attitude. Social proof is deliberately left out until genuine reviews exist.</title>
+  <defs><marker id="elm-ah" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#112645"/></marker></defs>
+  <rect x="10" y="125" width="150" height="80" rx="16" fill="#112645"/>
+  <text x="85" y="160" text-anchor="middle" font-family="Manrope, sans-serif" font-weight="800" font-size="15" fill="#FFFFFF">A visitor sees</text>
+  <text x="85" y="180" text-anchor="middle" font-family="Manrope, sans-serif" font-weight="800" font-size="15" fill="#FFFFFF">Vayora</text>
+  <g fill="none" stroke="#112645" stroke-width="2.4">
+    <path d="M160 150 C 200 150 200 70 248 70" marker-end="url(#elm-ah)"/>
+    <path d="M160 180 C 200 180 200 260 248 260" marker-end="url(#elm-ah)"/>
+    <path d="M540 70 L 586 70" marker-end="url(#elm-ah)"/>
+    <path d="M540 260 L 586 260" marker-end="url(#elm-ah)"/>
+  </g>
+  <text x="85" y="112" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#425E5C">high motivation</text>
+  <text x="85" y="226" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#425E5C">low motivation</text>
+  <g font-family="Inter, sans-serif">
+    <rect x="252" y="18" width="286" height="104" rx="16" fill="#E0F4F3" stroke="#91D7D2"/>
+    <text x="272" y="46" font-family="Manrope, sans-serif" font-weight="800" font-size="16" fill="#112645">Central route</text>
+    <text x="272" y="68" font-size="12.5" fill="#11223C">Filtration stages, battery target, window fit,</text>
+    <text x="272" y="86" font-size="12.5" fill="#11223C">weight, price rationale, honest comparison</text>
+    <text x="272" y="108" font-size="11.5" fill="#1B3761">Lives on: Product page, Pricing page, FAQ</text>
+    <rect x="252" y="208" width="286" height="104" rx="16" fill="#F3F9F9" stroke="#D3D9DF"/>
+    <text x="272" y="236" font-family="Manrope, sans-serif" font-weight="800" font-size="16" fill="#112645">Peripheral route</text>
+    <text x="272" y="258" font-size="12.5" fill="#11223C">Clean visuals, consistent colour, tagline,</text>
+    <text x="272" y="276" font-size="12.5" fill="#11223C">product imagery, calm tone</text>
+    <text x="272" y="298" font-size="11.5" fill="#8A5A12">Social proof: held back until real reviews exist</text>
+    <rect x="590" y="36" width="160" height="68" rx="16" fill="#112645"/>
+    <text x="670" y="66" text-anchor="middle" font-family="Manrope, sans-serif" font-weight="800" font-size="14" fill="#FFFFFF">Considered,</text>
+    <text x="670" y="84" text-anchor="middle" font-family="Manrope, sans-serif" font-weight="800" font-size="14" fill="#FFFFFF">lasting attitude</text>
+    <rect x="590" y="226" width="160" height="68" rx="16" fill="#C1EDEA"/>
+    <text x="670" y="256" text-anchor="middle" font-family="Manrope, sans-serif" font-weight="800" font-size="14" fill="#112645">Quick, more</text>
+    <text x="670" y="274" text-anchor="middle" font-family="Manrope, sans-serif" font-weight="800" font-size="14" fill="#112645">temporary attitude</text>
+  </g>
+</svg>

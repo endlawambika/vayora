@@ -1,0 +1,17 @@
+<svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="ah-title">
+  <title id="ah-title">Illustration: a shared hostel room with a bunk bed, a backpack and a compact window fitted with Vayora.</title>
+  <rect width="400" height="300" fill="#E0F4F3"/>
+  <rect y="240" width="400" height="60" fill="#C3E6E4"/>
+  <rect x="40" y="56" width="120" height="120" rx="5" fill="#FFFFFF"/>
+  <rect x="50" y="66" width="100" height="100" fill="#D6DCE1"/>
+  <rect x="50" y="66" width="60" height="100" fill="#FFFFFF" opacity=".2" stroke="#EBEEF2" stroke-width="4"/>
+  <g class="pod"><rect x="107.8" y="130.9" width="26.4" height="3.4" rx="1.7" fill="#E2E8F0" stroke="#CBD5E1" stroke-width=".8"/><rect x="109.8" y="133.9" width="2.0" height="3.8" fill="#CBD5E1"/><rect x="130.2" y="133.9" width="2.0" height="3.8" fill="#CBD5E1"/><rect x="88.0" y="137.0" width="66.0" height="38.3" rx="9.2" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.2"/><rect x="93.3" y="143.1" width="34.3" height="26.0" rx="3.8" fill="#4B5563"/><rect x="95.9" y="147.0" width="29.0" height="1.7" rx="0.8" fill="#CBD5E1"/><rect x="95.9" y="151.5" width="29.0" height="1.7" rx="0.8" fill="#CBD5E1"/><rect x="95.9" y="156.1" width="29.0" height="1.7" rx="0.8" fill="#CBD5E1"/><rect x="95.9" y="160.7" width="29.0" height="1.7" rx="0.8" fill="#CBD5E1"/><rect x="95.9" y="165.3" width="29.0" height="1.7" rx="0.8" fill="#CBD5E1"/><rect x="131.6" y="143.1" width="17.2" height="26.0" rx="3.1" fill="#0B2545"/><rect x="134.2" y="147.3" width="9.2" height="3.1" rx="1" fill="#5EEAD4"/><rect x="134.2" y="153.1" width="6.6" height="1.9" rx="1" fill="#5EEAD4" opacity=".8"/><circle cx="140.1" cy="163.0" r="2.3" fill="none" stroke="#5EEAD4" stroke-width="1"/></g>
+  <path class="flow-line slow" d="M156 158 C 196 150 214 170 248 160" stroke="#207973" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+  <!-- bunk bed -->
+  <rect x="216" y="60" width="10" height="200" fill="#425E5C"/><rect x="374" y="60" width="10" height="200" fill="#425E5C"/>
+  <rect x="226" y="112" width="148" height="22" rx="4" fill="#71C8C2"/><rect x="232" y="98" width="44" height="18" rx="8" fill="#FFFFFF"/>
+  <rect x="226" y="208" width="148" height="22" rx="4" fill="#207973"/><rect x="232" y="194" width="44" height="18" rx="8" fill="#FFFFFF"/>
+  <g stroke="#425E5C" stroke-width="3"><line x1="360" y1="140" x2="360" y2="200"/><line x1="374" y1="150" x2="360" y2="150"/><line x1="374" y1="170" x2="360" y2="170"/><line x1="374" y1="190" x2="360" y2="190"/></g>
+  <!-- backpack -->
+  <rect x="70" y="208" width="54" height="56" rx="16" fill="#112645"/><rect x="80" y="232" width="34" height="18" rx="6" fill="#207973"/><path d="M84 210 C 84 194 110 194 110 210" fill="none" stroke="#112645" stroke-width="5"/>
+</svg>

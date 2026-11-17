@@ -1,0 +1,65 @@
+<svg viewBox="0 0 600 612" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="nc-title">
+  <title id="nc-title">Illustration: a bedroom at night with the window open for air. Vayora sits in the window gap; mosquitoes outside stop at its mesh while filtered air flows toward the bed.</title>
+  <defs>
+    <linearGradient id="nc-wall" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#183156"/><stop offset="1" stop-color="#112645"/></linearGradient>
+    <linearGradient id="nc-sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0B1628"/><stop offset="1" stop-color="#11233E"/></linearGradient>
+    <clipPath id="nc-clip"><rect x="58" y="64" width="316" height="388"/></clipPath>
+    <filter id="nc-glow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="10"/></filter>
+  </defs>
+  <rect width="600" height="612" fill="url(#nc-wall)"/>
+  <rect y="548" width="600" height="64" fill="#0C1C34"/>
+  <!-- window -->
+  <rect x="38" y="44" width="356" height="430" rx="10" fill="#1D3C69"/>
+  <g clip-path="url(#nc-clip)">
+    <rect x="58" y="64" width="316" height="388" fill="url(#nc-sky)"/>
+    <circle cx="140" cy="140" r="30" fill="#EDE6C6"/><circle cx="154" cy="130" r="27" fill="#0B1628"/>
+    <g fill="#EDE6C6"><circle cx="96" cy="110" r="1.6"/><circle cx="230" cy="96" r="1.4"/><circle cx="200" cy="170" r="1.2"/><circle cx="272" cy="130" r="1.5"/></g>
+    <g fill="#142949"><rect x="58" y="300" width="60" height="160"/><rect x="122" y="260" width="48" height="200"/><rect x="176" y="320" width="60" height="140"/><rect x="242" y="280" width="52" height="180"/><rect x="300" y="310" width="78" height="150"/></g>
+    <g fill="#E8D58A" opacity=".75"><rect x="70" y="320" width="8" height="7"/><rect x="134" y="282" width="8" height="7"/><rect x="150" y="306" width="8" height="7"/><rect x="190" y="340" width="8" height="7"/><rect x="256" y="300" width="8" height="7"/><rect x="314" y="330" width="8" height="7"/></g>
+    <rect x="58" y="64" width="160" height="388" fill="#FFFFFF" opacity=".05"/>
+    <rect x="150" y="64" width="138" height="388" fill="#FFFFFF" opacity=".04"/>
+  </g>
+  <rect x="58" y="64" width="160" height="388" fill="none" stroke="#246864" stroke-width="8"/>
+  <rect x="150" y="64" width="138" height="388" fill="none" stroke="#27716C" stroke-width="8"/>
+  <!-- filler panel + pod -->
+  <rect x="290" y="66" width="82" height="196" rx="4" fill="#C1EDEA" opacity=".18" stroke="#3DA099" stroke-width="2"/>
+  <rect x="286" y="258" width="92" height="196" rx="22" fill="#ECF5F4"/>
+  <rect x="312" y="268" width="40" height="8" rx="4" fill="#C8D0D9"/>
+  <circle cx="332" cy="310" r="21" fill="#112645"/>
+  <circle cx="332" cy="310" r="17" fill="none" stroke="#71C8C2" stroke-width="2" stroke-dasharray="70 40"/>
+  <g fill="#193359"><rect x="302" y="346" width="7" height="78" rx="3.5"/><rect x="315" y="346" width="7" height="78" rx="3.5"/><rect x="328" y="346" width="7" height="78" rx="3.5"/><rect x="341" y="346" width="7" height="78" rx="3.5"/><rect x="354" y="346" width="7" height="78" rx="3.5"/></g>
+  <circle class="pulse" cx="332" cy="438" r="3.2" fill="#71C8C2"/>
+  <rect x="24" y="454" width="384" height="22" rx="4" fill="#246864"/>
+  <!-- mosquitoes outside, paths ending at the window -->
+  <g fill="none" stroke="#C1EDEA" stroke-width="1.4" stroke-dasharray="3 6" opacity=".7">
+    <path d="M90 230 C 140 200 190 260 236 236 S 270 220 282 240"/>
+    <path d="M120 400 C 170 370 220 420 262 380 S 278 340 282 330"/>
+  </g>
+  <g fill="#C1EDEA">
+    <g transform="translate(270 238)"><ellipse rx="6" ry="2.4"/><ellipse cx="-2" cy="-5" rx="5" ry="2" opacity=".5" transform="rotate(-30)"/><ellipse cx="2" cy="-5" rx="5" ry="2" opacity=".5" transform="rotate(25)"/></g>
+    <g transform="translate(272 338)"><ellipse rx="6" ry="2.4"/><ellipse cx="-2" cy="-5" rx="5" ry="2" opacity=".5" transform="rotate(-30)"/><ellipse cx="2" cy="-5" rx="5" ry="2" opacity=".5" transform="rotate(25)"/></g>
+  </g>
+  <g stroke="#F2D7A6" stroke-width="2.4" stroke-linecap="round"><path d="M278 224 l 8 8 M286 224 l -8 8"/><path d="M280 324 l 8 8 M288 324 l -8 8"/></g>
+  <!-- filtered air toward the bed -->
+  <g fill="none" stroke="#71C8C2" stroke-width="3" stroke-linecap="round">
+    <path class="flow-line slow" d="M380 330 C 440 320 470 380 540 400"/>
+    <path class="flow-line slow d1" d="M380 380 C 430 390 460 430 520 440"/>
+  </g>
+  <!-- bed with sleeper -->
+  <ellipse cx="500" cy="520" rx="130" ry="40" fill="#71C8C2" opacity=".18" filter="url(#nc-glow)"/>
+  <rect x="404" y="470" width="196" height="64" rx="12" fill="#207973"/>
+  <rect x="404" y="500" width="196" height="48" rx="10" fill="#2F9089"/>
+  <rect x="414" y="452" width="70" height="30" rx="12" fill="#D4E8E7"/>
+  <circle cx="452" cy="458" r="16" fill="#B98A6A"/>
+  <path d="M436 456 C 436 440 468 438 468 454 C 460 446 444 446 436 456 Z" fill="#26231F"/>
+  <path d="M470 470 C 500 450 560 452 600 470 L 600 504 L 470 504 Z" fill="#4F9F99"/>
+  <text x="470" y="430" font-family="Manrope, sans-serif" font-weight="800" font-size="16" fill="#C1EDEA" opacity=".7">z</text>
+  <text x="484" y="414" font-family="Manrope, sans-serif" font-weight="800" font-size="12" fill="#C1EDEA" opacity=".5">z</text>
+  <!-- labels -->
+  <g font-family="Inter, sans-serif" font-size="12" font-weight="600">
+    <rect x="72" y="78" width="118" height="26" rx="13" fill="#0C1C34" opacity=".85"/>
+    <text x="131" y="95" text-anchor="middle" fill="#C1EDEA">Window open</text>
+    <rect x="430" y="300" width="148" height="26" rx="13" fill="#C1EDEA"/>
+    <text x="504" y="317" text-anchor="middle" fill="#0C1C34">Mesh at the intake</text>
+  </g>
+</svg>

@@ -1,0 +1,337 @@
+    <section class="journal-hero" aria-labelledby="inside-title">
+      <div class="container">
+        <p class="crumb"><a href="{{link:home}}">Home</a> <span aria-hidden="true">/</span> <span>Inside</span></p>
+        <h1 id="inside-title">The thinking behind the experience.</h1>
+        <p class="lead">Every page of this site was designed with consumer behaviour in mind. This is the notebook behind it: twelve concepts from our Consumer Behaviour course, how each applies to Vayora, and exactly where you can see it on the site.</p>
+        <div class="how-to-read" aria-label="How each concept is structured">
+          <div><strong>{{icon:book-open}}What it means</strong><span>The concept in plain words</span></div>
+          <div><strong>{{icon:lightbulb}}How it applies</strong><span>What it means for Vayora</span></div>
+          <div><strong>{{icon:eye}}Where you see it</strong><span>Links to the real element</span></div>
+          <div><strong>{{icon:compass}}Why we chose it</strong><span>The design decision</span></div>
+        </div>
+      </div>
+    </section>
+
+    <div class="container journal">
+      <nav class="journal-index" aria-label="Concepts on this page" data-journal-index>
+        <p>Concepts</p>
+        <button class="index-toggle" type="button" aria-expanded="false" aria-controls="journal-list" data-index-toggle><span data-index-current>Jump to a concept</span>{{icon:chevron-down}}</button>
+        <ol id="journal-list">
+          <li><a href="#need-recognition"><span class="l">A</span><span>Need recognition</span></a></li>
+          <li><a href="#active-inactive"><span class="l">B</span><span>Active vs inactive problems</span></a></li>
+          <li><a href="#motivation"><span class="l">C</span><span>Motivation theories</span></a></li>
+          <li><a href="#perception"><span class="l">D</span><span>Consumer perception</span></a></li>
+          <li><a href="#learning"><span class="l">E</span><span>Learning and memory</span></a></li>
+          <li><a href="#attitudes"><span class="l">F</span><span>Attitudes: the ABC model</span></a></li>
+          <li><a href="#decision-making"><span class="l">G</span><span>Involvement and decisions</span></a></li>
+          <li><a href="#information-search"><span class="l">H</span><span>Information search and evoked set</span></a></li>
+          <li><a href="#elm"><span class="l">I</span><span>Persuasion: ELM</span></a></li>
+          <li><a href="#credibility"><span class="l">J</span><span>Credibility and two-sided messages</span></a></li>
+          <li><a href="#external-influences"><span class="l">K</span><span>Culture, groups and family</span></a></li>
+          <li><a href="#ethics"><span class="l">L</span><span>Ethics and choice architecture</span></a></li>
+          <li><a href="#think-feel-do"><span class="l">→</span><span>Think, feel, do</span></a></li>
+        </ol>
+      </nav>
+
+      <div class="journal-body">
+
+        <!-- A -->
+        <section class="concept" id="need-recognition" aria-labelledby="c-a">
+          <div class="concept-head"><span class="concept-letter" aria-hidden="true">A</span>
+            <div><h2 id="c-a">Need recognition: actual state vs desired state</h2>
+              <p>A need starts as a gap between how a room is and how someone wants it to feel. The home page's first job is to make that gap visible.</p></div></div>
+          <div class="diagram">
+            <div class="gap">
+              <div class="state actual"><h3 class="h4">Actual state</h3>
+                <ul><li>{{icon:cloud-fog}}<span>Dust and pollution entering the room</span></li><li>{{icon:bug-off}}<span>Mosquito disturbance</span></li><li>{{icon:wind}}<span>Limited ventilation</span></li><li>{{icon:package}}<span>Bulky devices that stay put</span></li></ul></div>
+              <div class="bridge"><svg class="arrow" viewBox="0 0 120 14" aria-hidden="true"><path d="M2 7 H 110 M 102 1 L 112 7 L 102 13" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><strong>The gap is the need</strong><span>Recognised when it feels big enough to act on</span></div>
+              <div class="state desired"><h3 class="h4">Desired state</h3>
+                <ul><li>{{icon:filter}}<span>Cleaner incoming air</span></li><li>{{icon:wind}}<span>Better ventilation</span></li><li>{{icon:shield-check}}<span>Mosquito protection</span></li><li>{{icon:feather}}<span>A convenient, portable solution</span></li></ul></div>
+            </div>
+            <div class="stimuli">
+              <div><strong>Internal stimuli</strong>Felt discomfort: a stuffy room, an itchy bite, a dusty sill noticed at the end of the day.</div>
+              <div><strong>External stimuli</strong>Cues from outside: our problem cards, the hazy-window hero image, a roommate's recommendation.</div>
+            </div>
+          </div>
+          <div class="notes">
+            <div class="note"><h3>{{icon:book-open}}What it means</h3><p>Need recognition happens when a consumer notices a meaningful difference between their actual state and a desired state. Internal stimuli (what they feel) and external stimuli (what they see or hear) can both trigger it.</p></div>
+            <div class="note"><h3>{{icon:lightbulb}}How it applies</h3><p>Many people treat dust, mosquitoes and stuffiness as normal. The problem is real but sits in the background, an existing need that is only sometimes active.</p></div>
+            <div class="note where"><h3>{{icon:eye}}Where you see it</h3><ul><li><a href="{{link:home#problem}}">"Your room should feel like your safe space. Does it?"</a></li><li>The three <a href="{{link:home#problem}}">problem cards</a>, shown as everyday moments</li><li>The <a href="{{link:home#top}}">hero image</a>: hazy air outside, clean air inside</li><li><a href="{{link:home#concerns}}">"What bothers you most?"</a> tiles let visitors name their own gap</li></ul></div>
+            <div class="note why"><h3>{{icon:compass}}Why we designed it this way</h3><p>We open with a question rather than a statistic, so visitors check their own experience. Recognising the gap themselves is more persuasive, and more honest, than being told they have a problem.</p></div>
+          </div>
+        </section>
+
+        <!-- B -->
+        <section class="concept" id="active-inactive" aria-labelledby="c-b">
+          <div class="concept-head"><span class="concept-letter" aria-hidden="true">B</span>
+            <div><h2 id="c-b">Active vs inactive problems</h2>
+              <p>Some visitors already know their room has an air problem. Others have never thought about whether their purifier brings in fresh air at all.</p></div></div>
+          <div class="diagram spectrum">
+            <div class="spectrum-bar" aria-hidden="true"></div>
+            <div class="spectrum-ends"><span>Active: already aware</span><span>Inactive: not yet noticed</span></div>
+            <div class="spectrum-cols">
+              <div><h3 class="h4">For active-problem visitors</h3><p>They're already comparing options. We give them depth: the exploded view, the spec table and an honest comparison.</p></div>
+              <div><h3 class="h4">For inactive-problem visitors</h3><p>We show the everyday moment (open window, dust and mosquitoes) and explain the difference between recirculating and fresh air.</p></div>
+            </div>
+            <p class="avoid">{{icon:triangle-alert}}<span><strong>What we avoid: fear appeals.</strong> No alarming pollution statistics, disease claims or images of illness. The problem is framed as everyday discomfort, not danger.</span></p>
+          </div>
+          <div class="notes">
+            <div class="note"><h3>{{icon:book-open}}What it means</h3><p>An active problem is one the consumer already recognises. An inactive problem exists, but the consumer isn't aware of it yet, so communication has to create that awareness first.</p></div>
+            <div class="note"><h3>{{icon:lightbulb}}How it applies</h3><p>Dust and mosquitoes are mostly active problems. The lack of fresh-air ventilation, because most purifiers only recirculate, is often inactive.</p></div>
+            <div class="note where"><h3>{{icon:eye}}Where you see it</h3><ul><li><a href="{{link:home#meet}}">"Fresh air, filtered first"</a> on the home page</li><li>The <a href="{{link:product#filtration}}">recirculation vs fresh-air illustration</a></li><li>The first row of the <a href="{{link:pricing#compare}}">comparison table</a></li></ul></div>
+            <div class="note why"><h3>{{icon:compass}}Why we designed it this way</h3><p>Explaining a difference people hadn't considered activates the problem through understanding, not anxiety. Fear might create urgency, but it would cost trust that a brand with no track record can't afford to lose.</p></div>
+          </div>
+        </section>
+
+        <!-- C -->
+        <section class="concept" id="motivation" aria-labelledby="c-c">
+          <div class="concept-head"><span class="concept-letter" aria-hidden="true">C</span>
+            <div><h2 id="c-c">Motivation theories</h2>
+              <p>Visitors want cleaner air, and they also want to avoid wasting ₹4,999 on something that doesn't work. Both motives shape the site.</p></div></div>
+          <div class="diagram">
+            <div class="maslow">
+              <div class="pyramid" aria-hidden="true">
+                <div>Self-<br>actualisation</div><div>Esteem</div><div>Belonging</div><div>Safety</div><div>Physiological</div>
+              </div>
+              <ul class="maslow-map">
+                <li><strong>Self-actualisation</strong><span>Feeling in control of one's own living environment.</span></li>
+                <li><strong>Esteem</strong><span>Choosing a modern, smart lifestyle solution.</span></li>
+                <li class="dim"><strong>Belonging</strong><span>Addressed through relatedness below.</span></li>
+                <li><strong>Safety</strong><span>Reducing exposure to certain airborne particles and keeping mosquitoes out.</span></li>
+                <li><strong>Physiological</strong><span>A comfortable indoor environment to sleep, study and rest in.</span></li>
+              </ul>
+            </div>
+            <div class="sdt">
+              <div><strong>{{icon:lock-open}}Autonomy</strong><p>Portable, battery-powered, no permanent installation. The decision to use it, and where, stays yours.</p></div>
+              <div><strong>{{icon:sliders-horizontal}}Competence</strong><p>Simple controls, a readable display and plain explanations, so nobody feels out of their depth.</p></div>
+              <div><strong>{{icon:users}}Relatedness</strong><p>Communication that recognises students, tenants and urban families in their real situations.</p></div>
+            </div>
+            <div class="table-wrap" tabindex="0" role="region" aria-label="Motivational conflict table">
+              <table class="conflict">
+                <caption class="visually-hidden">Approach–avoidance conflict and how the website responds</caption>
+                <thead><tr><th scope="col">I want…</th><th scope="col">…but I worry</th><th scope="col">How the site responds</th></tr></thead>
+                <tbody>
+                  <tr><td data-label="I want">Cleaner air</td><td data-label="But I worry">Will it actually work?</td><td data-label="How the site responds">Mechanism explained step by step; no unproven efficiency figures</td></tr>
+                  <tr><td data-label="I want">Fresh air without mosquitoes</td><td data-label="But I worry">Is it worth ₹4,999?</td><td data-label="How the site responds">Value breakdown and an honest category comparison</td></tr>
+                  <tr><td data-label="I want">Freedom from the socket</td><td data-label="But I worry">Will the battery last?</td><td data-label="How the site responds">3–4 hours shown as a target, clearly marked "to be validated"</td></tr>
+                  <tr><td data-label="I want">Something low-effort</td><td data-label="But I worry">How much maintenance?</td><td data-label="How the site responds">Ongoing filter costs flagged as "to be determined" in the price FAQ, not hidden</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="notes">
+            <div class="note"><h3>{{icon:book-open}}What it means</h3><p>Motivation is the drive to reduce the tension a need creates. Maslow orders needs from physiological to self-actualisation; Self-Determination Theory says people are most motivated when they feel autonomy, competence and relatedness.</p></div>
+            <div class="note"><h3>{{icon:lightbulb}}How it applies</h3><p>Vayora touches several levels at once, which helps. But as a new ₹4,999 device, it also creates an approach–avoidance conflict: the benefits pull people in, the risks hold them back.</p></div>
+            <div class="note where"><h3>{{icon:eye}}Where you see it</h3><ul><li><a href="{{link:home#benefits}}">Benefits</a> for comfort and safety</li><li><a href="{{link:home#feel}}">Freedom, comfort, control</a> for autonomy</li><li>The <a href="{{link:pricing#price-faq}}">price questions</a>, which answer the worries head-on, for the conflict</li></ul></div>
+            <div class="note why"><h3>{{icon:compass}}Why we designed it this way</h3><p>Rather than pushing harder on the "want", we lower the "worry". Transparency and an accessible target price reduce the avoidance side of the conflict.</p></div>
+          </div>
+        </section>
+
+        <!-- D -->
+        <section class="concept" id="perception" aria-labelledby="c-d">
+          <div class="concept-head"><span class="concept-letter" aria-hidden="true">D</span>
+            <div><h2 id="c-d">Consumer perception</h2>
+              <p>Exposure gets Vayora seen. Attention makes it noticed. Interpretation makes sure it's understood correctly.</p></div></div>
+          <div class="diagram funnel">
+            <div class="stage"><strong>{{icon:search}}Exposure</strong><span>A headline that states the promise in five words, a hero image of the product in a window, and page titles written for search and sharing.</span></div>
+            <div class="stage"><strong>{{icon:eye}}Attention</strong><span>One focal image per section, forest green on off-white for contrast, and motion used only for the airflow line.</span></div>
+            <div class="stage"><strong>{{icon:brain}}Interpretation</strong><span>Labelled components, plain-language stages, and badges that say exactly how certain each claim is.</span></div>
+          </div>
+          <div class="notes">
+            <div class="note"><h3>{{icon:book-open}}What it means</h3><p>Perception is how people select, organise and interpret what they encounter. Selective attention filters out most stimuli, and too much information at once leads people to give up.</p></div>
+            <div class="note"><h3>{{icon:lightbulb}}How it applies</h3><p>Vayora looks like a familiar category but works differently, so misinterpretation is a real risk. "Is it an AC?" is the question we most need to prevent.</p></div>
+            <div class="note where"><h3>{{icon:eye}}Where you see it</h3><ul><li>The <a href="{{link:home#top}}">hero</a>: one promise, one image, two actions</li><li>The <a href="{{link:product#mechanism}}">exploded view</a> reveals one component at a time</li><li>The <a href="{{link:product}}">"not an air conditioner"</a> callout, placed before any feature list</li><li>The <a href="{{link:home#top}}">hero carousel</a> always opens on the core promise, gives each later slide one benefit, and pauses on hover, on focus and for reduced motion</li><li><a href="{{link:product#details}}">Highlight tabs</a> show one topic at a time</li></ul></div>
+            <div class="note why"><h3>{{icon:compass}}Why we designed it this way</h3><p>Progressive disclosure (select a stage, open a question) keeps each screen light. Attention isn't spread thin, and the product is interpreted correctly the first time.</p></div>
+          </div>
+        </section>
+
+        <!-- E -->
+        <section class="concept" id="learning" aria-labelledby="c-e">
+          <div class="concept-head"><span class="concept-letter" aria-hidden="true">E</span>
+            <div><h2 id="c-e">Consumer learning and memory</h2>
+              <p>A new brand gets remembered through a few strong, repeated associations, not many weak ones.</p></div></div>
+          <div class="diagram learn">
+            <figure>{{art:assoc}}<figcaption>Associations repeated on every page</figcaption></figure>
+            <figure>{{art:habit}}<figcaption>A proposed usage habit, to be tested with prototype users</figcaption></figure>
+          </div>
+          <div class="notes">
+            <div class="note"><h3>{{icon:book-open}}What it means</h3><p>Consumer learning is how repeated exposure and experience build associations in memory. Habits form through a loop: a cue triggers a routine, which delivers a reward.</p></div>
+            <div class="note"><h3>{{icon:lightbulb}}How it applies</h3><p>Vayora needs to be recognisable at a glance. In use, opening a window or returning to the room could become the cue to switch it on, and a more comfortable room the intended reward.</p></div>
+            <div class="note where"><h3>{{icon:eye}}Where you see it</h3><ul><li>The same palette and pod silhouette in every illustration</li><li>The airflow line in the <a href="{{link:home#top}}">hero</a>, the <a href="{{link:home#how-it-works}}">stepper</a> and the <a href="{{link:product#mechanism}}">exploded view</a></li><li>The tagline and pod-shaped logo in every footer</li><li>The announcement strip repeats three core messages on every page</li><li>Familiar Indian electronics-retail patterns: offer strip, mega menu, category tiles, big footer</li></ul></div>
+            <div class="note why"><h3>{{icon:compass}}Why we designed it this way</h3><p>Consistent cues reduce the effort of recognition. Borrowing the layout conventions shoppers already know from Indian appliance brands means visitors spend no effort learning the site, only learning the product. We present the habit loop as a proposal, not an established behaviour, because nobody has used Vayora yet.</p></div>
+          </div>
+        </section>
+
+        <!-- F -->
+        <section class="concept" id="attitudes" aria-labelledby="c-f">
+          <div class="concept-head"><span class="concept-letter" aria-hidden="true">F</span>
+            <div><h2 id="c-f">Consumer attitudes: the ABC model</h2>
+              <p>Understanding, feeling and action each have their own parts of the site.</p></div></div>
+          <div class="diagram abc">
+            <div><span class="tag" aria-hidden="true">C</span><h3 class="h4">Cognitive</h3><p>"I understand how the device works."</p><p class="sec">Follow-the-air stepper, exploded view, spec table, FAQ</p></div>
+            <div><span class="tag" aria-hidden="true">A</span><h3 class="h4">Affective</h3><p>"I feel reassured, comfortable and interested."</p><p class="sec">Hero illustration, lifestyle scenes, the "feel" statement, honest labels</p></div>
+            <div><span class="tag" aria-hidden="true">B</span><h3 class="h4">Behavioural</h3><p>"I'll join the waitlist."</p><p class="sec">Waitlist button on every page, a five-field form</p></div>
+          </div>
+          <div class="notes">
+            <div class="note"><h3>{{icon:book-open}}What it means</h3><p>An attitude has three components: cognitive (beliefs and knowledge), affective (feelings) and behavioural (intentions and actions).</p></div>
+            <div class="note"><h3>{{icon:lightbulb}}How it applies</h3><p>For an unfamiliar electronic product, good feelings without understanding won't last, and understanding without reassurance won't lead to action.</p></div>
+            <div class="note where"><h3>{{icon:eye}}Where you see it</h3><ul><li>Cognitive: <a href="{{link:home#how-it-works}}">Follow the air</a>, <a href="{{link:product#specs}}">spec table</a></li><li>Affective: <a href="{{link:home#feel}}">"Because feeling comfortable at home…"</a></li><li>Behavioural: <a href="{{link:home#join}}">final call to action</a></li></ul></div>
+            <div class="note why"><h3>{{icon:compass}}Why we designed it this way</h3><p>For a considered purchase, pages follow a learn, then feel, then do order: explain first, reassure next, then invite a small, low-commitment action.</p></div>
+          </div>
+        </section>
+
+        <!-- G -->
+        <section class="concept" id="decision-making" aria-labelledby="c-g">
+          <div class="concept-head"><span class="concept-letter" aria-hidden="true">G</span>
+            <div><h2 id="c-g">Consumer involvement and decision-making</h2>
+              <p>A ₹4,999 physical product from an unknown brand is not an impulse buy. The site is built for limited to extended decision-making.</p></div></div>
+          <div class="diagram">
+            <ol class="journey">
+              <li><span class="dot">1</span><div><strong>Need recognition</strong><span>Home: problem section</span></div></li>
+              <li><span class="dot">2</span><div><strong>Information search</strong><span>Product page, mechanism, FAQ</span></div></li>
+              <li><span class="dot">3</span><div><strong>Evaluation of alternatives</strong><span>Pricing: honest comparison</span></div></li>
+              <li><span class="dot">4</span><div><strong>Purchase intention</strong><span>Waitlist, since there's nothing to buy yet</span></div></li>
+              <li><span class="dot">5</span><div><strong>Post-purchase evaluation</strong><span>Future: prototype updates, real reviews</span></div></li>
+            </ol>
+            <div class="risk">
+              <div><strong>Financial risk</strong><div class="meter" aria-hidden="true"><i style="width:68%"></i></div><p>₹4,999 is a real amount on a student or first-job budget.</p></div>
+              <div><strong>Functional risk</strong><div class="meter" aria-hidden="true"><i style="width:58%"></i></div><p>Will it fit my window? Will it be easy to use?</p></div>
+              <div><strong>Performance risk</strong><div class="meter" aria-hidden="true"><i style="width:80%"></i></div><p>Does the filtration actually work? Nobody has tested it yet.</p></div>
+            </div>
+            <p class="diagram-caption">Risk bars are our qualitative judgement of relative concern, not survey data.</p>
+          </div>
+          <div class="notes">
+            <div class="note"><h3>{{icon:book-open}}What it means</h3><p>Involvement is how personally relevant and risky a purchase feels. Higher involvement leads to more information search and more careful evaluation before buying.</p></div>
+            <div class="note"><h3>{{icon:lightbulb}}How it applies</h3><p>Perceived financial, functional and performance risk is high for a new device with no reviews, so most visitors will need real information before they act.</p></div>
+            <div class="note where"><h3>{{icon:eye}}Where you see it</h3><ul><li><a href="{{link:product#mechanism}}">Product mechanism</a> and <a href="{{link:product#details}}">feature explanations</a></li><li><a href="{{link:pricing}}">Pricing transparency</a> and <a href="{{link:pricing#compare}}">comparisons</a></li><li><a href="{{link:product#faq}}">FAQs</a> and the waitlist</li><li>The <a href="{{link:home#journey}}">lab timeline</a> sets honest expectations for what happens next</li></ul></div>
+            <div class="note why"><h3>{{icon:compass}}Why we designed it this way</h3><p>Each element answers the question a visitor has at one stage of the journey. The waitlist is a low-risk next step that matches the uncertainty of a pre-launch product, instead of forcing a purchase decision.</p></div>
+          </div>
+        </section>
+
+        <!-- H -->
+        <section class="concept" id="information-search" aria-labelledby="c-h">
+          <div class="concept-head"><span class="concept-letter" aria-hidden="true">H</span>
+            <div><h2 id="c-h">Information search and the evoked set</h2>
+              <p>People trust some sources more than others. Right now, Vayora only has the least trusted one: its own website.</p></div></div>
+          <div class="diagram">
+            <div class="sources">
+              <div class="source"><strong>{{icon:users}}Personal</strong><p>Friends, family and roommates. Clear, repeatable positioning makes Vayora easy to describe to someone else.</p><span class="badge badge-target">Encouraged, never scripted</span></div>
+              <div class="source"><strong>{{icon:message-circle}}Commercial</strong><p>This website and any future advertising. Useful for information, but naturally viewed with some scepticism.</p><span class="badge badge-target">Live now</span></div>
+              <div class="source"><strong>{{icon:scale}}Independent</strong><p>Reviews and comparison platforms. These don't exist for Vayora yet, and we won't invent them.</p><span class="badge badge-validate">None yet</span></div>
+              <div class="source"><strong>{{icon:hand}}Experiential</strong><p>Product demonstrations and prototype testing. The most convincing source, planned with waitlist members.</p><span class="badge badge-proposed">Planned</span></div>
+            </div>
+            <div class="sets">{{art:sets}}</div>
+          </div>
+          <div class="notes">
+            <div class="note"><h3>{{icon:book-open}}What it means</h3><p>Consumers search memory and four kinds of external source: personal, commercial, independent and experiential. The result is an evoked set, the few options they seriously consider.</p></div>
+            <div class="note"><h3>{{icon:lightbulb}}How it applies</h3><p>Fans, mosquito nets and purifiers are already in most people's evoked sets. Vayora has to earn a place among them by being clearly positioned against what people already know.</p></div>
+            <div class="note where"><h3>{{icon:eye}}Where you see it</h3><ul><li>The <a href="{{link:pricing#compare}}">category comparison</a> on Pricing</li><li>The <a href="{{link:home#made-for}}">audience cards</a>, with quotes clearly marked as illustrative</li><li>Site search (press <kbd>/</kbd>) covers features, FAQs and concepts</li><li>The waitlist's optional "volunteer for prototype testing" box recruits the experiential source</li><li>No testimonials anywhere, on purpose</li></ul></div>
+            <div class="note why"><h3>{{icon:compass}}Why we designed it this way</h3><p>Real testimonials and product reviews should only be added after genuine customers have used the product. Inventing them would fake the independent source people rely on most, and break trust the moment it was discovered.</p></div>
+          </div>
+        </section>
+
+        <!-- I -->
+        <section class="concept" id="elm" aria-labelledby="c-i">
+          <div class="concept-head"><span class="concept-letter" aria-hidden="true">I</span>
+            <div><h2 id="c-i">Attitude formation and persuasion: ELM</h2>
+              <p>Some visitors read every spec. Others decide in a glance. The site is built for both.</p></div></div>
+          <div class="diagram elm">{{art:elm}}</div>
+          <div class="notes">
+            <div class="note"><h3>{{icon:book-open}}What it means</h3><p>The Elaboration Likelihood Model says persuasion takes a central route (careful thought about arguments) when motivation and ability are high, or a peripheral route (cues like design and attractiveness) when they're low. Central-route attitudes tend to last longer.</p></div>
+            <div class="note"><h3>{{icon:lightbulb}}How it applies</h3><p>Someone evaluating a ₹4,999 electronic product wants meaningful information on filtration, battery life, design, portability and price. A casual visitor responds to visual appeal, brand identity and simple messaging.</p></div>
+            <div class="note where"><h3>{{icon:eye}}Where you see it</h3><ul><li>Central: <a href="{{link:product#mechanism}}">mechanism</a>, <a href="{{link:product#specs}}">spec table</a>, <a href="{{link:pricing#value}}">price rationale</a></li><li>Peripheral: the <a href="{{link:home#top}}">hero</a>, product render, palette and tagline</li></ul></div>
+            <div class="note why"><h3>{{icon:compass}}Why both routes matter</h3><p>Peripheral cues earn the click; central-route content earns the decision. Social proof, normally a strong peripheral cue, is deliberately absent until it can be real.</p></div>
+          </div>
+        </section>
+
+        <!-- J -->
+        <section class="concept" id="credibility" aria-labelledby="c-j">
+          <div class="concept-head"><span class="concept-letter" aria-hidden="true">J</span>
+            <div><h2 id="c-j">Source credibility and two-sided messaging</h2>
+              <p>A student startup has no track record. Trust has to come from candour.</p></div></div>
+          <div class="diagram">
+            <div class="say">
+              <div class="do"><h3 class="h4">{{icon:circle-check}}What we say</h3><ul>
+                <li>Transparent specifications, every one labelled</li><li>Preliminary targets marked as targets</li><li>Honest limitations: needs a window gap, isn't an AC, hasn't been tested</li><li>A promise to share prototype testing updates</li><li>Authentic customer feedback, once it exists</li></ul></div>
+              <div class="dont"><h3 class="h4">{{icon:circle-x}}What we don't say</h3><ul>
+                <li>Customer testimonials or sales figures</li><li>Certifications or endorsements</li><li>HEPA efficiency or PM2.5 removal percentages</li><li>Verified battery performance</li><li>That it cools a room or prevents disease</li></ul></div>
+            </div>
+            <div class="legend-badges"><span>The labels used across the site:</span><span class="badge badge-target">Target spec</span><span class="badge badge-proposed">Proposed</span><span class="badge badge-validate">To be validated</span></div>
+          </div>
+          <div class="notes">
+            <div class="note"><h3>{{icon:book-open}}What it means</h3><p>Source credibility combines perceived expertise and trustworthiness. Two-sided messages, which admit weaknesses alongside strengths, tend to be more credible, especially with informed audiences.</p></div>
+            <div class="note"><h3>{{icon:lightbulb}}How it applies</h3><p>Vayora can't borrow credibility from reviews, certifications or a known brand. The only credibility available is being visibly honest about what's known and what isn't.</p></div>
+            <div class="note where"><h3>{{icon:eye}}Where you see it</h3><ul><li>"Works with windows fully closed: No" in the <a href="{{link:pricing#compare}}">comparison</a></li><li>The <a href="{{link:product#specs}}">status column</a> in the spec table</li><li>Ongoing costs marked <a href="{{link:pricing#pfaq-ongoing}}">"To be determined"</a> in the price FAQ</li></ul></div>
+            <div class="note why"><h3>{{icon:compass}}Why we designed it this way</h3><p>Admitting limits up front protects against disappointment later, and makes the positive claims easier to believe.</p></div>
+          </div>
+        </section>
+
+        <!-- K -->
+        <section class="concept" id="external-influences" aria-labelledby="c-k">
+          <div class="concept-head"><span class="concept-letter" aria-hidden="true">K</span>
+            <div><h2 id="c-k">External influences: culture, reference groups and family</h2>
+              <p>Where and how people live in urban India shapes what they need, and who has a say in buying it.</p></div></div>
+          <div class="diagram influences">
+            <div><strong>{{icon:school}}Hostel and PG living</strong><p>Shared rooms, fixed fittings and rules about what can be installed.</p></div>
+            <div><strong>{{icon:building-2}}Rented apartments</strong><p>Landlord permission, security deposits and moving every year or two.</p></div>
+            <div><strong>{{icon:house}}Family decision-making</strong><p>Parents often fund or approve a student's purchase; families decide together on home devices.</p></div>
+            <div><strong>{{icon:users}}Friends and roommates</strong><p>A device in a shared room affects everyone in it, so roommates influence the choice.</p></div>
+            <div><strong>{{icon:message-circle}}Word of mouth</strong><p>Recommendations from people like us carry more weight than any advert.</p></div>
+            <div><strong>{{icon:wallet}}Urban lifestyle and affordability</strong><p>Busy routines, power cuts and tight budgets make convenience and price matter.</p></div>
+          </div>
+          <div class="notes">
+            <div class="note"><h3>{{icon:book-open}}What it means</h3><p>Culture, reference groups and family shape needs, preferences and who makes the final decision. Reference groups also provide the standards people compare themselves against.</p></div>
+            <div class="note"><h3>{{icon:lightbulb}}How it applies</h3><p>A student might want Vayora, a parent might pay for it, and a roommate might live with it. The message has to make sense to all three.</p></div>
+            <div class="note where"><h3>{{icon:eye}}Where you see it</h3><ul><li>The three <a href="{{link:home#made-for}}">audience scenes</a> with relatable situations</li><li><a href="{{link:product#for-whom}}">"Who we're designing it for"</a></li><li>Pricing language: "a price a student or tenant can plan for"</li></ul></div>
+            <div class="note why"><h3>{{icon:compass}}Why we designed it this way</h3><p>Recognisable situations make the message feel written for the visitor, and give them simple words to pass on to a parent or roommate.</p></div>
+          </div>
+        </section>
+
+        <!-- L -->
+        <section class="concept" id="ethics" aria-labelledby="c-l">
+          <div class="concept-head"><span class="concept-letter" aria-hidden="true">L</span>
+            <div><h2 id="c-l">Ethical consumer behaviour and choice architecture</h2>
+              <p>Make the right next step easy, and never trick anyone into it.</p></div></div>
+          <div class="diagram choice">
+            <div class="reduce"><h3 class="h4">{{icon:circle-check}}Friction we removed</h3><ul>
+              <li>{{icon:check}}<span>Clear navigation: four pages, the same on every page</span></li>
+              <li>{{icon:check}}<span>Transparent pricing: one number, with its caveat beside it</span></li>
+              <li>{{icon:check}}<span>Simple signup: five fields, no account, no payment</span></li>
+              <li>{{icon:check}}<span>Clear product explanations, in plain language</span></li>
+              <li>{{icon:check}}<span>Visible FAQs, with "not yet known" when that's the answer</span></li>
+              <li>{{icon:check}}<span>Honest communication about limits</span></li>
+              <li>{{icon:check}}<span>Search, help and FAQs reachable from every page</span></li>
+              <li>{{icon:check}}<span>Prototype-testing opt-in left unticked by default</span></li></ul></div>
+            <div class="refuse"><h3 class="h4">{{icon:circle-x}}Patterns we refused</h3><ul>
+              <li>{{icon:x}}<span>Countdown timers and manufactured urgency</span></li>
+              <li>{{icon:x}}<span>"Only 3 left" or other fabricated scarcity</span></li>
+              <li>{{icon:x}}<span>Fake testimonials or star ratings</span></li>
+              <li>{{icon:x}}<span>Misleading health claims</span></li>
+              <li>{{icon:x}}<span>Pre-ticked consent boxes</span></li>
+              <li>{{icon:x}}<span>Guilt-tripping "No thanks" buttons</span></li></ul></div>
+          </div>
+          <div class="notes">
+            <div class="note"><h3>{{icon:book-open}}What it means</h3><p>Choice architecture is the way options are presented, and it always influences decisions. Ethical design makes the beneficial choice easy without exploiting cognitive biases.</p></div>
+            <div class="note"><h3>{{icon:lightbulb}}How it applies</h3><p>Air quality feels like a health topic, which makes manipulation especially easy and especially harmful. A waitlist with no payment keeps the stakes low for the visitor.</p></div>
+            <div class="note where"><h3>{{icon:eye}}Where you see it</h3><ul><li>The waitlist button in the header of every page</li><li>The form's prototype notice: data stays in your browser</li><li>The student-project statement in every footer</li><li>The announcement strip carries status updates, never fake offers or countdowns</li><li>The floating Help button offers search and answers, not sales pressure</li></ul></div>
+            <div class="note why"><h3>{{icon:compass}}Why we designed it this way</h3><p>Dark patterns might lift signups in the short term, but they would turn a trust-based brand into one nobody believes. Reducing friction is the persuasion.</p></div>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <!-- THINK / FEEL / DO -->
+    <section class="section on-dark" id="think-feel-do" aria-labelledby="tfd-title">
+      <div class="container">
+        <h2 id="tfd-title">What We Want Consumers to Think, Feel and Do.</h2>
+        <div class="tfd">
+          <div><span class="verb">Think</span><p>Vayora is a practical, understandable and affordable solution.</p></div>
+          <div><span class="verb">Feel</span><p>Reassured, comfortable and in control.</p></div>
+          <div><span class="verb">Do</span><p>Join the waitlist and explore the product further.</p></div>
+        </div>
+        <div class="btn-row mt-l">
+          <button class="btn btn-mint" type="button" data-waitlist>Join the waitlist</button>
+          <a class="btn btn-ghost-light" href="{{link:product}}">Explore the product</a>
+        </div>
+      </div>
+    </section>

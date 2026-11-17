@@ -1,0 +1,130 @@
+<svg viewBox="0 0 600 612" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="hero-art-title">
+  <title id="hero-art-title">Illustration: a Vayora unit fitted into the gap of a sliding apartment window, drawing hazy outdoor air through its filters and releasing cleaner air into the room.</title>
+  <defs>
+    <linearGradient id="hero-sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#E0E5EA"/><stop offset=".6" stop-color="#D2D8DE"/><stop offset="1" stop-color="#C6CED5"/>
+    </linearGradient>
+    <linearGradient id="hero-pod" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#E4E9EE"/>
+    </linearGradient>
+    <linearGradient id="hero-vent" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#193359"/><stop offset="1" stop-color="#112645"/>
+    </linearGradient>
+    <linearGradient id="hero-glass" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#FFFFFF" stop-opacity=".34"/><stop offset=".5" stop-color="#FFFFFF" stop-opacity=".08"/><stop offset="1" stop-color="#FFFFFF" stop-opacity=".22"/>
+    </linearGradient>
+    <clipPath id="hero-clip"><rect x="58" y="64" width="316" height="388"/></clipPath>
+    <filter id="hero-shadow" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#112645" flood-opacity=".22"/></filter>
+    <filter id="hero-soft" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#112645" flood-opacity=".16"/></filter>
+  </defs>
+
+  <!-- floor -->
+  <rect x="0" y="548" width="600" height="64" fill="#ABDBD7"/>
+  <rect x="0" y="548" width="600" height="3" fill="#99D0CD"/>
+
+  <!-- window frame -->
+  <rect x="38" y="44" width="356" height="430" rx="10" fill="#F9FDFC" filter="url(#hero-shadow)"/>
+  <g clip-path="url(#hero-clip)">
+    <rect x="58" y="64" width="316" height="388" fill="url(#hero-sky)"/>
+    <circle cx="128" cy="140" r="30" fill="#F1E9D2" opacity=".75"/>
+    <!-- far skyline -->
+    <g fill="#BFC6CE">
+      <rect x="58" y="250" width="44" height="210"/><rect x="106" y="214" width="36" height="246"/><rect x="146" y="268" width="52" height="190"/>
+      <rect x="202" y="230" width="30" height="230"/><rect x="236" y="196" width="48" height="264"/><rect x="288" y="256" width="40" height="204"/><rect x="332" y="222" width="46" height="238"/>
+    </g>
+    <!-- near skyline -->
+    <g fill="#AEB5BD">
+      <rect x="58" y="330" width="70" height="130"/><rect x="134" y="300" width="58" height="160"/><rect x="198" y="350" width="60" height="110"/>
+      <rect x="264" y="316" width="54" height="144"/><rect x="322" y="340" width="56" height="120"/>
+    </g>
+    <g fill="#C6CCD2">
+      <rect x="70" y="346" width="10" height="8"/><rect x="88" y="346" width="10" height="8"/><rect x="106" y="346" width="10" height="8"/>
+      <rect x="70" y="366" width="10" height="8"/><rect x="106" y="366" width="10" height="8"/>
+      <rect x="146" y="318" width="9" height="8"/><rect x="162" y="318" width="9" height="8"/><rect x="178" y="318" width="9" height="8"/>
+      <rect x="146" y="338" width="9" height="8"/><rect x="178" y="338" width="9" height="8"/>
+      <rect x="276" y="332" width="9" height="8"/><rect x="292" y="332" width="9" height="8"/><rect x="276" y="352" width="9" height="8"/>
+    </g>
+    <!-- haze -->
+    <rect x="58" y="64" width="316" height="388" fill="#E7E2D3" opacity=".32"/>
+    <!-- airborne particles outside -->
+    <g fill="#749795" opacity=".55">
+      <g class="drift"><circle cx="92" cy="110" r="2.4"/><circle cx="150" cy="186" r="1.8"/><circle cx="214" cy="120" r="2.2"/><circle cx="262" cy="214" r="2.8"/><circle cx="120" cy="262" r="2"/></g>
+      <g class="drift b"><circle cx="180" cy="96" r="1.6"/><circle cx="236" cy="170" r="2"/><circle cx="96" cy="200" r="2.6"/><circle cx="176" cy="246" r="1.7"/><circle cx="246" cy="290" r="2.2"/></g>
+      <g class="drift c"><circle cx="140" cy="140" r="2"/><circle cx="270" cy="128" r="1.8"/><circle cx="206" cy="210" r="2.4"/><circle cx="270" cy="330" r="2"/><circle cx="252" cy="380" r="2.6"/><circle cx="268" cy="252" r="1.6"/></g>
+    </g>
+    <!-- fixed left pane + sliding pane -->
+    <rect x="58" y="64" width="160" height="388" fill="url(#hero-glass)"/>
+    <rect x="150" y="64" width="138" height="388" fill="url(#hero-glass)"/>
+    <path d="M78 120 L130 80 M78 150 L162 86" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round" opacity=".45"/>
+    <path d="M168 140 L240 84" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round" opacity=".4"/>
+  </g>
+  <!-- pane frames -->
+  <rect x="58" y="64" width="160" height="388" fill="none" stroke="#EBEEF2" stroke-width="8"/>
+  <rect x="150" y="64" width="138" height="388" fill="none" stroke="#F4F9F9" stroke-width="8"/>
+  <rect x="146" y="64" width="4" height="388" fill="#DBE0E5"/>
+  <rect x="38" y="44" width="356" height="430" rx="10" fill="none" stroke="#E0E5EA" stroke-width="1.5"/>
+
+  <!-- adjustable filler panel above the pod -->
+  <rect x="290" y="66" width="82" height="196" rx="4" fill="#FFFFFF" opacity=".62"/>
+  <g stroke="#C6CED7" stroke-width="1.2" opacity=".9">
+    <line x1="296" y1="100" x2="366" y2="100"/><line x1="296" y1="140" x2="366" y2="140"/><line x1="296" y1="180" x2="366" y2="180"/><line x1="296" y1="220" x2="366" y2="220"/>
+  </g>
+  <rect x="290" y="66" width="82" height="196" rx="4" fill="none" stroke="#BBC5CF" stroke-width="2"/>
+
+  <!-- Vayora -->
+  <g filter="url(#hero-soft)">
+    <rect x="286" y="258" width="92" height="196" rx="22" fill="url(#hero-pod)"/>
+  </g>
+  <rect x="286" y="258" width="92" height="196" rx="22" fill="none" stroke="#D4DAE0" stroke-width="1.2"/>
+  <rect x="312" y="268" width="40" height="8" rx="4" fill="#D2DAE1"/>
+  <circle cx="332" cy="310" r="21" fill="#112645"/>
+  <circle cx="332" cy="310" r="17" fill="none" stroke="#71C8C2" stroke-width="2" stroke-dasharray="70 40" stroke-linecap="round"/>
+  <text x="332" y="314" text-anchor="middle" font-family="Manrope, sans-serif" font-weight="800" font-size="12" fill="#C1EDEA">24°</text>
+  <g fill="url(#hero-vent)">
+    <rect x="302" y="346" width="7" height="78" rx="3.5"/><rect x="315" y="346" width="7" height="78" rx="3.5"/><rect x="328" y="346" width="7" height="78" rx="3.5"/>
+    <rect x="341" y="346" width="7" height="78" rx="3.5"/><rect x="354" y="346" width="7" height="78" rx="3.5"/>
+  </g>
+  <circle class="pulse" cx="332" cy="438" r="3.2" fill="#71C8C2"/>
+
+  <!-- sill -->
+  <rect x="24" y="454" width="384" height="22" rx="4" fill="#FFFFFF"/>
+  <rect x="24" y="474" width="384" height="6" rx="3" fill="#112645" opacity=".07"/>
+
+  <!-- filtered airflow into the room -->
+  <g fill="none" stroke-linecap="round">
+    <path d="M380 318 C 440 306 480 268 586 282" stroke="#FFFFFF" stroke-width="12" opacity=".35"/>
+    <path d="M380 362 C 450 364 500 352 596 372" stroke="#FFFFFF" stroke-width="12" opacity=".35"/>
+    <path d="M380 404 C 438 424 476 466 584 458" stroke="#FFFFFF" stroke-width="12" opacity=".35"/>
+    <path class="flow-line" d="M380 318 C 440 306 480 268 586 282" stroke="#112645" stroke-width="3"/>
+    <path class="flow-line d1" d="M380 362 C 450 364 500 352 596 372" stroke="#112645" stroke-width="3"/>
+    <path class="flow-line d2" d="M380 404 C 438 424 476 466 584 458" stroke="#112645" stroke-width="3"/>
+  </g>
+
+  <!-- plant -->
+  <g>
+    <path d="M500 548 L 506 500 L 556 500 L 562 548 Z" fill="#F3F9F9"/>
+    <path d="M506 500 L 556 500 L 555 508 L 507 508 Z" fill="#DFE4E9"/>
+    <path d="M531 500 C 528 470 512 452 494 446 C 508 466 516 482 531 500 Z" fill="#207973"/>
+    <path d="M531 500 C 536 466 552 446 574 436 C 562 460 552 480 531 500 Z" fill="#2F9089"/>
+    <path d="M531 500 C 530 460 534 430 546 410 C 548 440 542 470 531 500 Z" fill="#112645"/>
+    <path d="M531 500 C 520 478 504 470 486 474 C 504 484 516 490 531 500 Z" fill="#3DA099"/>
+  </g>
+
+  <!-- sensor readout chip -->
+  <g filter="url(#hero-soft)">
+    <rect x="420" y="96" width="156" height="78" rx="18" fill="#FFFFFF"/>
+  </g>
+  <text x="438" y="122" font-family="Inter, sans-serif" font-size="11.5" fill="#425E5C">Indoor right now</text>
+  <text x="438" y="152" font-family="Manrope, sans-serif" font-weight="800" font-size="22" fill="#112645">24°C</text>
+  <rect x="500" y="134" width="1.5" height="24" fill="#D3D9DF"/>
+  <text x="512" y="152" font-family="Manrope, sans-serif" font-weight="800" font-size="22" fill="#112645">58%</text>
+  <text x="512" y="165" font-family="Inter, sans-serif" font-size="9.5" fill="#425E5C">humidity</text>
+
+  <!-- labels -->
+  <g font-family="Inter, sans-serif" font-size="12" font-weight="600">
+    <rect x="72" y="78" width="96" height="26" rx="13" fill="#FFFFFF" opacity=".86"/>
+    <text x="120" y="95" text-anchor="middle" fill="#425E5C">Outdoor air</text>
+    <rect x="452" y="210" width="120" height="26" rx="13" fill="#112645"/>
+    <text x="512" y="227" text-anchor="middle" fill="#C1EDEA">Filtered air in</text>
+  </g>
+</svg>

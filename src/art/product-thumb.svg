@@ -1,0 +1,54 @@
+<svg viewBox="150 26 400 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="pt-title">
+  <title id="pt-title">Vayora: a compact white device with a teal carry handle, front display and vents, and the MosquitoGuard module on its side.</title>
+  <defs>
+    <radialGradient id="pt-bg" cx=".55" cy=".45" r=".6"><stop offset="0" stop-color="#FFFFFF"/><stop offset=".55" stop-color="#E2F8F6"/><stop offset="1" stop-color="#E4F1FC"/></radialGradient>
+    <linearGradient id="pt-front" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset=".6" stop-color="#F6F9FB"/><stop offset="1" stop-color="#E6EDF3"/></linearGradient>
+    <linearGradient id="pt-side" gradientUnits="userSpaceOnUse" x1="0" y1="84" x2="0" y2="380"><stop offset="0" stop-color="#F1F5F9"/><stop offset=".3" stop-color="#DCE5EE"/><stop offset="1" stop-color="#BFCDDB"/></linearGradient>
+    <linearGradient id="pt-panel" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0A6FC2"/><stop offset="1" stop-color="#0E7490"/></linearGradient>
+    <radialGradient id="pt-uv" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#7CC6F2" stop-opacity=".75"/><stop offset="1" stop-color="#7CC6F2" stop-opacity="0"/></radialGradient>
+    <radialGradient id="pt-shadow" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#0A2E4D" stop-opacity=".28"/><stop offset="1" stop-color="#0A2E4D" stop-opacity="0"/></radialGradient>
+  </defs>
+  <rect width="640" height="400" fill="url(#pt-bg)"/>
+  <circle cx="330" cy="215" r="170" fill="#FFFFFF" opacity=".55"/>
+  <ellipse cx="330" cy="380" rx="160" ry="15" fill="url(#pt-shadow)"/>
+  <g fill="none" stroke-linecap="round">
+    <path d="M200 236 C 150 228 108 202 46 210" stroke="#38BDF8" stroke-width="10" opacity=".18"/>
+    <path class="flow-line" d="M200 236 C 150 228 108 202 46 210" stroke="#0EA5E9" stroke-width="3"/>
+    <path class="flow-line d1" d="M200 268 C 142 272 100 260 36 272" stroke="#0EA5E9" stroke-width="3"/>
+    <path class="flow-line d2" d="M200 300 C 146 314 108 328 52 324" stroke="#0EA5E9" stroke-width="3"/>
+  </g>
+  <g><rect x="262.0" y="84.0" width="200" height="256" rx="48" fill="url(#pt-side)"/><rect x="258.3" y="86.0" width="200" height="256" rx="48" fill="url(#pt-side)"/><rect x="254.7" y="88.0" width="200" height="256" rx="48" fill="url(#pt-side)"/><rect x="251.0" y="90.0" width="200" height="256" rx="48" fill="url(#pt-side)"/><rect x="247.3" y="92.0" width="200" height="256" rx="48" fill="url(#pt-side)"/><rect x="243.7" y="94.0" width="200" height="256" rx="48" fill="url(#pt-side)"/><rect x="240.0" y="96.0" width="200" height="256" rx="48" fill="url(#pt-side)"/><rect x="236.3" y="98.0" width="200" height="256" rx="48" fill="url(#pt-side)"/><rect x="232.7" y="100.0" width="200" height="256" rx="48" fill="url(#pt-side)"/><rect x="229.0" y="102.0" width="200" height="256" rx="48" fill="url(#pt-side)"/><rect x="225.3" y="104.0" width="200" height="256" rx="48" fill="url(#pt-side)"/><rect x="221.7" y="106.0" width="200" height="256" rx="48" fill="url(#pt-side)"/><rect x="218.0" y="108.0" width="200" height="256" rx="48" fill="url(#pt-side)"/><rect x="214.3" y="110.0" width="200" height="256" rx="48" fill="url(#pt-side)"/><rect x="210.7" y="112.0" width="200" height="256" rx="48" fill="url(#pt-side)"/><rect x="207.0" y="114.0" width="200" height="256" rx="48" fill="url(#pt-side)"/><rect x="203.3" y="116.0" width="200" height="256" rx="48" fill="url(#pt-side)"/><rect x="199.7" y="118.0" width="200" height="256" rx="48" fill="url(#pt-side)"/></g>
+  <!-- MosquitoGuard side module -->
+  <ellipse cx="460" cy="176" rx="58" ry="46" fill="url(#pt-uv)" class="pulse"/>
+  <polygon points="403.9,155.7 456.7,126.9 456.7,200.9 403.9,229.7" fill="#0D426D" opacity=".92"/>
+  <polygon points="403.9,155.7 456.7,126.9 456.7,200.9 403.9,229.7" fill="#0A6FC2" opacity=".35"/>
+  <line x1="410.5" y1="160.1" x2="410.5" y2="218.1" stroke="#0A2E4D" stroke-width="2.6" stroke-linecap="round"/><line x1="418.4" y1="155.8" x2="418.4" y2="213.8" stroke="#0A2E4D" stroke-width="2.6" stroke-linecap="round"/><line x1="426.4" y1="151.4" x2="426.4" y2="209.4" stroke="#0A2E4D" stroke-width="2.6" stroke-linecap="round"/><line x1="434.3" y1="147.1" x2="434.3" y2="205.1" stroke="#0A2E4D" stroke-width="2.6" stroke-linecap="round"/><line x1="442.2" y1="142.8" x2="442.2" y2="200.8" stroke="#0A2E4D" stroke-width="2.6" stroke-linecap="round"/><line x1="450.1" y1="138.5" x2="450.1" y2="196.5" stroke="#0A2E4D" stroke-width="2.6" stroke-linecap="round"/>
+  <polygon points="405.2,241.0 455.4,213.6 455.4,291.6 405.2,319.0" fill="#F8FAFC" fill-opacity=".85" stroke="#94A3B8" stroke-width="1.4"/>
+  <line x1="409.2" y1="244.8" x2="409.2" y2="310.8" stroke="#94A3B8" stroke-width=".9"/><line x1="412.5" y1="243.0" x2="412.5" y2="309.0" stroke="#94A3B8" stroke-width=".9"/><line x1="415.8" y1="241.2" x2="415.8" y2="307.2" stroke="#94A3B8" stroke-width=".9"/><line x1="419.1" y1="239.4" x2="419.1" y2="305.4" stroke="#94A3B8" stroke-width=".9"/><line x1="422.4" y1="237.6" x2="422.4" y2="303.6" stroke="#94A3B8" stroke-width=".9"/><line x1="425.7" y1="235.8" x2="425.7" y2="301.8" stroke="#94A3B8" stroke-width=".9"/><line x1="429.0" y1="234.0" x2="429.0" y2="300.0" stroke="#94A3B8" stroke-width=".9"/><line x1="432.3" y1="232.2" x2="432.3" y2="298.2" stroke="#94A3B8" stroke-width=".9"/><line x1="435.6" y1="230.4" x2="435.6" y2="296.4" stroke="#94A3B8" stroke-width=".9"/><line x1="438.9" y1="228.6" x2="438.9" y2="294.6" stroke="#94A3B8" stroke-width=".9"/><line x1="442.2" y1="226.8" x2="442.2" y2="292.8" stroke="#94A3B8" stroke-width=".9"/><line x1="445.5" y1="225.0" x2="445.5" y2="291.0" stroke="#94A3B8" stroke-width=".9"/><line x1="448.8" y1="223.2" x2="448.8" y2="289.2" stroke="#94A3B8" stroke-width=".9"/><line x1="452.1" y1="221.4" x2="452.1" y2="287.4" stroke="#94A3B8" stroke-width=".9"/><line x1="407.9" y1="251.5" x2="452.8" y2="227.0" stroke="#94A3B8" stroke-width=".9"/><line x1="407.9" y1="258.5" x2="452.8" y2="234.0" stroke="#94A3B8" stroke-width=".9"/><line x1="407.9" y1="265.5" x2="452.8" y2="241.0" stroke="#94A3B8" stroke-width=".9"/><line x1="407.9" y1="272.5" x2="452.8" y2="248.0" stroke="#94A3B8" stroke-width=".9"/><line x1="407.9" y1="279.5" x2="452.8" y2="255.0" stroke="#94A3B8" stroke-width=".9"/><line x1="407.9" y1="286.5" x2="452.8" y2="262.0" stroke="#94A3B8" stroke-width=".9"/><line x1="407.9" y1="293.5" x2="452.8" y2="269.0" stroke="#94A3B8" stroke-width=".9"/><line x1="407.9" y1="300.5" x2="452.8" y2="276.0" stroke="#94A3B8" stroke-width=".9"/><line x1="407.9" y1="307.5" x2="452.8" y2="283.0" stroke="#94A3B8" stroke-width=".9"/>
+  <polygon points="422.4,313.6 438.2,305.0 438.2,313.0 422.4,321.6" fill="#0B7A73"/>
+  <polygon points="403.9,337.7 456.7,308.9 456.7,320.9 403.9,349.7" fill="#12C2B6"/>
+  <g transform="translate(422.4 269.6) rotate(10) scale(0.7)" stroke="#475569" stroke-width="1.3" fill="none" stroke-linecap="round"><ellipse rx="6" ry="2.3" fill="#475569"/><path d="M-1 -1 Q -7 -12 -2 -13 M1 -1 Q 6 -12 9 -10" stroke-width="1"/><path d="M-4 1 l -4 6 M0 1.5 l 0 7 M4 1 l 4 6" stroke-width="1"/><path d="M6 0 h 5" stroke-width="1"/></g><g transform="translate(436.92 277.68) rotate(-20) scale(0.6)" stroke="#475569" stroke-width="1.3" fill="none" stroke-linecap="round"><ellipse rx="6" ry="2.3" fill="#475569"/><path d="M-1 -1 Q -7 -12 -2 -13 M1 -1 Q 6 -12 9 -10" stroke-width="1"/><path d="M-4 1 l -4 6 M0 1.5 l 0 7 M4 1 l 4 6" stroke-width="1"/><path d="M6 0 h 5" stroke-width="1"/></g>
+  <g fill="none" stroke="#0D426D" stroke-width="2" stroke-dasharray="3 5" stroke-linecap="round" opacity=".8">
+    <path d="M552 84 C 520 100 500 140 446 163"/>
+    <path d="M594 116 C 560 140 520 170 436 183"/>
+  </g>
+  <path d="M437 178 l 9 -2 l -4 8 z" fill="#0D426D"/>
+  <g transform="translate(560 78) rotate(20) scale(1.1)" stroke="#334155" stroke-width="1.3" fill="none" stroke-linecap="round"><ellipse rx="6" ry="2.3" fill="#334155"/><path d="M-1 -1 Q -7 -12 -2 -13 M1 -1 Q 6 -12 9 -10" stroke-width="1"/><path d="M-4 1 l -4 6 M0 1.5 l 0 7 M4 1 l 4 6" stroke-width="1"/><path d="M6 0 h 5" stroke-width="1"/></g><g transform="translate(600 112) rotate(-10) scale(1)" stroke="#334155" stroke-width="1.3" fill="none" stroke-linecap="round"><ellipse rx="6" ry="2.3" fill="#334155"/><path d="M-1 -1 Q -7 -12 -2 -13 M1 -1 Q 6 -12 9 -10" stroke-width="1"/><path d="M-4 1 l -4 6 M0 1.5 l 0 7 M4 1 l 4 6" stroke-width="1"/><path d="M6 0 h 5" stroke-width="1"/></g><g transform="translate(528 118) rotate(35) scale(0.9)" stroke="#334155" stroke-width="1.3" fill="none" stroke-linecap="round"><ellipse rx="6" ry="2.3" fill="#334155"/><path d="M-1 -1 Q -7 -12 -2 -13 M1 -1 Q 6 -12 9 -10" stroke-width="1"/><path d="M-4 1 l -4 6 M0 1.5 l 0 7 M4 1 l 4 6" stroke-width="1"/><path d="M6 0 h 5" stroke-width="1"/></g>
+  <!-- front -->
+  <rect x="196" y="120" width="200" height="256" rx="48" fill="url(#pt-front)"/>
+  <rect x="196" y="120" width="200" height="256" rx="48" fill="none" stroke="#D3DCE6" stroke-width="1.4"/>
+  <ellipse cx="380" cy="102" rx="17" ry="6" transform="rotate(-28 380 102)" fill="#E0F2FE" stroke="#55B0EE" stroke-width="1.5"/>
+  <path d="M380 92 q 4 6 0 9 q -4 -3 0 -9z" fill="#1E8FE6"/>
+  <path d="M238 122 C 242 46 350 26 380 90" fill="none" stroke="#096761" stroke-width="16" stroke-linecap="round" opacity=".25"/>
+  <path d="M238 120 C 242 44 350 24 380 88" fill="none" stroke="#0B7A73" stroke-width="13" stroke-linecap="round"/>
+  <path d="M244 108 C 252 52 342 38 370 84" fill="none" stroke="#34D6CA" stroke-width="3" stroke-linecap="round" opacity=".7"/>
+  <rect x="242" y="142" width="108" height="40" rx="12" fill="#0A2E4D"/>
+  <text x="266" y="169" font-family="Manrope, sans-serif" font-weight="800" font-size="17" fill="#FFFFFF">26°</text>
+  <text x="302" y="169" font-family="Inter, sans-serif" font-weight="600" font-size="11" fill="#6FE3D9">52% RH</text>
+  <rect x="222" y="196" width="148" height="122" rx="26" fill="url(#pt-panel)"/>
+  <g stroke="#E0F2FE" stroke-width="7" stroke-linecap="round" opacity=".92">
+    <line x1="242" y1="220" x2="350" y2="220"/><line x1="242" y1="242" x2="350" y2="242"/><line x1="242" y1="264" x2="350" y2="264"/><line x1="242" y1="286" x2="350" y2="286"/>
+  </g>
+  <rect x="228" y="332" width="136" height="14" rx="7" fill="#CDF5F1"/><rect x="236" y="336" width="120" height="6" rx="3" fill="#12C2B6"/>
+  <text x="296" y="364" text-anchor="middle" font-family="Manrope, sans-serif" font-weight="800" font-size="11" letter-spacing="2" fill="#94A3B8">VAYORA</text>
+</svg>

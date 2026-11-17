@@ -1,0 +1,7 @@
+node_modules/
+.DS_Store
+
+# Checkout secrets (never commit)
+supabase/.env
+supabase/.temp/
+supabase/tests/node_modules/

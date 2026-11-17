@@ -1,0 +1,57 @@
+{
+  "domain": "",
+  "siteUrl": "",
+  "pages": [
+    {
+      "slug": "home",
+      "file": "home.html",
+      "route": "index.html",
+      "title": "Vayora — Designed for the Vayu You Live In",
+      "description": "Vayora is a portable all-in-one personal climate comfort device that combines cooling, air purification, humidity management and MosquitoGuard active mosquito protection in one compact, rechargeable unit."
+    },
+    {
+      "slug": "product",
+      "file": "product.html",
+      "route": "product.html",
+      "title": "The Product — Portable All-in-One Personal Comfort | Vayora",
+      "description": "How Vayora works: air purification, cooling, humidity management, MosquitoGuard active mosquito attraction and capture, and a portable rechargeable design."
+    },
+    {
+      "slug": "pricing",
+      "file": "pricing.html",
+      "route": "pricing.html",
+      "title": "Pricing — ₹4,999 | Vayora",
+      "description": "Vayora costs ₹4,999 for cooling, air purification, humidity management, MosquitoGuard active mosquito capture and a portable rechargeable design in one device. Join the waitlist for early access."
+    },
+    {
+      "slug": "checkout",
+      "file": "checkout.html",
+      "route": "checkout.html",
+      "title": "Checkout | Vayora",
+      "description": "Buy Vayora, the portable all-in-one personal climate comfort device. Secure payment by Razorpay.",
+      "noindex": true
+    },
+    {
+      "slug": "order-success",
+      "file": "order-success.html",
+      "route": "order-success.html",
+      "title": "Order Confirmed | Vayora",
+      "description": "Your Vayora order confirmation.",
+      "noindex": true
+    }
+  ],
+  "notFound": {
+    "slug": "404",
+    "file": "404.html",
+    "route": "404.html",
+    "title": "Page not found | Vayora",
+    "description": "This page doesn't exist. Head back to the Vayora home page."
+  },
+  "scripts": [
+    "config.js",
+    "waitlist-store.js",
+    "search-index.js",
+    "main.js",
+    "checkout.js"
+  ]
+}

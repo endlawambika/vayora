@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en-IN" data-mode="{{htmlmode}}" data-root="{{root}}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  {{head}}
+  <meta name="theme-color" content="#FFFFFF">
+  <link rel="icon" type="image/png" sizes="32x32" href="{{favicon}}">
+  <link rel="apple-touch-icon" href="{{appleicon}}">
+  {{fontpreload}}
+  {{styles}}
+</head>
+<body data-page="{{slug}}">
+  <a class="skip-link" href="#main">Skip to content</a>
+  {{> header}}
+  <main id="main" tabindex="-1">
+{{content}}
+  </main>
+  {{> footer}}
+  {{> waitlist-modal}}
+  {{> search}}
+  {{> help}}
+  {{scripts}}
+</body>
+</html>
