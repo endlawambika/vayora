@@ -955,8 +955,6 @@ html:not(.js) .tab-list { display: none; }
 .footer-cta p { font-size: .92rem; }
 .footer-cta strong { display: block; color: var(--white); font-family: var(--font-display); font-size: 1.05rem; }
 .site-footer .footer-grid { grid-template-columns: repeat(5, 1fr); gap: 28px; }
-.footer-link-btn { padding: 0; border: 0; background: none; color: #CDE9E7; font: inherit; cursor: pointer; text-align: left; }
-.footer-link-btn:hover { color: var(--white); text-decoration: underline; }
 @media (max-width: 1000px) { .site-footer .footer-grid { grid-template-columns: repeat(3, 1fr); } }
 @media (max-width: 640px) { .site-footer .footer-grid { grid-template-columns: 1fr 1fr; } .footer-cta { flex-direction: column; align-items: flex-start; } }
 
@@ -1167,9 +1165,6 @@ body { background: var(--paper); }
 .phone-link > span:last-child { font-family: var(--font-display); font-weight: 800; font-size: 1.15rem; color: var(--blue); letter-spacing: .01em; }
 .phone-icon { width: 40px; height: 40px; border-radius: 12px; display: grid; place-items: center; background: var(--gradient); color: #fff; flex: none; }
 .phone-icon .icon { width: 20px; height: 20px; }
-.footer-link-btn { display: inline-flex; align-items: center; gap: 8px; color: var(--ink-2); }
-.footer-link-btn .icon { width: 16px; height: 16px; color: var(--teal); }
-.footer-link-btn:hover { color: var(--teal); }
 .footer-bottom { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px 24px; padding: 20px 0 28px; border-top: 1px solid var(--line); font-size: .86rem; color: var(--ink-2); }
 @media (max-width: 900px) { .footer-main { grid-template-columns: 1fr 1fr; } .footer-brand { grid-column: 1 / -1; } }
 @media (max-width: 520px) { .footer-main { grid-template-columns: 1fr; } }
@@ -1509,6 +1504,15 @@ body { background: var(--paper); }
 }
 .co-card .field-row { align-items: start; }
 .or-card[tabindex="-1"]:focus, .pay-result[tabindex="-1"]:focus { outline: none; }
+
+/* Unsubscribe page */
+.unsub-card { max-width: 560px; margin: 0 auto; }
+.unsub-card h1 { color: var(--navy); font-size: clamp(1.7rem, 1.3rem + 1.6vw, 2.3rem); margin: 8px 0 12px; }
+.unsub-card .lead { max-width: 46ch; margin: 0 auto; color: var(--ink-2); }
+.unsub-form { margin-top: 24px; text-align: left; }
+.unsub-done[tabindex="-1"]:focus { outline: none; }
+.form-foot a, .success .small a { color: var(--teal); font-weight: 600; text-decoration: underline; text-underline-offset: 2px; }
+.form-foot a:hover, .success .small a:hover { color: var(--teal-dark); }
 
 /* =====================================================================
    Product photography and animations
@@ -2054,9 +2058,9 @@ body { background: var(--paper); }
           </article>
           <div class="contact-card" id="contact">
             <div><h3>Contact</h3><p>Questions about Vayora? Give us a call.</p></div>
-            <a class="contact-call" href="tel:+919564910918">
+            <a class="contact-call" href="tel:+919999555555">
               <span class="phone-icon"><svg class="icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384" /> </svg></span>
-              <span><small>Contact Number</small>9564910918</span>
+              <span><small>Contact Number</small>9999555555</span>
             </a>
           </div>
         </div>
@@ -2100,13 +2104,14 @@ body { background: var(--paper); }
               </div>
               <div class="hp-field" aria-hidden="true"><label for="wli-hp">Leave this empty</label><input id="wli-hp" name="_honey" type="text" tabindex="-1" autocomplete="off"></div>
         <button class="btn btn-block" type="submit" data-submit>Join Waitlist</button>
-              <p class="form-foot" data-remote-only hidden>Your name and email are sent to the Vayora team and used only for launch updates. Call 9564910918 to have them removed.</p>
+              <p class="form-foot" data-remote-only hidden>Your name and email are sent to the Vayora team and used only for launch updates. <a href="#unsubscribe">Unsubscribe</a> at any time.</p>
             </form>
             <div class="success" hidden data-success tabindex="-1">
               <div class="tick"><svg class="icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M20 6 9 17l-5-5" /> </svg></div>
               <h3 data-success-title>Thanks for your interest</h3>
               <p data-success-msg></p>
               <p class="small" data-success-storage></p>
+              <p class="small" data-remote-only hidden>Changed your mind? <a href="#unsubscribe">Unsubscribe from the waitlist</a>.</p>
               <div class="btn-row"><a class="btn btn-ghost" href="#product">Explore Vayora</a></div>
             </div>
           </div>
@@ -2703,7 +2708,7 @@ body { background: var(--paper); }
           <div class="btn-row">
             <button class="btn" type="button" data-pay-retry><svg class="icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8" /> <path d="M21 3v5h-5" /> <path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16" /> <path d="M8 16H3v5" /> </svg>Retry Payment</button>
             <button class="btn btn-ghost" type="button" data-pay-return>Return to Cart</button>
-            <a class="btn btn-ghost" href="tel:+919564910918"><svg class="icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384" /> </svg>Contact Support</a>
+            <a class="btn btn-ghost" href="tel:+919999555555"><svg class="icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384" /> </svg>Contact Support</a>
           </div>
         </div>
 
@@ -2714,7 +2719,7 @@ body { background: var(--paper); }
           <p>Please don't pay again. If your payment went through, your order will be confirmed automatically within a few minutes.</p>
           <div class="btn-row">
             <a class="btn" href="#order-success" data-pay-status-link>Check order status</a>
-            <a class="btn btn-ghost" href="tel:+919564910918"><svg class="icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384" /> </svg>Contact Support</a>
+            <a class="btn btn-ghost" href="tel:+919999555555"><svg class="icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384" /> </svg>Contact Support</a>
           </div>
         </div>
 
@@ -2873,7 +2878,41 @@ body { background: var(--paper); }
           <p data-or-problem-text>This link doesn't match a confirmed order.</p>
           <div class="btn-row">
             <a class="btn" href="#checkout" data-or-problem-action>Go to checkout</a>
-            <a class="btn btn-ghost" href="tel:+919564910918"><svg class="icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384" /> </svg>Contact Support</a>
+            <a class="btn btn-ghost" href="tel:+919999555555"><svg class="icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384" /> </svg>Contact Support</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+</div>
+<div class="route" data-route="unsubscribe" data-title="Unsubscribe | Vayora" hidden>
+    <!-- UNSUBSCRIBE: sends a removal request for the waitlist to the Vayora team's inbox -->
+    <section class="order-result unsub-page" data-unsubscribe>
+      <div class="container container-narrow">
+        <div class="or-card unsub-card">
+          <div data-unsub-form-wrap>
+            <h1 id="unsub-title">Unsubscribe from the waitlist</h1>
+            <p class="lead">Enter the email you used to join. We'll remove it from the Vayora waitlist and stop sending you launch updates.</p>
+            <form class="unsub-form" novalidate data-unsubscribe-form aria-labelledby="unsub-title">
+              <div class="form-summary" role="alert" data-form-summary></div>
+              <div class="field">
+                <label for="unsub-email">Email</label>
+                <input class="input" id="unsub-email" name="email" type="email" autocomplete="email" inputmode="email" required maxlength="120" aria-describedby="unsub-email-err">
+                <p class="error-msg" id="unsub-email-err"></p>
+              </div>
+              <div class="hp-field" aria-hidden="true"><label for="unsub-hp">Leave this empty</label><input id="unsub-hp" name="_honey" type="text" tabindex="-1" autocomplete="off"></div>
+              <button class="btn btn-block" type="submit" data-submit>Unsubscribe</button>
+            </form>
+          </div>
+
+          <div class="unsub-done" hidden data-unsub-done tabindex="-1">
+            <div class="or-tick" aria-hidden="true"><svg class="icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <circle cx="12" cy="12" r="10" /> <path d="m16 9-5.5 5.5L8 12" /> </svg></div>
+            <h1>You've unsubscribed</h1>
+            <p class="lead" data-unsub-msg></p>
+            <div class="btn-row">
+              <a class="btn" href="#home">Back to Home</a>
+              <button class="btn btn-ghost" type="button" data-waitlist>Join again</button>
+            </div>
           </div>
         </div>
       </div>
@@ -2907,11 +2946,10 @@ body { background: var(--paper); }
         </div>
         <div class="footer-col footer-contact">
           <h2>Contact</h2>
-          <a class="phone-link" href="tel:+919564910918">
+          <a class="phone-link" href="tel:+919999555555">
             <span class="phone-icon"><svg class="icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384" /> </svg></span>
-            <span><small>Contact Number</small>9564910918</span>
+            <span><small>Contact Number</small>9999555555</span>
           </a>
-          <button class="footer-link-btn" type="button" data-search-open><svg class="icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="m21 21-4.34-4.34" /> <circle cx="11" cy="11" r="8" /> </svg>Search the site</button>
         </div>
       </div>
       <div class="footer-bottom">
@@ -2942,7 +2980,7 @@ body { background: var(--paper); }
         </div>
         <div class="hp-field" aria-hidden="true"><label for="wl-hp">Leave this empty</label><input id="wl-hp" name="_honey" type="text" tabindex="-1" autocomplete="off"></div>
         <button class="btn btn-block" type="submit" data-submit>Join Waitlist</button>
-        <p class="form-foot" data-remote-only hidden>Your name and email are sent to the Vayora team and used only for launch updates. Call 9564910918 to have them removed.</p>
+        <p class="form-foot" data-remote-only hidden>Your name and email are sent to the Vayora team and used only for launch updates. <a href="#unsubscribe">Unsubscribe</a> at any time.</p>
       </form>
 
       <div class="success" hidden data-success tabindex="-1">
@@ -2950,6 +2988,7 @@ body { background: var(--paper); }
         <h3 data-success-title>Thanks for your interest</h3>
         <p data-success-msg></p>
         <p class="small" data-success-storage></p>
+        <p class="small" data-remote-only hidden>Changed your mind? <a href="#unsubscribe">Unsubscribe from the waitlist</a>.</p>
         <div class="btn-row">
           <button class="btn" type="button" data-dialog-close>Done</button>
           <a class="btn btn-ghost" href="#product" data-dialog-close-link>Explore Vayora</a>
@@ -2995,7 +3034,7 @@ body { background: var(--paper); }
       <ul>
         <li><button type="button" data-search-open data-help-close><svg class="icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="m21 21-4.34-4.34" /> <circle cx="11" cy="11" r="8" /> </svg><span>Search the site</span></button></li>
         <li><a href="#faq" data-help-close><svg class="icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <circle cx="12" cy="12" r="10" /> <path d="M9 9.5a3 2.5 0 016 0c0 2-2 2-3 3.5" /> <path d="M12 17h.01" /> </svg><span>Read the FAQs</span></a></li>
-        <li><a href="tel:+919564910918" data-help-close><svg class="icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384" /> </svg><span>Call 9564910918</span></a></li>
+        <li><a href="tel:+919999555555" data-help-close><svg class="icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384" /> </svg><span>Call 9999555555</span></a></li>
         <li><a href="#why-vayora" data-help-close><svg class="icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M12 3v18" /> <path d="m19 8 3 8a5 5 0 0 1-6 0zV7" /> <path d="M3 7h1a17 17 0 0 0 8-2 17 17 0 0 0 8 2h1" /> <path d="m5 8 3 8a5 5 0 0 1-6 0zV7" /> <path d="M7 21h10" /> </svg><span>Why Vayora</span></a></li>
         <li><button type="button" data-waitlist data-help-close><svg class="icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7" /> <rect x="2" y="4" width="20" height="16" rx="2" /> </svg><span>Join the Waitlist</span></button></li>
         <li><button type="button" data-back-to-top data-help-close><svg class="icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="m5 12 7-7 7 7" /> <path d="M12 19V5" /> </svg><span>Back to top</span></button></li>
@@ -3039,7 +3078,7 @@ window.VAYORA_CONFIG = Object.assign(
       maxQuantity: 5,
       productName: 'Vayora – Portable All-in-One Personal Comfort Device',
       razorpayScript: 'https://checkout.razorpay.com/v1/checkout.js',
-      supportPhone: '9564910918',
+      supportPhone: '9999555555',
     },
   },
   window.VAYORA_CONFIG || {}
@@ -3099,6 +3138,14 @@ window.VAYORA_CONFIG = Object.assign(
       }
       return Promise.resolve({ ok: true, mode: this.mode, count: all.length });
     },
+    unsubscribe: function (email) {
+      var e = String(email).trim().toLowerCase();
+      var all = this.list();
+      var rest = all.filter(function (x) { return x.email !== e; });
+      if (this.mode === 'memory') memory = rest;
+      else { try { window.localStorage.setItem(KEY, JSON.stringify(rest)); } catch (err) { memory = rest; } }
+      return Promise.resolve({ ok: true, mode: this.mode, removed: all.length - rest.length });
+    },
     clear: function () {
       memory = [];
       try { window.localStorage.removeItem(KEY); } catch (e) { /* ignore */ }
@@ -3112,6 +3159,31 @@ window.VAYORA_CONFIG = Object.assign(
   function sentLog() {
     try { return JSON.parse(window.localStorage.getItem(SENT_KEY) || '[]'); } catch (e) { return []; }
   }
+  function post(body) {
+    var extra = config.waitlistExtraFields || {};
+    var payload = {};
+    Object.keys(extra).forEach(function (k) { payload[k] = extra[k]; });
+    Object.keys(body).forEach(function (k) { payload[k] = body[k]; });
+    var ctrl = window.AbortController ? new AbortController() : null;
+    var timer = ctrl ? setTimeout(function () { ctrl.abort(); }, 15000) : null;
+    return fetch(config.waitlistEndpoint, {
+      method: 'POST',
+      headers: { 'Content-Type': config.waitlistContentType || 'application/json', Accept: 'application/json' },
+      body: JSON.stringify(payload),
+      signal: ctrl ? ctrl.signal : undefined,
+    }).then(function (res) {
+      if (!res.ok) throw new Error('The waitlist service returned ' + res.status);
+      return res.json().catch(function () { return {}; });
+    }).then(function (data) {
+      if (data && (data.success === false || data.success === 'false')) {
+        var err = new Error(data.message || 'The waitlist service did not accept the request');
+        err.code = 'not_delivered';
+        throw err;
+      }
+      return data;
+    }).then(function (r) { if (timer) clearTimeout(timer); return r; }, function (e) { if (timer) clearTimeout(timer); throw e; });
+  }
+
   var RemoteStore = {
     mode: 'remote',
     list: function () { return sentLog(); },
@@ -3121,33 +3193,34 @@ window.VAYORA_CONFIG = Object.assign(
     },
     save: function (entry) {
       var body = {};
-      var extra = config.waitlistExtraFields || {};
-      Object.keys(extra).forEach(function (k) { body[k] = extra[k]; });
       Object.keys(entry).forEach(function (k) { body[k] = entry[k]; });
       body._subject = 'New Vayora waitlist sign-up: ' + entry.name;
       body._replyto = entry.email;
-      var ctrl = window.AbortController ? new AbortController() : null;
-      var timer = ctrl ? setTimeout(function () { ctrl.abort(); }, 15000) : null;
-      return fetch(config.waitlistEndpoint, {
-        method: 'POST',
-        headers: { 'Content-Type': config.waitlistContentType || 'application/json', Accept: 'application/json' },
-        body: JSON.stringify(body),
-        signal: ctrl ? ctrl.signal : undefined,
-      }).then(function (res) {
-        if (!res.ok) throw new Error('The waitlist service returned ' + res.status);
-        return res.json().catch(function () { return {}; });
-      }).then(function (data) {
-        if (data && (data.success === false || data.success === 'false')) {
-          var err = new Error(data.message || 'The waitlist service did not accept the sign-up');
-          err.code = 'not_delivered';
-          throw err;
-        }
+      return post(body).then(function () {
         try {
           var log = sentLog(); log.push(String(entry.email).toLowerCase());
           window.localStorage.setItem(SENT_KEY, JSON.stringify(log));
         } catch (e) { /* storage blocked: duplicates just aren't remembered */ }
         return { ok: true, mode: 'remote' };
-      }).then(function (r) { if (timer) clearTimeout(timer); return r; }, function (e) { if (timer) clearTimeout(timer); throw e; });
+      });
+    },
+    // Sends a removal request to the same inbox as sign-ups. The team removes the address by hand.
+    unsubscribe: function (email, honey) {
+      var e = String(email).trim().toLowerCase();
+      return post({
+        _subject: 'Vayora waitlist: unsubscribe request from ' + e,
+        _replyto: e,
+        email: e,
+        request: 'Remove this email address from the Vayora waitlist and stop sending launch updates.',
+        requestedAt: new Date().toISOString(),
+        _honey: honey || '',
+      }).then(function () {
+        try {
+          var log = sentLog().filter(function (x) { return x !== e; });
+          window.localStorage.setItem(SENT_KEY, JSON.stringify(log));
+        } catch (err) { /* ignore */ }
+        return { ok: true, mode: 'remote' };
+      });
     },
     clear: function () { try { window.localStorage.removeItem(SENT_KEY); } catch (e) { /* ignore */ } },
   };
@@ -3336,6 +3409,55 @@ window.VAYORA_SEARCH = [{"p":"home","r":"index.html","l":"Home","id":"","t":"Vay
 
   $$('[data-waitlist-scope]').forEach(function (scope) {
     if (!scope.closest('[data-waitlist-dialog]')) Waitlist(scope);
+  });
+
+  /* ---------------------------------------------------------------- unsubscribe page */
+  $$('[data-unsubscribe]').forEach(function (page) {
+    var form = $('[data-unsubscribe-form]', page);
+    var wrap = $('[data-unsub-form-wrap]', page);
+    var done = $('[data-unsub-done]', page);
+    if (!form || !done || !store) return;
+    var input = form.elements.email;
+    var err = doc.getElementById(input.getAttribute('aria-describedby'));
+    var summary = $('[data-form-summary]', form);
+    var submitted = false;
+    function check() {
+      var v = input.value.trim();
+      var msg = !v ? 'Enter your email address.' : (EMAIL_RE.test(v) ? '' : 'Enter an email address like name@example.com.');
+      err.textContent = msg;
+      input.setAttribute('aria-invalid', msg ? 'true' : 'false');
+      return msg;
+    }
+    input.addEventListener('blur', function () { if (submitted || input.value) check(); });
+    input.addEventListener('input', function () { if (input.getAttribute('aria-invalid') === 'true') check(); });
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      submitted = true;
+      if (check()) { summary.textContent = 'Please fix 1 field below.'; input.focus(); return; }
+      summary.textContent = '';
+      var email = input.value.trim().toLowerCase();
+      var btn = $('[data-submit]', form);
+      var label = btn.textContent;
+      btn.disabled = true;
+      btn.textContent = 'Unsubscribing…';
+      var honey = form.elements._honey ? form.elements._honey.value : '';
+      store.unsubscribe(email, honey).then(function (result) {
+        $('[data-unsub-msg]', done).textContent = result.mode === 'remote'
+          ? 'We’ve received your request and will remove ' + email + ' from the Vayora waitlist. You won’t get any more launch updates from us.'
+          : 'We’ve removed ' + email + ' from the waitlist saved in this browser.';
+        wrap.hidden = true;
+        done.hidden = false;
+        done.focus();
+      }).catch(function (e2) {
+        if (window.console) console.warn('Vayora unsubscribe:', e2 && e2.message);
+        summary.textContent = e2 && e2.code === 'not_delivered'
+          ? "We couldn't send your request just now. Please try again later."
+          : "We couldn't reach the server. Check your connection and try again.";
+      }).then(function () {
+        btn.disabled = false;
+        btn.textContent = label;
+      });
+    });
   });
 
   /* ---------------------------------------------------------------- waitlist dialog */
@@ -4296,8 +4418,8 @@ window.VAYORA_SEARCH = [{"p":"home","r":"index.html","l":"Home","id":"","t":"Vay
       var msg = {
         sent: 'A confirmation email containing your order details has been sent to your registered email address.',
         pending: 'A confirmation email containing your order details is on its way to ' + o.email + '.',
-        failed: 'We couldn’t send the confirmation email to ' + o.email + '. Your order is confirmed; please keep this page, or call ' + (CFG.supportPhone || '9564910918') + ' for a copy.',
-        not_configured: 'Please keep this page for your records. For a copy of your order details, call ' + (CFG.supportPhone || '9564910918') + '.',
+        failed: 'We couldn’t send the confirmation email to ' + o.email + '. Your order is confirmed; please keep this page, or call ' + (CFG.supportPhone || '9999555555') + ' for a copy.',
+        not_configured: 'Please keep this page for your records. For a copy of your order details, call ' + (CFG.supportPhone || '9999555555') + '.',
       }[o.confirmationEmail] || '';
       var em = $('[data-or-email]', result);
       $('span', em).textContent = msg;
@@ -4314,7 +4436,7 @@ window.VAYORA_SEARCH = [{"p":"home","r":"index.html","l":"Home","id":"","t":"Vay
           if (r.status === 200 && b.ok && (b.paymentStatus === 'failed' || b.paymentStatus === 'cancelled'))
             return problem('Payment Unsuccessful', 'Your payment could not be completed. No successful payment has been recorded for this order. Please try again.', 'Retry Payment');
           if (r.status === 200 && b.ok) return problem('We’re still confirming your payment', 'If your payment went through, this page will show your order within a few minutes. Please don’t pay again; refresh this page shortly.', 'Back to checkout');
-          problem('We couldn’t confirm this order', 'This link doesn’t match a confirmed order. If you were charged, call ' + (CFG.supportPhone || '9564910918') + '.');
+          problem('We couldn’t confirm this order', 'This link doesn’t match a confirmed order. If you were charged, call ' + (CFG.supportPhone || '9999555555') + '.');
         })
         .catch(function () {
           problem('We couldn’t load your order', 'Check your connection and refresh this page. Please don’t pay again.', 'Back to checkout');

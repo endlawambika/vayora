@@ -16,6 +16,7 @@ product.html        Product
 pricing.html        Pricing
 checkout.html       Checkout (Buy Now)
 order-success.html  Order confirmation
+unsubscribe.html    Leave the waitlist
 404.html            Shown for any address that doesn't exist
 .nojekyll           Tells GitHub Pages to publish files exactly as they are (hidden file, optional)
 robots.txt          Search engine instructions
@@ -90,6 +91,8 @@ You need a domain registered in your name, for example from GoDaddy, Namecheap o
 Both waitlist forms email each sign-up (name and email) to **sayantani.pgpm27g@greatlakes.edu.in** through FormSubmit, a free form-to-email service.
 
 **Do this once after publishing:** open the live site, join the waitlist yourself, then check that inbox (and spam) for an email from FormSubmit with an **Activate Form** link, and click it. Until you do, sign-ups are held and visitors see "We couldn't add you to the waitlist just now". After activating, join once more to confirm the sign-up email arrives.
+
+**Unsubscribe requests** come to the same inbox with the subject "Vayora waitlist: unsubscribe request from <email>". Remove that address from your list and stop emailing it. The site can only pass the request on; it doesn't delete anything by itself.
 
 After activating, FormSubmit also offers a random-string alias. To keep the address out of the page source, edit `assets/js/config.js` on GitHub (pencil icon) and replace the address in `waitlistEndpoint` with that alias.
 

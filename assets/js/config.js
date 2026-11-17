@@ -30,7 +30,7 @@ window.VAYORA_CONFIG = Object.assign(
       maxQuantity: 5,
       productName: 'Vayora – Portable All-in-One Personal Comfort Device',
       razorpayScript: 'https://checkout.razorpay.com/v1/checkout.js',
-      supportPhone: '9564910918',
+      supportPhone: '9999555555',
     },
   },
   window.VAYORA_CONFIG || {}

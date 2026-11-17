@@ -372,8 +372,8 @@
       var msg = {
         sent: 'A confirmation email containing your order details has been sent to your registered email address.',
         pending: 'A confirmation email containing your order details is on its way to ' + o.email + '.',
-        failed: 'We couldn’t send the confirmation email to ' + o.email + '. Your order is confirmed; please keep this page, or call ' + (CFG.supportPhone || '9564910918') + ' for a copy.',
-        not_configured: 'Please keep this page for your records. For a copy of your order details, call ' + (CFG.supportPhone || '9564910918') + '.',
+        failed: 'We couldn’t send the confirmation email to ' + o.email + '. Your order is confirmed; please keep this page, or call ' + (CFG.supportPhone || '9999555555') + ' for a copy.',
+        not_configured: 'Please keep this page for your records. For a copy of your order details, call ' + (CFG.supportPhone || '9999555555') + '.',
       }[o.confirmationEmail] || '';
       var em = $('[data-or-email]', result);
       $('span', em).textContent = msg;
@@ -390,7 +390,7 @@
           if (r.status === 200 && b.ok && (b.paymentStatus === 'failed' || b.paymentStatus === 'cancelled'))
             return problem('Payment Unsuccessful', 'Your payment could not be completed. No successful payment has been recorded for this order. Please try again.', 'Retry Payment');
           if (r.status === 200 && b.ok) return problem('We’re still confirming your payment', 'If your payment went through, this page will show your order within a few minutes. Please don’t pay again; refresh this page shortly.', 'Back to checkout');
-          problem('We couldn’t confirm this order', 'This link doesn’t match a confirmed order. If you were charged, call ' + (CFG.supportPhone || '9564910918') + '.');
+          problem('We couldn’t confirm this order', 'This link doesn’t match a confirmed order. If you were charged, call ' + (CFG.supportPhone || '9999555555') + '.');
         })
         .catch(function () {
           problem('We couldn’t load your order', 'Check your connection and refresh this page. Please don’t pay again.', 'Back to checkout');

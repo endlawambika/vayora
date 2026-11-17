@@ -50,7 +50,7 @@ export function loadConfig(env: EnvSource): Config {
     adminEmail: g('ADMIN_EMAIL'),
     siteUrl: g('SITE_URL').replace(/\/+$/, ''),
     allowedOrigin: g('ALLOWED_ORIGIN') || '*',
-    supportPhone: g('SUPPORT_PHONE') || '9564910918',
+    supportPhone: g('SUPPORT_PHONE') || '9999555555',
   };
 }
 

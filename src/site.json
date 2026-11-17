@@ -38,6 +38,14 @@
       "title": "Order Confirmed | Vayora",
       "description": "Your Vayora order confirmation.",
       "noindex": true
+    },
+    {
+      "slug": "unsubscribe",
+      "file": "unsubscribe.html",
+      "route": "unsubscribe.html",
+      "title": "Unsubscribe | Vayora",
+      "description": "Leave the Vayora waitlist and stop receiving launch updates.",
+      "noindex": true
     }
   ],
   "notFound": {

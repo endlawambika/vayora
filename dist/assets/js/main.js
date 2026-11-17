@@ -176,6 +176,55 @@
     if (!scope.closest('[data-waitlist-dialog]')) Waitlist(scope);
   });
 
+  /* ---------------------------------------------------------------- unsubscribe page */
+  $$('[data-unsubscribe]').forEach(function (page) {
+    var form = $('[data-unsubscribe-form]', page);
+    var wrap = $('[data-unsub-form-wrap]', page);
+    var done = $('[data-unsub-done]', page);
+    if (!form || !done || !store) return;
+    var input = form.elements.email;
+    var err = doc.getElementById(input.getAttribute('aria-describedby'));
+    var summary = $('[data-form-summary]', form);
+    var submitted = false;
+    function check() {
+      var v = input.value.trim();
+      var msg = !v ? 'Enter your email address.' : (EMAIL_RE.test(v) ? '' : 'Enter an email address like name@example.com.');
+      err.textContent = msg;
+      input.setAttribute('aria-invalid', msg ? 'true' : 'false');
+      return msg;
+    }
+    input.addEventListener('blur', function () { if (submitted || input.value) check(); });
+    input.addEventListener('input', function () { if (input.getAttribute('aria-invalid') === 'true') check(); });
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      submitted = true;
+      if (check()) { summary.textContent = 'Please fix 1 field below.'; input.focus(); return; }
+      summary.textContent = '';
+      var email = input.value.trim().toLowerCase();
+      var btn = $('[data-submit]', form);
+      var label = btn.textContent;
+      btn.disabled = true;
+      btn.textContent = 'Unsubscribing…';
+      var honey = form.elements._honey ? form.elements._honey.value : '';
+      store.unsubscribe(email, honey).then(function (result) {
+        $('[data-unsub-msg]', done).textContent = result.mode === 'remote'
+          ? 'We’ve received your request and will remove ' + email + ' from the Vayora waitlist. You won’t get any more launch updates from us.'
+          : 'We’ve removed ' + email + ' from the waitlist saved in this browser.';
+        wrap.hidden = true;
+        done.hidden = false;
+        done.focus();
+      }).catch(function (e2) {
+        if (window.console) console.warn('Vayora unsubscribe:', e2 && e2.message);
+        summary.textContent = e2 && e2.code === 'not_delivered'
+          ? "We couldn't send your request just now. Please try again later."
+          : "We couldn't reach the server. Check your connection and try again.";
+      }).then(function () {
+        btn.disabled = false;
+        btn.textContent = label;
+      });
+    });
+  });
+
   /* ---------------------------------------------------------------- waitlist dialog */
   var dialog = $('[data-waitlist-dialog]');
   var dialogForm = dialog ? Waitlist($('[data-waitlist-scope]', dialog)) : null;

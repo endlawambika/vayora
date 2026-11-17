@@ -138,7 +138,7 @@ test('successful payment: signature verified, payment captured, order confirmed,
   assert.equal(cust.body.subject, 'Your Vayora Order Has Been Confirmed!');
   assert.deepEqual(cust.body.to, [{ email: 'ananya.rao@example.com', name: 'Ananya Rao' }]);
   assert.deepEqual(cust.body.sender, { name: 'Team Vayora', email: 'orders@vayora.test' });
-  for (const s of ['Hello Ananya Rao,', 'Thank you for choosing Vayora!', o.orderId, 'Vayora Portable Personal Comfort Device', '₹9,998', 'Paid', 'Chennai, Tamil Nadu 600097', 'Designed for the Vayu You Live In.', '9564910918', 'Team Vayora'])
+  for (const s of ['Hello Ananya Rao,', 'Thank you for choosing Vayora!', o.orderId, 'Vayora Portable Personal Comfort Device', '₹9,998', 'Paid', 'Chennai, Tamil Nadu 600097', 'Designed for the Vayu You Live In.', '9999555555', 'Team Vayora'])
     assert.ok(cust.body.textContent.includes(s), 'customer email text has ' + s);
   assert.ok(cust.body.htmlContent.includes('https://vayora.test/assets/img/brand/vayora-logo-email.png'), 'logo in email');
   assert.equal(admin.body.to[0].email, 'admin@vayora.test');

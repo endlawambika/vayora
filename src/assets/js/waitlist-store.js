@@ -51,6 +51,14 @@
       }
       return Promise.resolve({ ok: true, mode: this.mode, count: all.length });
     },
+    unsubscribe: function (email) {
+      var e = String(email).trim().toLowerCase();
+      var all = this.list();
+      var rest = all.filter(function (x) { return x.email !== e; });
+      if (this.mode === 'memory') memory = rest;
+      else { try { window.localStorage.setItem(KEY, JSON.stringify(rest)); } catch (err) { memory = rest; } }
+      return Promise.resolve({ ok: true, mode: this.mode, removed: all.length - rest.length });
+    },
     clear: function () {
       memory = [];
       try { window.localStorage.removeItem(KEY); } catch (e) { /* ignore */ }
@@ -64,6 +72,31 @@
   function sentLog() {
     try { return JSON.parse(window.localStorage.getItem(SENT_KEY) || '[]'); } catch (e) { return []; }
   }
+  function post(body) {
+    var extra = config.waitlistExtraFields || {};
+    var payload = {};
+    Object.keys(extra).forEach(function (k) { payload[k] = extra[k]; });
+    Object.keys(body).forEach(function (k) { payload[k] = body[k]; });
+    var ctrl = window.AbortController ? new AbortController() : null;
+    var timer = ctrl ? setTimeout(function () { ctrl.abort(); }, 15000) : null;
+    return fetch(config.waitlistEndpoint, {
+      method: 'POST',
+      headers: { 'Content-Type': config.waitlistContentType || 'application/json', Accept: 'application/json' },
+      body: JSON.stringify(payload),
+      signal: ctrl ? ctrl.signal : undefined,
+    }).then(function (res) {
+      if (!res.ok) throw new Error('The waitlist service returned ' + res.status);
+      return res.json().catch(function () { return {}; });
+    }).then(function (data) {
+      if (data && (data.success === false || data.success === 'false')) {
+        var err = new Error(data.message || 'The waitlist service did not accept the request');
+        err.code = 'not_delivered';
+        throw err;
+      }
+      return data;
+    }).then(function (r) { if (timer) clearTimeout(timer); return r; }, function (e) { if (timer) clearTimeout(timer); throw e; });
+  }
+
   var RemoteStore = {
     mode: 'remote',
     list: function () { return sentLog(); },
@@ -73,33 +106,34 @@
     },
     save: function (entry) {
       var body = {};
-      var extra = config.waitlistExtraFields || {};
-      Object.keys(extra).forEach(function (k) { body[k] = extra[k]; });
       Object.keys(entry).forEach(function (k) { body[k] = entry[k]; });
       body._subject = 'New Vayora waitlist sign-up: ' + entry.name;
       body._replyto = entry.email;
-      var ctrl = window.AbortController ? new AbortController() : null;
-      var timer = ctrl ? setTimeout(function () { ctrl.abort(); }, 15000) : null;
-      return fetch(config.waitlistEndpoint, {
-        method: 'POST',
-        headers: { 'Content-Type': config.waitlistContentType || 'application/json', Accept: 'application/json' },
-        body: JSON.stringify(body),
-        signal: ctrl ? ctrl.signal : undefined,
-      }).then(function (res) {
-        if (!res.ok) throw new Error('The waitlist service returned ' + res.status);
-        return res.json().catch(function () { return {}; });
-      }).then(function (data) {
-        if (data && (data.success === false || data.success === 'false')) {
-          var err = new Error(data.message || 'The waitlist service did not accept the sign-up');
-          err.code = 'not_delivered';
-          throw err;
-        }
+      return post(body).then(function () {
         try {
           var log = sentLog(); log.push(String(entry.email).toLowerCase());
           window.localStorage.setItem(SENT_KEY, JSON.stringify(log));
         } catch (e) { /* storage blocked: duplicates just aren't remembered */ }
         return { ok: true, mode: 'remote' };
-      }).then(function (r) { if (timer) clearTimeout(timer); return r; }, function (e) { if (timer) clearTimeout(timer); throw e; });
+      });
+    },
+    // Sends a removal request to the same inbox as sign-ups. The team removes the address by hand.
+    unsubscribe: function (email, honey) {
+      var e = String(email).trim().toLowerCase();
+      return post({
+        _subject: 'Vayora waitlist: unsubscribe request from ' + e,
+        _replyto: e,
+        email: e,
+        request: 'Remove this email address from the Vayora waitlist and stop sending launch updates.',
+        requestedAt: new Date().toISOString(),
+        _honey: honey || '',
+      }).then(function () {
+        try {
+          var log = sentLog().filter(function (x) { return x !== e; });
+          window.localStorage.setItem(SENT_KEY, JSON.stringify(log));
+        } catch (err) { /* ignore */ }
+        return { ok: true, mode: 'remote' };
+      });
     },
     clear: function () { try { window.localStorage.removeItem(SENT_KEY); } catch (e) { /* ignore */ } },
   };
