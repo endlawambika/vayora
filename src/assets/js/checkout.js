@@ -13,6 +13,17 @@
   var CFG = (window.VAYORA_CONFIG && window.VAYORA_CONFIG.checkout) || {};
   var API = CFG.apiBase ? String(CFG.apiBase).replace(/\/+$/, '') : '';
   var ATTEMPT_KEY = 'vayora.checkout.attempt';
+  var DEMO_KEY = 'vayora.demo.booking';
+  // Labelled demo checkout: only while no payment backend is connected. No money is taken.
+  var DEMO = !CFG.apiBase && CFG.demoPayments !== false;
+  var DELIVERY_DAYS = Math.max(1, parseInt(CFG.deliveryDays, 10) || 7);
+  function deliveryDate(from) {
+    var d = new Date(from.getTime() + DELIVERY_DAYS * 864e5);
+    var parts = {};
+    new Intl.DateTimeFormat('en-IN', { timeZone: 'Asia/Kolkata', weekday: 'short', day: 'numeric', month: 'short', year: 'numeric' })
+      .formatToParts(d).forEach(function (p) { parts[p.type] = p.value; });
+    return parts.weekday + ', ' + parts.day + ' ' + parts.month + ' ' + parts.year; // e.g. Tue, 24 Nov 2026
+  }
   var $ = function (s, r) { return (r || doc).querySelector(s); };
   var $$ = function (s, r) { return Array.prototype.slice.call((r || doc).querySelectorAll(s)); };
 
@@ -81,7 +92,12 @@
       var a = amounts(qty);
       $('[data-os-unit]', root).textContent = inr(a.unit);
       $('[data-os-subtotal]', root).textContent = inr(a.subtotal);
-      $('[data-os-shipping]', root).textContent = a.shipping ? inr(a.shipping) : '₹0';
+      var shipEl = $('[data-os-shipping]', root);
+      if (a.shipping) shipEl.textContent = inr(a.shipping);
+      else shipEl.innerHTML = '<span class="free-tag">FREE</span>';
+      $('[data-free-ship]', root).hidden = a.shipping > 0;
+      $$('[data-delivery-days]', root).forEach(function (el) { el.textContent = DELIVERY_DAYS; });
+      renderEmi(a.total);
       var taxRow = $('[data-os-tax-row]', root);
       taxRow.hidden = !(a.tax > 0);
       if (a.tax > 0) {
@@ -95,6 +111,93 @@
       $('[data-qty-plus]', root).disabled = qty >= maxQty || busy;
       $('[data-qty-note]', root).textContent = qty >= maxQty ? 'Maximum ' + maxQty + ' per order.' : '';
     }
+    // ---- EMI (offered inside Razorpay's window; amounts here are before bank interest)
+    var EMI = CFG.emi || {};
+    var tenures = (EMI.tenures || []).map(function (t) { return parseInt(t, 10); })
+      .filter(function (t) { return t > 1 && t <= 60; }).sort(function (x, y) { return x - y; });
+    var emiOn = EMI.enabled !== false && tenures.length > 0;
+    var plan = 'full';
+    function perMonth(totalPaise, months) { return Math.ceil(totalPaise / 100 / months) * 100; }
+    function renderEmi(total) {
+      $('[data-plan-full]', root).textContent = inr(total);
+      $$('[data-emi-option], [data-os-emi]', root).forEach(function (el) { el.hidden = !emiOn; });
+      if (!emiOn) return;
+      var from = inr(perMonth(total, tenures[tenures.length - 1]));
+      $$('[data-emi-from]', root).forEach(function (el) { el.textContent = from; });
+      $('[data-emi-total]', root).textContent = inr(total);
+      var body = $('[data-emi-rows]', root);
+      body.textContent = '';
+      $$('[data-emi-select]', root).forEach(function (selEl) {
+        var keep = selEl.value || String(tenures[Math.min(1, tenures.length - 1)]);
+        selEl.textContent = '';
+        tenures.forEach(function (m) {
+          var op = doc.createElement('option');
+          op.value = String(m);
+          op.textContent = m + ' months · ' + inr(perMonth(total, m)) + ' a month before interest';
+          selEl.appendChild(op);
+        });
+        selEl.value = keep;
+      });
+      tenures.forEach(function (m) {
+        var tr = doc.createElement('tr');
+        var th = doc.createElement('th'); th.scope = 'row'; th.textContent = m + ' months';
+        var td = doc.createElement('td'); td.textContent = inr(perMonth(total, m)) + ' a month';
+        tr.appendChild(th); tr.appendChild(td); body.appendChild(tr);
+      });
+    }
+    function setPlan(v) {
+      plan = v === 'emi' && emiOn ? 'emi' : 'full';
+      $('[data-emi-panel]', root).hidden = plan !== 'emi';
+      $('[data-full-methods]', root).hidden = plan === 'emi' || DEMO;
+      if (DEMO) {
+        // EMI runs on cards, so UPI and net banking step aside while EMI is chosen
+        ['upi', 'netbanking'].forEach(function (k) { $('[data-pm-tab="' + k + '"]', root).hidden = plan === 'emi'; });
+        $$('[data-emi-pick]', root).forEach(function (el) { el.hidden = plan !== 'emi'; });
+        if (plan === 'emi' && (method === 'upi' || method === 'netbanking')) selectMethod('credit', false);
+      }
+    }
+    // ---- demo payment methods (sample details only; the inputs are read-only)
+    var method = 'upi';
+    var tabs = $$('[data-pm-tab]', root);
+    function selectMethod(k, focus) {
+      method = k;
+      tabs.forEach(function (t) {
+        var on = t.getAttribute('data-pm-tab') === k;
+        t.setAttribute('aria-selected', on ? 'true' : 'false');
+        t.tabIndex = on ? 0 : -1;
+        if (on && focus) t.focus();
+      });
+      $$('[data-pm-panel]', root).forEach(function (pnl) { pnl.hidden = pnl.getAttribute('data-pm-panel') !== k; });
+    }
+    tabs.forEach(function (t) {
+      t.addEventListener('click', function () { selectMethod(t.getAttribute('data-pm-tab'), false); });
+      t.addEventListener('keydown', function (e) {
+        var vis = tabs.filter(function (x) { return !x.hidden; });
+        var i = vis.indexOf(t);
+        var j = e.key === 'ArrowRight' ? i + 1 : e.key === 'ArrowLeft' ? i - 1 : e.key === 'Home' ? 0 : e.key === 'End' ? vis.length - 1 : null;
+        if (j === null) return;
+        e.preventDefault();
+        j = (j + vis.length) % vis.length;
+        selectMethod(vis[j].getAttribute('data-pm-tab'), true);
+      });
+    });
+    if (DEMO) {
+      $$('[data-demo-only]', root).forEach(function (el) { el.hidden = false; });
+      $$('[data-real-only]', root).forEach(function (el) { el.hidden = true; });
+      $('[data-full-methods]', root).hidden = true;
+      var nameIn = form.elements.name;
+      var syncCardName = function () {
+        var v = nameIn.value.trim() || 'Demo Customer';
+        $$('[data-demo-cardname]', root).forEach(function (el) { el.textContent = v.toUpperCase(); });
+        $$('[data-demo-cardname-input]', root).forEach(function (el) { el.value = v; });
+      };
+      nameIn.addEventListener('input', syncCardName);
+      syncCardName();
+    }
+    $$('[data-pay-plan]', root).forEach(function (r) {
+      r.addEventListener('change', function () { if (r.checked) setPlan(r.value); });
+    });
+
     function setQty(n) {
       n = parseInt(n, 10);
       if (!isFinite(n)) n = 1;
@@ -157,6 +260,7 @@
       payBtn.setAttribute('aria-busy', on ? 'true' : 'false');
       payLabel.textContent = on ? (label || 'Please wait…') : 'PAY NOW / PLACE ORDER';
       NAMES.forEach(function (n) { ctl(n).readOnly = on; });
+      $$('[data-pay-plan]', root).forEach(function (r) { r.disabled = on; });
       render();
     }
     function status(msg) { payStatus.textContent = msg || ''; }
@@ -215,6 +319,7 @@
         return;
       }
       summary.textContent = '';
+      if (!API && DEMO) { if (!busy) runDemo(); return; }
       if (!API) {
         summary.textContent = "Payment isn't available right now, so this order can't be placed yet. No payment has been taken.";
         summary.scrollIntoView({ block: 'center' });
@@ -288,6 +393,18 @@
         prefill: o.prefill,
         notes: o.notes,
         theme: { color: '#0B7A73' },
+        config: plan === 'emi' ? {
+          display: {
+            blocks: {
+              emi: {
+                name: 'Pay in EMI',
+                instruments: [{ method: 'emi' }, { method: 'cardless_emi' }, { method: 'paylater' }],
+              },
+            },
+            sequence: ['block.emi'],
+            preferences: { show_default_blocks: true },
+          },
+        } : undefined,
         handler: function (resp) { finished = true; verify(resp); },
         modal: {
           confirm_close: true,
@@ -338,6 +455,53 @@
       if (url.indexOf('#') !== -1) setTimeout(function () { location.reload(); }, 50); // preview: same document
     }
 
+    function runDemo() {
+      var c = customer();
+      var a = amounts(qty);
+      var months = plan === 'emi' ? parseInt(($('[data-pm-panel="' + method + '"] [data-emi-select]', root) || {}).value, 10) : 0;
+      var bankEl = $('input[name="demoBank"]:checked', root);
+      var label = {
+        upi: 'UPI (democustomer@upi)',
+        credit: 'Credit card ending 1111',
+        debit: 'Debit card ending 4444',
+        netbanking: 'Net banking, ' + (bankEl ? bankEl.value : 'your bank'),
+      }[method];
+      if (months) label += ', ' + months + '-month EMI (' + inr(perMonth(a.total, months)) + ' a month before interest)';
+      var now = new Date();
+      var ymd = now.toISOString().slice(2, 10).replace(/-/g, '');
+      var id = 'DEMO-' + ymd + '-' + randomKey().slice(-6).toUpperCase();
+      var booking = {
+        orderId: id, customerName: c.name, email: c.email,
+        productName: CFG.productName || 'Vayora', quantity: qty, totalAmount: inr(a.total), method: label,
+        orderDate: now.toISOString(),
+        shippingAddress: [c.house, c.street, c.city, c.state + ' ' + c.pinCode, c.country].filter(Boolean).join(', '),
+      };
+      var overlay = $('[data-demo-progress]');
+      var title = $('[data-dp-title]', overlay);
+      var sub = $('[data-dp-sub]', overlay);
+      setBusy(true, 'Processing demo payment…');
+      status('Processing demo payment. No money is being taken.');
+      overlay.hidden = false;
+      doc.body.classList.add('menu-open');
+      title.focus();
+      setTimeout(function () {
+        $('[data-dp-spinner]', overlay).hidden = true;
+        $('[data-dp-tick]', overlay).hidden = false;
+        title.textContent = 'Demo payment successful';
+        sub.textContent = 'Booking taken. Opening your confirmation…';
+        status('Demo payment successful. Booking taken.');
+        try { sessionStorage.setItem(DEMO_KEY, JSON.stringify(booking)); } catch (e) { /* shown from memory below */ }
+        window.__vayoraDemoBooking = booking;
+        setTimeout(function () {
+          var base = root.getAttribute('data-success-url');
+          var q = '?demo=' + encodeURIComponent(id);
+          var url = base.charAt(0) === '#' ? location.pathname + q + base : base + q;
+          location.href = url;
+          if (url.indexOf('#') !== -1) setTimeout(function () { location.reload(); }, 50);
+        }, 1100);
+      }, 1600);
+    }
+
     form.addEventListener('submit', function (e) { e.preventDefault(); startPayment(); });
     $('[data-pay-retry]', root).addEventListener('click', function () { showOnly('form'); startPayment(); });
     $('[data-pay-return]', root).addEventListener('click', function () { showOnly('form'); $('.order-summary', root).scrollIntoView({ block: 'start' }); });
@@ -350,7 +514,7 @@
     var orderId = params.get('order') || '';
     var token = params.get('token') || '';
     var show = function (which) {
-      ['loading', 'success', 'problem'].forEach(function (w) { $('[data-or-' + w + ']', result).hidden = w !== which; });
+      ['loading', 'success', 'demo', 'problem'].forEach(function (w) { $('[data-or-' + w + ']', result).hidden = w !== which; });
       if (which !== 'loading') { var el = $('[data-or-' + which + ']', result); el.focus(); }
     };
     var problem = function (title, text, actionLabel) {
@@ -369,6 +533,9 @@
         shippingAddress: o.shippingAddress,
       };
       Object.keys(fields).forEach(function (k) { var el = $('[data-f="' + k + '"]', result); if (el) el.textContent = fields[k]; });
+      var succ = $('[data-or-success]', result);
+      $('[data-delivery-days]', succ).textContent = DELIVERY_DAYS;
+      $('[data-delivery-date]', succ).textContent = isNaN(date) ? '' : deliveryDate(date);
       var msg = {
         sent: 'A confirmation email containing your order details has been sent to your registered email address.',
         pending: 'A confirmation email containing your order details is on its way to ' + o.email + '.',
@@ -396,7 +563,27 @@
           problem('We couldn’t load your order', 'Check your connection and refresh this page. Please don’t pay again.', 'Back to checkout');
         });
     };
-    if (!orderId || !token) problem('No order to show', 'Place an order from the checkout page to see its confirmation here.');
+    var demoId = params.get('demo');
+    if (demoId) {
+      var bk = null;
+      try { bk = JSON.parse(sessionStorage.getItem(DEMO_KEY) || 'null'); } catch (e) { bk = null; }
+      if (!DEMO || !bk || bk.orderId !== demoId) {
+        problem('No booking to show', 'Place a booking from the checkout page to see its confirmation here.');
+      } else {
+        var card = $('[data-or-demo]', result);
+        var d = new Date(bk.orderDate);
+        var vals = {
+          orderId: bk.orderId, customerName: bk.customerName, email: bk.email, productName: bk.productName,
+          quantity: String(bk.quantity), totalAmount: bk.totalAmount, method: bk.method, shippingAddress: bk.shippingAddress,
+          orderDate: d.toLocaleString('en-IN', { timeZone: 'Asia/Kolkata', dateStyle: 'medium', timeStyle: 'short' }) + ' IST',
+        };
+        Object.keys(vals).forEach(function (k) { var el = $('[data-d="' + k + '"]', card); if (el) el.textContent = vals[k]; });
+        $('[data-d-days]', card).textContent = DELIVERY_DAYS;
+        $('[data-d-date]', card).textContent = deliveryDate(d);
+        show('demo');
+      }
+    }
+    else if (!orderId || !token) problem('No order to show', 'Place an order from the checkout page to see its confirmation here.');
     else if (!API) problem('We couldn’t confirm this order', 'Online payment isn’t switched on for this site yet.');
     else load();
   }

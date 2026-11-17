@@ -27,7 +27,14 @@ window.VAYORA_CONFIG = Object.assign(
       unitPriceInr: 4999,
       shippingFeeInr: 0,
       taxRatePercent: 0,
+      // EMI is offered through Razorpay. Tenures shown on the checkout page; interest is set by the bank.
+      emi: { enabled: true, tenures: [3, 6, 9, 12] },
       maxQuantity: 5,
+      // Days from order to delivery, shown at checkout and on the confirmation page.
+      deliveryDays: 7,
+      // While apiBase is null, checkout runs as a clearly labelled demo: sample payment details,
+      // no money taken. Set to false to show "payment isn't available" instead.
+      demoPayments: true,
       productName: 'Vayora – Portable All-in-One Personal Comfort Device',
       razorpayScript: 'https://checkout.razorpay.com/v1/checkout.js',
       supportPhone: '9999555555',

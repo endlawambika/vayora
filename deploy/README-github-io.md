@@ -125,7 +125,7 @@ The confirmation "You're on the waitlist" appears only after the service accepts
 
 ## Checkout and payments
 
-Buy Now opens `checkout.html`. Until the payment backend is set up, nothing can be paid for: clicking Pay shows a short message that the order can't be placed yet. To switch it on, follow **CHECKOUT.md** in the source zip (Supabase, Razorpay and an email service). The last step is setting `checkout.apiBase` in `assets/js/config.js`.
+Buy Now opens `checkout.html`. Until the payment backend is set up, checkout runs as a labelled demo (see "Demo checkout" below) and no money is taken. To switch it on, follow **CHECKOUT.md** in the source zip (Supabase, Razorpay and an email service). The last step is setting `checkout.apiBase` in `assets/js/config.js`.
 
 ---
 
@@ -142,3 +142,33 @@ Buy Now opens `checkout.html`. Until the payment backend is set up, nothing can 
 ---
 
 Fonts: Inter and Manrope (SIL Open Font License). Icons: Lucide (ISC licence). Illustrations: original artwork made for this project.
+
+## Customer reviews
+
+The Product page has a **Customer ratings and reviews** section (`product.html#reviews`). It shows only reviews you publish. Nothing is made up, so until you add one it shows "No reviews yet" and a **Write a review** button.
+
+**When a customer writes a review**, it is emailed to the waitlist inbox (sayantani.pgpm27g@greatlakes.edu.in) with the subject "New Vayora review: 4/5 from <name>". The customer is told it will appear after it's checked. Nothing goes on the site automatically.
+
+**To publish a review**, open `assets/js/reviews-data.js` and add one line inside the brackets, copying the customer's words exactly:
+
+```js
+window.VAYORA_REVIEWS = [
+  { name: 'Asha K.', city: 'Kolkata', rating: 5, title: 'Great on my desk', text: 'Their review, word for word.', date: '2026-12-01' },
+];
+```
+
+- Add `verified: true` only if that person's order is marked paid in your Orders table.
+- The average, the count and the star bars update by themselves.
+- Only publish reviews from people who have really used Vayora and ticked the box agreeing to publication. Don't write or edit reviews yourself.
+- If your repository builds from source (the `src` folder), make the same edit in `src/assets/js/reviews-data.js` too.
+
+## Demo checkout (while payments aren't connected)
+
+Until `checkout.apiBase` is set in `assets/js/config.js`, the checkout runs as a **clearly labelled demo**:
+
+- Visitors choose **UPI, Credit Card, Debit Card or Net Banking** and see the details screen for that method, filled with sample data (a sample UPI ID, test card numbers, a list of banks). The fields are read-only, so no real card, UPI or bank details can be typed in.
+- A yellow note says "Demo checkout – no money is taken".
+- **Pay Now** shows "Processing demo payment…", then "Demo payment successful – Booking taken", then a **Booking Taken!** page. That page shows "Time to enjoy breezy air!", "Get your product delivered in 7 days" with the expected date, and the booking details, and it is marked "Demo – no money was taken".
+- Nothing is sent anywhere: no order is saved, no email goes out and nothing ships.
+
+The demo switches itself off as soon as you connect Razorpay (set `apiBase`). From then on, customers pay in Razorpay's real window and see the real confirmation page, which also shows the happy message and the 7-day delivery date. To turn the demo off before that, set `demoPayments: false`. To change the delivery promise, edit `deliveryDays` (7).

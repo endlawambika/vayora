@@ -88,6 +88,22 @@ In Test Mode no real money moves. Razorpay's Test Mode documentation lists test 
 
 The amount charged is calculated on the server from `PRODUCT_PRICE_INR`, `SHIPPING_FEE_INR` and `TAX_RATE_PERCENT` (Supabase secrets). The website shows the same numbers from `assets/js/config.js` (`unitPriceInr`, `shippingFeeInr`, `taxRatePercent`). Change both together. If they ever differ, the checkout shows and charges the server's total. Shipping and tax are 0 as delivered, and the tax line only appears when a tax rate is set. Whether ₹4,999 includes GST is a decision for you and your accountant.
 
+**Free shipping.** With `shippingFeeInr` at 0 (and `SHIPPING_FEE_INR` at 0 on the server), the checkout shows Shipping as **FREE** and a "Free shipping on every order, delivered anywhere in India" note. If you ever set a fee, the note disappears and the amount is shown instead.
+
+## EMI
+
+Checkout offers **Pay in full** or **Pay in EMI**. Choosing EMI shows the monthly amount for 3, 6, 9 and 12 months *before interest* and opens Razorpay's payment window with its EMI options first. The customer picks their bank and plan there and sees the exact monthly amount, including interest, before confirming. Vayora receives the full amount; the bank or EMI provider collects the instalments. Payment checks on the server are the same as for any other method.
+
+What you need to do in Razorpay:
+
+- **Credit card EMI** works on Razorpay Standard Checkout by default. HDFC Bank and SBI credit card EMI need a request in the Razorpay Dashboard (Payment Methods → EMI).
+- **Debit card EMI, cardless EMI and Pay Later** are not on by default. Request them from Razorpay support if you want them.
+- **Minimum amounts** are set by each bank or provider. Some debit card EMI needs ₹5,000 or more, so one Vayora at ₹4,999 may not qualify; two will.
+- **No Cost EMI** (you pay the interest instead of the customer) is a separate Razorpay offer. The site does not claim No Cost EMI; add it only after you set it up in Razorpay.
+- Instant refunds aren't supported for EMI, cardless EMI and Pay Later payments.
+
+To change the tenures shown or switch EMI off, edit `emi` in `assets/js/config.js`, e.g. `emi: { enabled: true, tenures: [3, 6, 9, 12] }`, or set `enabled: false` to hide it.
+
 ## Day to day
 
 - **See orders:** Supabase → Table Editor → `orders` (customer, address, amounts, `payment_status`, `order_status`, Razorpay `payment_id`, email status). You also get an admin email for each paid order.
@@ -117,3 +133,14 @@ npm install
 DATABASE_URL=postgres://postgres@localhost:5432/postgres npm test   # a Postgres with the migration applied
 ```
 On a plain Postgres (not Supabase), create the `anon` and `authenticated` roles before applying the migration.
+
+## Demo checkout (while payments aren't connected)
+
+Until `checkout.apiBase` is set in `assets/js/config.js`, the checkout runs as a **clearly labelled demo**:
+
+- Visitors choose **UPI, Credit Card, Debit Card or Net Banking** and see the details screen for that method, filled with sample data (a sample UPI ID, test card numbers, a list of banks). The fields are read-only, so no real card, UPI or bank details can be typed in.
+- A yellow note says "Demo checkout – no money is taken".
+- **Pay Now** shows "Processing demo payment…", then "Demo payment successful – Booking taken", then a **Booking Taken!** page. That page shows "Time to enjoy breezy air!", "Get your product delivered in 7 days" with the expected date, and the booking details, and it is marked "Demo – no money was taken".
+- Nothing is sent anywhere: no order is saved, no email goes out and nothing ships.
+
+The demo switches itself off as soon as you connect Razorpay (set `apiBase`). From then on, customers pay in Razorpay's real window and see the real confirmation page, which also shows the happy message and the 7-day delivery date. To turn the demo off before that, set `demoPayments: false`. To change the delivery promise, edit `deliveryDays` (7).

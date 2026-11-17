@@ -298,7 +298,60 @@
     </section>
 
     <!-- FAQ -->
-    <section class="section bg-white" id="faq" aria-labelledby="faq-title">
+    <!-- REVIEWS: built from assets/js/reviews-data.js. Only real customer reviews go there. -->
+    <section class="section bg-white reviews" id="reviews" aria-labelledby="reviews-title" data-keywords="reviews ratings customer feedback stars opinions write a review">
+      <div class="container reviews-grid">
+        <div class="reviews-aside">
+          <h2 id="reviews-title">Customer ratings and reviews</h2>
+          <div class="rating-summary" data-rating-summary>
+            <div class="rs-top">
+              <p class="rs-avg" data-rs-avg>–</p>
+              <div>
+                <span class="stars stars-lg" data-rs-stars style="--fill:0%" aria-hidden="true"><span class="stars-base">{{icon:star}}{{icon:star}}{{icon:star}}{{icon:star}}{{icon:star}}</span><span class="stars-fill">{{icon:star}}{{icon:star}}{{icon:star}}{{icon:star}}{{icon:star}}</span></span>
+                <p class="rs-count" data-rs-count>No ratings yet</p>
+              </div>
+            </div>
+            <ul class="rs-bars" aria-label="Ratings breakdown" data-rs-bars>
+              <li><span class="rb-label">5 star</span><span class="rb-track"><span class="rb-fill" style="width:0%" data-rb-fill="5"></span></span><span class="rb-count" data-rb-count="5">0</span></li>
+              <li><span class="rb-label">4 star</span><span class="rb-track"><span class="rb-fill" style="width:0%" data-rb-fill="4"></span></span><span class="rb-count" data-rb-count="4">0</span></li>
+              <li><span class="rb-label">3 star</span><span class="rb-track"><span class="rb-fill" style="width:0%" data-rb-fill="3"></span></span><span class="rb-count" data-rb-count="3">0</span></li>
+              <li><span class="rb-label">2 star</span><span class="rb-track"><span class="rb-fill" style="width:0%" data-rb-fill="2"></span></span><span class="rb-count" data-rb-count="2">0</span></li>
+              <li><span class="rb-label">1 star</span><span class="rb-track"><span class="rb-fill" style="width:0%" data-rb-fill="1"></span></span><span class="rb-count" data-rb-count="1">0</span></li>
+            </ul>
+          </div>
+          <div class="review-cta">
+            <h3>Used Vayora?</h3>
+            <p>Tell other buyers how it worked for you. Every review is read by the Vayora team before it's published.</p>
+            <button class="btn" type="button" data-review-open>{{icon:square-pen}}Write a review</button>
+          </div>
+        </div>
+
+        <div class="reviews-main">
+          <div class="reviews-toolbar" data-reviews-toolbar hidden>
+            <p data-reviews-showing></p>
+            <label class="sort-label" for="reviews-sort">Sort by
+              <select class="select select-sm" id="reviews-sort" data-reviews-sort>
+                <option value="recent">Most recent</option>
+                <option value="high">Highest rating</option>
+                <option value="low">Lowest rating</option>
+              </select>
+            </label>
+          </div>
+          <ol class="review-list" data-review-list></ol>
+          <div class="reviews-empty" data-reviews-empty>
+            <span class="re-ico">{{icon:message-square-text}}</span>
+            <h3>No reviews yet</h3>
+            <p>Vayora is new, so there are no customer reviews to show yet. If you've used it, yours could be the first.</p>
+            <button class="btn btn-ghost" type="button" data-review-open>Write the first review</button>
+          </div>
+          <div class="btn-row reviews-more" hidden data-reviews-more-wrap>
+            <button class="btn btn-ghost" type="button" data-reviews-more>Show more reviews</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="faq" aria-labelledby="faq-title">
       <div class="container faq">
         <div>
           <h2 id="faq-title">Questions, answered honestly.</h2>
@@ -350,3 +403,77 @@
         </div>
       </div>
     </section>
+
+    <!-- WRITE A REVIEW: sent to the Vayora team's inbox; published only after the team adds it to reviews-data.js -->
+    <dialog class="waitlist-dialog review-dialog" id="review-dialog" aria-labelledby="review-dialog-title" data-review-dialog>
+      <div class="dialog-head">
+        <h2 id="review-dialog-title">Write a review</h2>
+        <p>Share how Vayora worked for you. The team reads every review before it appears on this page.</p>
+        <button class="dialog-close" type="button" aria-label="Close" data-review-close>{{icon:x}}</button>
+      </div>
+      <div class="dialog-body">
+        <form id="review-form" novalidate data-review-form>
+          <div class="form-summary" role="alert" data-form-summary></div>
+          <fieldset class="field star-field" aria-describedby="rv-rating-err">
+            <legend>Your rating</legend>
+            <div class="star-input" data-star-input>
+              <input type="radio" id="rv-r1" name="rating" value="1" required><label for="rv-r1">{{icon:star}}<span class="visually-hidden">1 star, poor</span></label>
+              <input type="radio" id="rv-r2" name="rating" value="2"><label for="rv-r2">{{icon:star}}<span class="visually-hidden">2 stars, fair</span></label>
+              <input type="radio" id="rv-r3" name="rating" value="3"><label for="rv-r3">{{icon:star}}<span class="visually-hidden">3 stars, good</span></label>
+              <input type="radio" id="rv-r4" name="rating" value="4"><label for="rv-r4">{{icon:star}}<span class="visually-hidden">4 stars, very good</span></label>
+              <input type="radio" id="rv-r5" name="rating" value="5"><label for="rv-r5">{{icon:star}}<span class="visually-hidden">5 stars, excellent</span></label>
+              <span class="star-word" data-star-word aria-hidden="true"></span>
+            </div>
+            <p class="error-msg" id="rv-rating-err"></p>
+          </fieldset>
+          <div class="field-row">
+            <div class="field">
+              <label for="rv-name">Name to show</label>
+              <input class="input" id="rv-name" name="name" type="text" autocomplete="name" required minlength="2" maxlength="60" aria-describedby="rv-name-hint rv-name-err">
+              <p class="field-hint" id="rv-name-hint">For example, Priya S.</p>
+              <p class="error-msg" id="rv-name-err"></p>
+            </div>
+            <div class="field">
+              <label for="rv-city">City <span class="opt">(optional)</span></label>
+              <input class="input" id="rv-city" name="city" type="text" autocomplete="address-level2" maxlength="60" aria-describedby="rv-city-err">
+              <p class="error-msg" id="rv-city-err"></p>
+            </div>
+          </div>
+          <div class="field">
+            <label for="rv-email">Email</label>
+            <input class="input" id="rv-email" name="email" type="email" autocomplete="email" inputmode="email" required maxlength="120" aria-describedby="rv-email-hint rv-email-err">
+            <p class="field-hint" id="rv-email-hint">Never shown. Used only if we need to ask about your review.</p>
+            <p class="error-msg" id="rv-email-err"></p>
+          </div>
+          <div class="field">
+            <label for="rv-title">Headline <span class="opt">(optional)</span></label>
+            <input class="input" id="rv-title" name="title" type="text" maxlength="80" aria-describedby="rv-title-err">
+            <p class="error-msg" id="rv-title-err"></p>
+          </div>
+          <div class="field">
+            <label for="rv-text">Your review</label>
+            <textarea class="input textarea" id="rv-text" name="text" rows="5" required minlength="20" maxlength="1500" aria-describedby="rv-text-hint rv-text-err"></textarea>
+            <p class="field-hint" id="rv-text-hint">What did you use it for, and how did it do? <span data-char-count>0</span>/1500</p>
+            <p class="error-msg" id="rv-text-err"></p>
+          </div>
+          <div class="field check-field">
+            <label class="check" for="rv-consent">
+              <input type="checkbox" id="rv-consent" name="consent" required aria-describedby="rv-consent-err">
+              <span>I've used Vayora, and I agree that the Vayora team may publish my name, city, rating and review on this website.</span>
+            </label>
+            <p class="error-msg" id="rv-consent-err"></p>
+          </div>
+          <div class="hp-field" aria-hidden="true"><label for="rv-hp">Leave this empty</label><input id="rv-hp" name="_honey" type="text" tabindex="-1" autocomplete="off"></div>
+          <button class="btn btn-block" type="submit" data-submit>Send review</button>
+        </form>
+
+        <div class="success" hidden data-review-success tabindex="-1">
+          <div class="tick">{{icon:check}}</div>
+          <h3>Thanks for your review</h3>
+          <p data-review-success-msg></p>
+          <div class="btn-row">
+            <button class="btn" type="button" data-review-close>Done</button>
+          </div>
+        </div>
+      </div>
+    </dialog>

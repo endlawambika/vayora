@@ -51,6 +51,11 @@
       }
       return Promise.resolve({ ok: true, mode: this.mode, count: all.length });
     },
+    sendReview: function () {
+      var err = new Error('No endpoint is configured for reviews');
+      err.code = 'not_configured';
+      return Promise.reject(err);
+    },
     unsubscribe: function (email) {
       var e = String(email).trim().toLowerCase();
       var all = this.list();
@@ -116,6 +121,24 @@
         } catch (e) { /* storage blocked: duplicates just aren't remembered */ }
         return { ok: true, mode: 'remote' };
       });
+    },
+    // Sends a customer review to the team's inbox. Nothing is published until the team adds it to reviews-data.js.
+    sendReview: function (r) {
+      var stars = new Array(r.rating + 1).join('★') + new Array(6 - r.rating).join('☆');
+      return post({
+        _subject: 'New Vayora review: ' + r.rating + '/5 from ' + r.name,
+        _replyto: r.email,
+        rating: r.rating + ' out of 5 (' + stars + ')',
+        name: r.name,
+        city: r.city || '(not given)',
+        email: r.email,
+        title: r.title || '(none)',
+        review: r.text,
+        consentToPublish: 'Yes. The reviewer confirmed they have used Vayora and agreed to publication of name, city, rating and review.',
+        submittedAt: new Date().toISOString(),
+        page: window.location.href,
+        _honey: r.honey || '',
+      }).then(function () { return { ok: true, mode: 'remote' }; });
     },
     // Sends a removal request to the same inbox as sign-ups. The team removes the address by hand.
     unsubscribe: function (email, honey) {

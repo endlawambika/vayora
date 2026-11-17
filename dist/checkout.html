@@ -25,7 +25,7 @@
       <div class="announce-rotator">
         <button class="announce-arrow" type="button" aria-label="Previous announcement" data-announce-prev><svg class="icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="m15 18-6-6 6-6" /> </svg></button>
         <div class="announce-track">
-          <p class="announce-msg is-active"><svg class="icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M11 6a13 13 0 0 0 8.4-2.8A1 1 0 0 1 21 4v12a1 1 0 0 1-1.6.8A13 13 0 0 0 11 14H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2z" /> <path d="M6 14a12 12 0 0 0 2.4 7.2 2 2 0 0 0 3.2-2.4A8 8 0 0 1 10 14" /> <path d="M8 6v8" /> </svg><span>Order Vayora for ₹4,999 with secure Razorpay checkout.</span><a class="announce-link" href="checkout.html">Buy now</a></p>
+          <p class="announce-msg is-active"><svg class="icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M11 6a13 13 0 0 0 8.4-2.8A1 1 0 0 1 21 4v12a1 1 0 0 1-1.6.8A13 13 0 0 0 11 14H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2z" /> <path d="M6 14a12 12 0 0 0 2.4 7.2 2 2 0 0 0 3.2-2.4A8 8 0 0 1 10 14" /> <path d="M8 6v8" /> </svg><span>Order Vayora for ₹4,999 with free shipping and delivery in 7 days.</span><a class="announce-link" href="checkout.html">Buy now</a></p>
           <p class="announce-msg"><svg class="icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M12 20v-8" /> <path d="M12.656 7H14a4 4 0 0 1 4 4v1.344" /> <path d="M14.12 3.88 16 2" /> <path d="M17.123 17.123A6 6 0 0 1 6 14v-3a4 4 0 0 1 1.72-3.287" /> <path d="m2 2 20 20" /> <path d="M21 5a4 4 0 0 1-3.55 3.97" /> <path d="M22 13h-3.344" /> <path d="M3 21a4 4 0 0 1 3.81-4" /> <path d="M3 5a4 4 0 0 0 3.55 3.97" /> <path d="M6 13H2" /> <path d="m8 2 1.88 1.88" /> <path d="M9.712 4.06A3 3 0 0 1 15 6v1.13" /> </svg><span>New MosquitoGuard: active mosquito attraction and capture.</span><a class="announce-link" href="product.html#mosquitoguard">See how</a></p>
           <p class="announce-msg"><svg class="icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M19 7V4a1 1 0 0 0-1-1H5a2 2 0 0 0 0 4h15a1 1 0 0 1 1 1v4h-3a2 2 0 0 0 0 4h3a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1" /> <path d="M3 5v14a2 2 0 0 0 2 2h15a1 1 0 0 0 1-1v-4" /> </svg><span>Vayora is priced at ₹4,999. Join the waitlist for early access.</span><a class="announce-link" href="pricing.html">See pricing</a></p>
         </div>
@@ -64,6 +64,7 @@
                     <li><a href="product.html#modules">Four modules inside</a></li>
                     <li><a href="product.html#mosquitoguard">MosquitoGuard technology</a></li>
                     <li><a href="product.html#specs">Specifications</a></li>
+                    <li><a href="product.html#reviews">Customer reviews</a></li>
                     <li><a href="product.html#faq">FAQs</a></li>
                   </ul>
                 </div>
@@ -221,13 +222,150 @@
 
             <section class="co-card co-pay" aria-labelledby="co-pay-title">
               <h2 id="co-pay-title"><svg class="icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <rect width="18" height="11" x="3" y="11" rx="2" ry="2" /> <path d="M7 11V7a5 5 0 0 1 10 0v4" /> </svg>Payment</h2>
-              <p>You'll pay in Razorpay's secure payment window. Vayora never sees or stores your card or UPI details.</p>
-              <ul class="pay-methods" aria-label="Payment methods">
+              <p data-real-only>You'll pay in Razorpay's secure payment window. Vayora never sees or stores your card or UPI details.</p>
+              <fieldset class="pay-plan">
+                <legend>How would you like to pay?</legend>
+                <label class="plan-opt">
+                  <input type="radio" name="payPlan" value="full" checked data-pay-plan>
+                  <span class="plan-body">
+                    <span class="plan-title"><svg class="icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M19 7V4a1 1 0 0 0-1-1H5a2 2 0 0 0 0 4h15a1 1 0 0 1 1 1v4h-3a2 2 0 0 0 0 4h3a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1" /> <path d="M3 5v14a2 2 0 0 0 2 2h15a1 1 0 0 0 1-1v-4" /> </svg>Pay in full</span>
+                    <span class="plan-sub">UPI, debit card, credit card or net banking</span>
+                  </span>
+                  <span class="plan-amt" data-plan-full>₹4,999</span>
+                </label>
+                <label class="plan-opt" data-emi-option>
+                  <input type="radio" name="payPlan" value="emi" data-pay-plan aria-describedby="emi-panel-note">
+                  <span class="plan-body">
+                    <span class="plan-title"><svg class="icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M16 14v2.2l1.6 1" /> <path d="M16 2v3" /> <path d="M21 7.338V5a2 2 0 00-2-2H5a2 2 0 00-2 2v14a2 2 0 002 2h2.338" /> <path d="M3 9h5.859" /> <path d="M8 2v3" /> <circle cx="16" cy="16" r="6" /> </svg>Pay in EMI</span>
+                    <span class="plan-sub">Spread the cost over monthly instalments</span>
+                  </span>
+                  <span class="plan-amt">from <strong data-emi-from>₹417</strong>/month</span>
+                </label>
+              </fieldset>
+
+              <div class="emi-panel" hidden data-emi-panel>
+                <table class="emi-table">
+                  <caption>EMI plans for <span data-emi-total>₹4,999</span></caption>
+                  <thead><tr><th scope="col">Tenure</th><th scope="col">Monthly amount before interest</th></tr></thead>
+                  <tbody data-emi-rows></tbody>
+                </table>
+                <ul class="emi-ways">
+                  <li><svg class="icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <rect width="20" height="14" x="2" y="5" rx="2" /> <line x1="2" x2="22" y1="10" y2="10" /> <path d="M6 14h2" /> </svg>Credit card EMI from major banks</li>
+                  <li><svg class="icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <rect width="20" height="14" x="2" y="5" rx="2" /> <line x1="2" x2="22" y1="10" y2="10" /> <path d="M6 14h2" /> </svg>Debit card EMI and cardless EMI where your bank or provider offers it</li>
+                </ul>
+                <p class="emi-note" id="emi-panel-note"><span data-real-only>You'll choose your bank and EMI plan in Razorpay's payment window. </span><span data-demo-only hidden>Pick a card below, then choose your EMI plan under the card details. </span>Interest, GST on interest and minimum amounts are set by your bank or EMI provider, and you'll see the exact monthly amount before you confirm.</p>
+              </div>
+              <div class="demo-note" hidden data-demo-only>
+                <svg class="icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <circle cx="12" cy="12" r="10" /> <path d="M12 16v-4" /> <path d="M12 8h.01" /> </svg>
+                <p><strong>Demo checkout – no money is taken.</strong> This student project isn't connected to a payment service yet. The payment details below are sample data and can't be changed, so nothing you enter here is a real card, UPI or bank detail.</p>
+              </div>
+              <div class="pm" hidden data-demo-only data-pm>
+                <p class="pm-title" id="pm-title">Choose a payment method</p>
+                <div class="pm-tabs" role="tablist" aria-labelledby="pm-title">
+                  <button type="button" role="tab" id="pm-tab-upi" aria-controls="pm-upi" aria-selected="true" data-pm-tab="upi"><svg class="icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <rect width="14" height="20" x="5" y="2" rx="2" ry="2" /> <path d="M12 18h.01" /> </svg><span>UPI</span></button>
+                  <button type="button" role="tab" id="pm-tab-credit" aria-controls="pm-credit" aria-selected="false" tabindex="-1" data-pm-tab="credit"><svg class="icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <rect width="20" height="14" x="2" y="5" rx="2" /> <line x1="2" x2="22" y1="10" y2="10" /> <path d="M6 14h2" /> </svg><span>Credit Card</span></button>
+                  <button type="button" role="tab" id="pm-tab-debit" aria-controls="pm-debit" aria-selected="false" tabindex="-1" data-pm-tab="debit"><svg class="icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <rect width="20" height="14" x="2" y="5" rx="2" /> <line x1="2" x2="22" y1="10" y2="10" /> <path d="M6 14h2" /> </svg><span>Debit Card</span></button>
+                  <button type="button" role="tab" id="pm-tab-netbanking" aria-controls="pm-netbanking" aria-selected="false" tabindex="-1" data-pm-tab="netbanking"><svg class="icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M10 18v-7" /> <path d="M11.119 2.205a2 2 0 0 1 1.762 0l7.84 3.846A.5.5 0 0 1 20.5 7h-17a.5.5 0 0 1-.22-.949z" /> <path d="M14 18v-7" /> <path d="M18 18v-7" /> <path d="M3 22h18" /> <path d="M6 18v-7" /> </svg><span>Net Banking</span></button>
+                </div>
+
+                <div class="pm-panel" role="tabpanel" id="pm-upi" aria-labelledby="pm-tab-upi" tabindex="0" data-pm-panel="upi">
+                  <p class="pm-lead">Pay with any UPI app. You'd normally approve the request in your app.</p>
+                  <div class="field">
+                    <label for="pm-upi-id">UPI ID</label>
+                    <div class="upi-row">
+                      <input class="input demo-input" id="pm-upi-id" type="text" value="democustomer@upi" readonly aria-describedby="pm-sample-note">
+                      <span class="upi-ok"><svg class="icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <circle cx="12" cy="12" r="10" /> <path d="m16 9-5.5 5.5L8 12" /> </svg>Verified</span>
+                    </div>
+                  </div>
+                  <ol class="upi-steps">
+                    <li>A payment request is sent to your UPI app</li>
+                    <li>Approve it with your UPI PIN</li>
+                    <li>Come back here to see your booking</li>
+                  </ol>
+                </div>
+                <div class="pm-panel" role="tabpanel" id="pm-credit" aria-labelledby="pm-tab-credit" tabindex="0" hidden data-pm-panel="credit">
+                  <div class="card-preview card-credit" aria-hidden="true">
+                    <span class="cp-chip"></span>
+                    <span class="cp-type">Credit Card</span>
+                    <span class="cp-num">4111 1111 1111 1111</span>
+                    <span class="cp-row"><span data-demo-cardname>DEMO CUSTOMER</span><span>12/30</span></span>
+                    <span class="cp-net">VISA</span>
+                  </div>
+                  <div class="field">
+                    <label for="pm-credit-num">Card number</label>
+                    <input class="input demo-input" id="pm-credit-num" type="text" value="4111 1111 1111 1111" readonly aria-describedby="pm-sample-note">
+                  </div>
+                  <div class="field-row">
+                    <div class="field">
+                      <label for="pm-credit-exp">Expiry</label>
+                      <input class="input demo-input" id="pm-credit-exp" type="text" value="12 / 30" readonly aria-describedby="pm-sample-note">
+                    </div>
+                    <div class="field">
+                      <label for="pm-credit-cvv">CVV</label>
+                      <input class="input demo-input" id="pm-credit-cvv" type="text" value="•••" readonly aria-describedby="pm-sample-note">
+                    </div>
+                  </div>
+                  <div class="field">
+                    <label for="pm-credit-name">Name on card</label>
+                    <input class="input demo-input" id="pm-credit-name" type="text" value="Demo Customer" readonly data-demo-cardname-input aria-describedby="pm-sample-note">
+                  </div>
+                  <div class="field emi-pick" hidden data-emi-pick>
+                    <label for="pm-credit-emi">EMI plan</label>
+                    <select class="select" id="pm-credit-emi" data-emi-select></select>
+                  </div>
+                </div>
+                <div class="pm-panel" role="tabpanel" id="pm-debit" aria-labelledby="pm-tab-debit" tabindex="0" hidden data-pm-panel="debit">
+                  <div class="card-preview card-debit" aria-hidden="true">
+                    <span class="cp-chip"></span>
+                    <span class="cp-type">Debit Card</span>
+                    <span class="cp-num">5555 5555 5555 4444</span>
+                    <span class="cp-row"><span data-demo-cardname>DEMO CUSTOMER</span><span>12/30</span></span>
+                    <span class="cp-net">Mastercard</span>
+                  </div>
+                  <div class="field">
+                    <label for="pm-debit-num">Card number</label>
+                    <input class="input demo-input" id="pm-debit-num" type="text" value="5555 5555 5555 4444" readonly aria-describedby="pm-sample-note">
+                  </div>
+                  <div class="field-row">
+                    <div class="field">
+                      <label for="pm-debit-exp">Expiry</label>
+                      <input class="input demo-input" id="pm-debit-exp" type="text" value="12 / 30" readonly aria-describedby="pm-sample-note">
+                    </div>
+                    <div class="field">
+                      <label for="pm-debit-cvv">CVV</label>
+                      <input class="input demo-input" id="pm-debit-cvv" type="text" value="•••" readonly aria-describedby="pm-sample-note">
+                    </div>
+                  </div>
+                  <div class="field">
+                    <label for="pm-debit-name">Name on card</label>
+                    <input class="input demo-input" id="pm-debit-name" type="text" value="Demo Customer" readonly data-demo-cardname-input aria-describedby="pm-sample-note">
+                  </div>
+                  <div class="field emi-pick" hidden data-emi-pick>
+                    <label for="pm-debit-emi">EMI plan</label>
+                    <select class="select" id="pm-debit-emi" data-emi-select></select>
+                  </div>
+                </div>
+
+                <div class="pm-panel" role="tabpanel" id="pm-netbanking" aria-labelledby="pm-tab-netbanking" tabindex="0" hidden data-pm-panel="netbanking">
+                  <fieldset class="bank-list">
+                    <legend>Choose your bank</legend>
+                    <label class="bank-opt"><input type="radio" name="demoBank" value="State Bank of India" checked><span>State Bank of India</span></label>
+                    <label class="bank-opt"><input type="radio" name="demoBank" value="HDFC Bank"><span>HDFC Bank</span></label>
+                    <label class="bank-opt"><input type="radio" name="demoBank" value="ICICI Bank"><span>ICICI Bank</span></label>
+                    <label class="bank-opt"><input type="radio" name="demoBank" value="Axis Bank"><span>Axis Bank</span></label>
+                    <label class="bank-opt"><input type="radio" name="demoBank" value="Kotak Mahindra Bank"><span>Kotak Mahindra Bank</span></label>
+                    <label class="bank-opt"><input type="radio" name="demoBank" value="Punjab National Bank"><span>Punjab National Bank</span></label>
+                  </fieldset>
+                  <p class="pm-lead">You'd normally sign in on your bank's own page to approve the payment.</p>
+                </div>
+                <p class="pm-sample" id="pm-sample-note"><svg class="icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <rect width="18" height="11" x="3" y="11" rx="2" ry="2" /> <path d="M7 11V7a5 5 0 0 1 10 0v4" /> </svg>Sample details for the demo. They can't be edited.</p>
+              </div>
+              <ul class="pay-methods" aria-label="Payment methods" data-full-methods>
                 <li>UPI</li><li>Debit Card</li><li>Credit Card</li><li>Net Banking</li>
               </ul>
               <button class="btn btn-block btn-pay" type="submit" data-pay><span data-pay-label>PAY NOW / PLACE ORDER</span><span class="btn-pay-amount" data-pay-amount>₹4,999</span></button>
               <p class="pay-status" role="status" aria-live="polite" data-pay-status></p>
-              <p class="small muted pay-fine">Available methods depend on Razorpay. By placing the order you agree to pay the total shown.</p>
+              <p class="small muted pay-fine" data-real-only>Available methods depend on Razorpay. By placing the order you agree to pay the total shown.</p>
             </section>
           </form>
 
@@ -249,18 +387,30 @@
               </div>
             </div>
             <p class="os-qty-note small muted" data-qty-note aria-live="polite"></p>
+            <p class="os-perk" data-free-ship><svg class="icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2" /> <path d="M15 18H9" /> <path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14" /> <circle cx="17" cy="18" r="2" /> <circle cx="7" cy="18" r="2" /> </svg><span><strong>Free shipping</strong> on every order. Get your Vayora delivered anywhere in India in <strong><span data-delivery-days>7</span> days</strong>.</span></p>
             <dl class="os-lines">
               <div><dt>Unit price</dt><dd data-os-unit>₹4,999</dd></div>
               <div><dt>Subtotal</dt><dd data-os-subtotal>₹4,999</dd></div>
-              <div><dt>Shipping</dt><dd data-os-shipping>₹0</dd></div>
+              <div><dt>Shipping</dt><dd data-os-shipping><span class="free-tag">FREE</span></dd></div>
               <div data-os-tax-row hidden><dt data-os-tax-label>Taxes</dt><dd data-os-tax>₹0</dd></div>
               <div class="os-total"><dt>Total payable</dt><dd data-os-total>₹4,999</dd></div>
             </dl>
-            <p class="os-secure"><svg class="icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" /> <path d="m9 12 2 2 4-4" /> </svg><span>Secure payment by Razorpay</span></p>
+            <p class="os-emi" data-os-emi><svg class="icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M16 14v2.2l1.6 1" /> <path d="M16 2v3" /> <path d="M21 7.338V5a2 2 0 00-2-2H5a2 2 0 00-2 2v14a2 2 0 002 2h2.338" /> <path d="M3 9h5.859" /> <path d="M8 2v3" /> <circle cx="16" cy="16" r="6" /> </svg><span>EMI available from <strong data-emi-from>₹417</strong>/month</span></p>
+            <p class="os-secure" data-real-only><svg class="icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" /> <path d="m9 12 2 2 4-4" /> </svg><span>Secure payment by Razorpay</span></p>
           </aside>
         </div>
       </div>
     </section>
+
+    <!-- DEMO PAYMENT PROGRESS (only when online payment isn't connected) -->
+    <div class="demo-progress" hidden data-demo-progress role="dialog" aria-modal="true" aria-labelledby="demo-progress-title">
+      <div class="dp-card">
+        <span class="spinner" aria-hidden="true" data-dp-spinner></span>
+        <span class="dp-tick" aria-hidden="true" hidden data-dp-tick><svg class="icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <circle cx="12" cy="12" r="10" /> <path d="m16 9-5.5 5.5L8 12" /> </svg></span>
+        <p class="dp-title" id="demo-progress-title" data-dp-title tabindex="-1">Processing demo payment…</p>
+        <p class="dp-sub" data-dp-sub>No money is being taken.</p>
+      </div>
+    </div>
 
   </main>
   <footer class="site-footer">
@@ -279,6 +429,7 @@
             <li><a href="product.html">Product</a></li>
             <li><a href="index.html#features">Features</a></li>
             <li><a href="pricing.html">Pricing</a></li>
+            <li><a href="product.html#reviews">Reviews</a></li>
             <li><a href="product.html#faq">FAQs</a></li>
           </ul>
         </nav>
@@ -391,6 +542,7 @@
   <script src="assets/js/config.js" defer></script>
 <script src="assets/js/waitlist-store.js" defer></script>
 <script src="assets/js/search-index.js" defer></script>
+<script src="assets/js/reviews-data.js" defer></script>
 <script src="assets/js/main.js" defer></script>
 <script src="assets/js/checkout.js" defer></script>
 </body>

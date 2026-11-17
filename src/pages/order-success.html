@@ -11,6 +11,14 @@
           <div class="or-tick" aria-hidden="true">{{icon:circle-check}}</div>
           <h1 id="or-title"><span aria-hidden="true">🎉 </span>Order Successfully Placed!</h1>
           <p class="lead">Thank you for choosing Vayora. Your order has been successfully confirmed. We're excited to bring a better personal comfort experience to you.</p>
+          <div class="or-happy">
+            <span class="oh-ico" aria-hidden="true">{{icon:wind}}</span>
+            <div>
+              <p class="oh-title">Time to enjoy breezy air!</p>
+              <p>Cool, clean, mosquito-free comfort, wherever you go.</p>
+            </div>
+          </div>
+          <p class="or-delivery">{{icon:truck}}<span>Get your product delivered in <strong data-delivery-days>7</strong> days. Expected by <strong data-delivery-date></strong>.</span></p>
           <dl class="or-details">
             <div><dt>Order ID</dt><dd data-f="orderId"></dd></div>
             <div><dt>Customer Name</dt><dd data-f="customerName"></dd></div>
@@ -23,6 +31,40 @@
             <div class="wide"><dt>Shipping Address</dt><dd data-f="shippingAddress"></dd></div>
           </dl>
           <p class="or-email" data-or-email>{{icon:mail}}<span></span></p>
+          <p class="or-tagline">Designed for the Vayu You Live In</p>
+          <div class="btn-row">
+            <a class="btn" href="{{link:product}}">Continue Shopping</a>
+            <a class="btn btn-ghost" href="{{link:home}}">Back to Home</a>
+          </div>
+        </div>
+
+        <div class="or-card or-success or-demo" data-or-demo hidden tabindex="-1">
+          <img class="or-logo" src="{{asset:img/brand/vayora-logo.webp}}" alt="Vayora" width="669" height="240" decoding="async">
+          <p class="demo-pill">{{icon:info}}Demo – no money was taken</p>
+          <div class="or-tick" aria-hidden="true">{{icon:circle-check}}</div>
+          <h1><span aria-hidden="true">🎉 </span>Booking Taken!</h1>
+          <p class="lead">Demo payment successful. Thank you for choosing Vayora. Your booking is confirmed.</p>
+          <div class="or-happy">
+            <span class="oh-ico" aria-hidden="true">{{icon:wind}}</span>
+            <div>
+              <p class="oh-title">Time to enjoy breezy air!</p>
+              <p>Cool, clean, mosquito-free comfort, wherever you go.</p>
+            </div>
+          </div>
+          <p class="or-delivery">{{icon:truck}}<span>Get your product delivered in <strong data-d-days>7</strong> days. Expected by <strong data-d-date></strong>.</span></p>
+          <dl class="or-details">
+            <div><dt>Booking ID</dt><dd data-d="orderId"></dd></div>
+            <div><dt>Customer Name</dt><dd data-d="customerName"></dd></div>
+            <div><dt>Email Address</dt><dd data-d="email"></dd></div>
+            <div><dt>Product Name</dt><dd data-d="productName"></dd></div>
+            <div><dt>Quantity</dt><dd data-d="quantity"></dd></div>
+            <div><dt>Total Amount</dt><dd data-d="totalAmount"></dd></div>
+            <div><dt>Payment Method</dt><dd data-d="method"></dd></div>
+            <div><dt>Payment Status</dt><dd><span class="paid-pill demo">Demo payment successful</span></dd></div>
+            <div class="wide"><dt>Booking Date</dt><dd data-d="orderDate"></dd></div>
+            <div class="wide"><dt>Shipping Address</dt><dd data-d="shippingAddress"></dd></div>
+          </dl>
+          <p class="or-email">{{icon:info}}<span>This is a demo booking for a student project. No money was taken, no email is sent and nothing will be shipped.</span></p>
           <p class="or-tagline">Designed for the Vayu You Live In</p>
           <div class="btn-row">
             <a class="btn" href="{{link:product}}">Continue Shopping</a>

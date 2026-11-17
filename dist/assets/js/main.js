@@ -225,6 +225,246 @@
     });
   });
 
+  /* ---------------------------------------------------------------- reviews (product) */
+  // Shows only the reviews listed in reviews-data.js. The summary is worked out from that list.
+  $$('#reviews').forEach(function (sec) {
+    var STAR = ($('.stars-base svg', sec) || {}).outerHTML || '';
+    var MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    var PAGE = 5;
+    var shown = PAGE;
+    var reviews = (window.VAYORA_REVIEWS || []).filter(function (r) {
+      return r && typeof r.text === 'string' && r.text.trim() && r.name && Math.round(r.rating) >= 1 && Math.round(r.rating) <= 5;
+    }).map(function (r, i) {
+      return { name: String(r.name), city: r.city ? String(r.city) : '', rating: Math.round(r.rating), title: r.title ? String(r.title) : '',
+        text: String(r.text), date: r.date ? String(r.date) : '', verified: r.verified === true, i: i };
+    });
+    var list = $('[data-review-list]', sec);
+    var sortSel = $('[data-reviews-sort]', sec);
+
+    function fmtDate(d) {
+      var m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(d);
+      return m ? (+m[3]) + ' ' + MONTHS[+m[2] - 1] + ' ' + m[1] : '';
+    }
+    function starsEl(rating, cls) {
+      var s = doc.createElement('span');
+      s.className = 'stars ' + (cls || '');
+      s.style.setProperty('--fill', (rating / 5 * 100) + '%');
+      var stars = new Array(6).join(STAR);
+      s.innerHTML = '<span class="stars-base" aria-hidden="true">' + stars + '</span><span class="stars-fill" aria-hidden="true">' + stars + '</span>';
+      var t = doc.createElement('span');
+      t.className = 'visually-hidden';
+      t.textContent = 'Rated ' + rating + ' out of 5';
+      s.appendChild(t);
+      return s;
+    }
+
+    // Summary
+    var counts = [0, 0, 0, 0, 0, 0];
+    var total = 0;
+    reviews.forEach(function (r) { counts[r.rating]++; total += r.rating; });
+    var n = reviews.length;
+    var avg = n ? Math.round(total / n * 10) / 10 : 0;
+    $('[data-rs-avg]', sec).textContent = n ? avg.toFixed(1) : '–';
+    $('[data-rs-stars]', sec).style.setProperty('--fill', (avg / 5 * 100) + '%');
+    $('[data-rs-count]', sec).textContent = n
+      ? avg.toFixed(1) + ' out of 5, from ' + n + (n === 1 ? ' review' : ' reviews')
+      : 'No ratings yet';
+    for (var k = 1; k <= 5; k++) {
+      $('[data-rb-fill="' + k + '"]', sec).style.width = (n ? counts[k] / n * 100 : 0) + '%';
+      $('[data-rb-count="' + k + '"]', sec).textContent = counts[k];
+    }
+    $('[data-rs-bars]', sec).setAttribute('aria-label', 'Ratings breakdown: ' +
+      [5, 4, 3, 2, 1].map(function (x) { return x + ' star: ' + counts[x]; }).join(', '));
+
+    $('[data-reviews-empty]', sec).hidden = n > 0;
+    $('[data-reviews-toolbar]', sec).hidden = n < 2;
+
+    function render() {
+      var mode = sortSel ? sortSel.value : 'recent';
+      var sorted = reviews.slice().sort(function (a, b) {
+        if (mode === 'high' && a.rating !== b.rating) return b.rating - a.rating;
+        if (mode === 'low' && a.rating !== b.rating) return a.rating - b.rating;
+        return (b.date > a.date ? 1 : b.date < a.date ? -1 : a.i - b.i);
+      });
+      list.textContent = '';
+      sorted.slice(0, shown).forEach(function (r) {
+        var li = doc.createElement('li');
+        li.className = 'review-card';
+        var head = doc.createElement('div');
+        head.className = 'rc-head';
+        head.appendChild(starsEl(r.rating));
+        if (r.date) {
+          var time = doc.createElement('time');
+          time.dateTime = r.date;
+          time.textContent = fmtDate(r.date);
+          head.appendChild(time);
+        }
+        li.appendChild(head);
+        if (r.title) { var h = doc.createElement('h3'); h.textContent = r.title; li.appendChild(h); }
+        r.text.split(/\n{2,}/).forEach(function (para) {
+          var p = doc.createElement('p'); p.textContent = para.trim(); li.appendChild(p);
+        });
+        var by = doc.createElement('p');
+        by.className = 'rc-by';
+        var who = doc.createElement('span');
+        who.textContent = r.name + (r.city ? ', ' + r.city : '');
+        by.appendChild(who);
+        if (r.verified) {
+          var v = doc.createElement('span');
+          v.className = 'rc-verified';
+          v.textContent = 'Verified purchase';
+          by.appendChild(v);
+        }
+        li.appendChild(by);
+        list.appendChild(li);
+      });
+      var visible = Math.min(shown, n);
+      var showing = $('[data-reviews-showing]', sec);
+      if (showing) showing.textContent = 'Showing ' + visible + ' of ' + n + ' reviews';
+      $('[data-reviews-more-wrap]', sec).hidden = n <= shown;
+    }
+    if (sortSel) sortSel.addEventListener('change', function () { shown = PAGE; render(); });
+    var more = $('[data-reviews-more]', sec);
+    if (more) more.addEventListener('click', function () {
+      var first = shown;
+      shown += PAGE;
+      render();
+      var next = list.children[first];
+      if (next) { next.setAttribute('tabindex', '-1'); next.focus(); }
+    });
+    render();
+  });
+
+  /* ---------------------------------------------------------------- write a review */
+  (function () {
+    var dlg = $('[data-review-dialog]');
+    if (!dlg) return;
+    var form = $('[data-review-form]', dlg);
+    var success = $('[data-review-success]', dlg);
+    var summary = $('[data-form-summary]', form);
+    var word = $('[data-star-word]', form);
+    var starWrap = $('[data-star-input]', form);
+    var WORDS = ['', 'Poor', 'Fair', 'Good', 'Very good', 'Excellent'];
+    var counter = $('[data-char-count]', form);
+    var trigger = null;
+    var submitted = false;
+
+    function ratingVal() { var c = $('input[name="rating"]:checked', form); return c ? +c.value : 0; }
+    function paintStars(v) {
+      $$('label', starWrap).forEach(function (l, i) { l.classList.toggle('on', i < v); });
+      word.textContent = WORDS[v] || '';
+    }
+    $$('input[name="rating"]', form).forEach(function (r) {
+      r.addEventListener('change', function () { paintStars(ratingVal()); if (submitted) validate(); });
+    });
+    $$('label', starWrap).forEach(function (l, i) {
+      l.addEventListener('mouseenter', function () { paintStars(i + 1); });
+    });
+    starWrap.addEventListener('mouseleave', function () { paintStars(ratingVal()); });
+
+    var t = form.elements.text;
+    t.addEventListener('input', function () { counter.textContent = t.value.length; });
+
+    function errFor(el) {
+      var ids = (el.getAttribute('aria-describedby') || '').split(/\s+/);
+      for (var i = 0; i < ids.length; i++) { if (/-err$/.test(ids[i])) return doc.getElementById(ids[i]); }
+      return null;
+    }
+    function setErr(el, msg) {
+      var e = errFor(el);
+      if (e) e.textContent = msg;
+      if (el.type !== 'checkbox' && el.tagName !== 'FIELDSET') el.setAttribute('aria-invalid', msg ? 'true' : 'false');
+      return msg;
+    }
+    function validate() {
+      var f = form.elements;
+      var bad = [];
+      var ratingField = $('.star-field', form);
+      if (setErr(ratingField, ratingVal() ? '' : 'Choose a star rating.')) bad.push($('input[name="rating"]', form));
+      var name = f.name.value.trim();
+      if (setErr(f.name, !name ? 'Enter the name to show with your review.' : name.length < 2 ? 'Enter at least 2 characters.' : '')) bad.push(f.name);
+      var email = f.email.value.trim();
+      if (setErr(f.email, !email ? 'Enter your email address.' : EMAIL_RE.test(email) ? '' : 'Enter an email address like name@example.com.')) bad.push(f.email);
+      var text = f.text.value.trim();
+      if (setErr(f.text, !text ? 'Write your review.' : text.length < 20 ? 'Write at least 20 characters so other buyers get a useful picture.' : '')) bad.push(f.text);
+      if (setErr(f.consent, f.consent.checked ? '' : 'Tick this box to confirm you have used Vayora and agree to publication.')) bad.push(f.consent);
+      return bad;
+    }
+    ['name', 'email', 'text'].forEach(function (k) {
+      var el = form.elements[k];
+      el.addEventListener('blur', function () { if (submitted) validate(); });
+      el.addEventListener('input', function () { if (el.getAttribute('aria-invalid') === 'true') validate(); });
+    });
+    form.elements.consent.addEventListener('change', function () { if (submitted) validate(); });
+
+    function reset() {
+      form.reset();
+      submitted = false;
+      paintStars(0);
+      counter.textContent = '0';
+      summary.textContent = '';
+      $$('.error-msg', form).forEach(function (e) { e.textContent = ''; });
+      $$('[aria-invalid]', form).forEach(function (e) { e.setAttribute('aria-invalid', 'false'); });
+      form.hidden = false;
+      success.hidden = true;
+    }
+    function open(tr) {
+      trigger = tr || doc.activeElement;
+      if (!success.hidden) reset();
+      if (typeof dlg.showModal === 'function') { if (!dlg.open) dlg.showModal(); } else dlg.setAttribute('open', '');
+      var first = $('input[name="rating"]', form);
+      if (first) first.focus();
+    }
+    function close() {
+      if (typeof dlg.close === 'function' && dlg.open) dlg.close(); else dlg.removeAttribute('open');
+    }
+    doc.addEventListener('click', function (e) {
+      var o = e.target.closest('[data-review-open]');
+      if (o) { e.preventDefault(); open(o); }
+    });
+    $$('[data-review-close]', dlg).forEach(function (b) { b.addEventListener('click', close); });
+    dlg.addEventListener('click', function (e) { if (e.target === dlg) close(); });
+    dlg.addEventListener('close', function () { if (trigger && doc.body.contains(trigger) && trigger.focus) trigger.focus(); });
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      submitted = true;
+      var bad = validate();
+      if (bad.length) {
+        summary.textContent = 'Please fix ' + bad.length + (bad.length === 1 ? ' field' : ' fields') + ' below.';
+        bad[0].focus();
+        return;
+      }
+      summary.textContent = '';
+      var f = form.elements;
+      var review = {
+        rating: ratingVal(), name: f.name.value.trim(), city: f.city.value.trim(), email: f.email.value.trim().toLowerCase(),
+        title: f.title.value.trim(), text: f.text.value.trim(), honey: f._honey ? f._honey.value : '',
+      };
+      var btn = $('[data-submit]', form);
+      var label = btn.textContent;
+      btn.disabled = true;
+      btn.textContent = 'Sending…';
+      store.sendReview(review).then(function () {
+        $('[data-review-success-msg]', dlg).textContent = 'Thanks, ' + review.name.split(' ')[0] +
+          '. Your ' + review.rating + '-star review has been sent to the Vayora team. Reviews are checked before they’re published, so it won’t appear here straight away.';
+        form.hidden = true;
+        success.hidden = false;
+        success.focus();
+      }).catch(function (err) {
+        if (window.console) console.warn('Vayora review:', err && err.message);
+        summary.textContent = err && err.code === 'not_configured'
+          ? 'Reviews can’t be sent from this site right now. Please call ' + ((window.VAYORA_CONFIG || {}).checkout || {}).supportPhone + ' instead.'
+          : err && err.code === 'not_delivered'
+            ? 'We couldn’t send your review just now. Please try again later.'
+            : 'We couldn’t reach the server. Check your connection and try again.';
+      }).then(function () {
+        btn.disabled = false;
+        btn.textContent = label;
+      });
+    });
+  })();
+
   /* ---------------------------------------------------------------- waitlist dialog */
   var dialog = $('[data-waitlist-dialog]');
   var dialogForm = dialog ? Waitlist($('[data-waitlist-scope]', dialog)) : null;
@@ -741,6 +981,22 @@
   // Muted concept video plays only while visible, and never automatically for reduced-motion users.
   $$('[data-autoplay-video]').forEach(function (v) {
     v.muted = true;
+    // Optional pause/play button next to the video (use-case cards)
+    var tog = v.parentNode && v.parentNode.querySelector('[data-video-toggle]');
+    if (tog) {
+      var sync = function () {
+        var playing = !v.paused;
+        tog.setAttribute('aria-label', playing ? 'Pause animation' : 'Play animation');
+        $('[data-icon-pause]', tog).hidden = !playing;
+        $('[data-icon-play]', tog).hidden = playing;
+      };
+      v.addEventListener('play', sync);
+      v.addEventListener('pause', sync);
+      tog.addEventListener('click', function () {
+        if (v.paused) { var pp = v.play(); if (pp && pp.catch) pp.catch(function () {}); } else v.pause();
+      });
+      sync();
+    }
     if (reduceMotion || !('IntersectionObserver' in window)) return;
     var userPaused = false;
     v.addEventListener('pause', function () { if (v.dataset.autoPausing !== '1') userPaused = true; });

@@ -59,6 +59,7 @@
     "config.js",
     "waitlist-store.js",
     "search-index.js",
+    "reviews-data.js",
     "main.js",
     "checkout.js"
   ]
