@@ -1,5 +1,5 @@
 /*
- * ClimaPod site behaviour. No dependencies.
+ * Vayora site behaviour. No dependencies.
  * Sections: helpers · header + mobile menu · waitlist dialog + form · airflow stepper ·
  * exploded diagram · journal index · reveal on scroll · single-file preview router.
  */
@@ -52,31 +52,145 @@
     doc.addEventListener('click', function (e) {
       if (nav.classList.contains('is-open') && !e.target.closest('#site-nav, [data-menu-toggle]')) setMenu(false);
     });
-    window.addEventListener('resize', function () { if (window.innerWidth > 880) setMenu(false); });
+    window.addEventListener('resize', function () { if (window.innerWidth > 1100) setMenu(false); });
   }
+
+  /* ---------------------------------------------------------------- waitlist forms
+   * Every [data-waitlist-scope] (the dialog body and the inline section on Home) holds one
+   * form + one success panel. Each scope gets its own validation state. Errors are found
+   * through each control's aria-describedby, so ids only have to be unique per page. */
+  var store = window.VayoraWaitlist;
+  var EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+  var RULES = {
+    name: function (v) {
+      v = v.trim();
+      if (!v) return 'Enter your name.';
+      if (v.length < 2) return 'Your name needs at least 2 characters.';
+      if (!/[A-Za-zÀ-ɏऀ-ॿ]/.test(v)) return 'Enter your name using letters.';
+      return '';
+    },
+    email: function (v) {
+      v = v.trim();
+      if (!v) return 'Enter your email address.';
+      if (!EMAIL_RE.test(v)) return 'Enter an email address like name@example.com.';
+      if (store && store.has(v)) return 'This email is already on the waitlist in this browser.';
+      return '';
+    },
+  };
+
+  function Waitlist(scope) {
+    var form = $('[data-waitlist-form]', scope);
+    var success = $('[data-success]', scope);
+    if (!form || !success) return null;
+    var submitted = false;
+    var names = Object.keys(RULES);
+
+    function ctl(n) { return form.elements[n]; }
+    function errEl(n) { return doc.getElementById(ctl(n).getAttribute('aria-describedby')); }
+    function validate(n) {
+      var msg = RULES[n](ctl(n).value);
+      var err = errEl(n);
+      if (err) err.textContent = msg;
+      ctl(n).setAttribute('aria-invalid', msg ? 'true' : 'false');
+      return msg;
+    }
+    function reset() {
+      form.reset();
+      submitted = false;
+      names.forEach(function (n) { ctl(n).removeAttribute('aria-invalid'); var e = errEl(n); if (e) e.textContent = ''; });
+      var summary = $('[data-form-summary]', form);
+      if (summary) summary.textContent = '';
+      form.hidden = false;
+      success.hidden = true;
+    }
+    names.forEach(function (n) {
+      ctl(n).addEventListener('blur', function () { if (submitted || ctl(n).value) validate(n); });
+      ctl(n).addEventListener('input', function () { if (ctl(n).getAttribute('aria-invalid') === 'true') validate(n); });
+    });
+    if (store && store.mode === 'remote') {
+      $$('[data-remote-only]', scope).forEach(function (el) { el.hidden = false; });
+      var note = $('[data-storage-note] span', scope);
+      if (note) note.textContent = '';
+    }
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      submitted = true;
+      var errors = names.filter(function (n) { return validate(n); });
+      var summary = $('[data-form-summary]', form);
+      if (errors.length) {
+        summary.textContent = errors.length === 1 ? 'Please fix 1 field below.' : 'Please fix ' + errors.length + ' fields below.';
+        ctl(errors[0]).focus();
+        return;
+      }
+      summary.textContent = '';
+      var entry = {
+        name: ctl('name').value.trim(),
+        email: ctl('email').value.trim().toLowerCase(),
+        joinedAt: new Date().toISOString(),
+        source: location.pathname + location.hash,
+      };
+      if (form.elements._honey) entry._honey = form.elements._honey.value; // spam trap, always empty for people
+      var btn = $('[data-submit]', form);
+      var label = btn.textContent;
+      btn.disabled = true;
+      btn.textContent = 'Joining…';
+      store.save(entry).then(function (result) {
+        showSuccess(entry, result);
+      }).catch(function (err) {
+        if (window.console) console.warn('Vayora waitlist:', err && err.message);
+        summary.textContent = err && err.code === 'not_delivered'
+          ? "We couldn't add you to the waitlist just now. Please try again later."
+          : "We couldn't reach the waitlist. Check your connection and try again.";
+      }).then(function () {
+        btn.disabled = false;
+        btn.textContent = label;
+      });
+    });
+
+    function showSuccess(entry, result) {
+      var first = entry.name.split(/\s+/)[0];
+      var title = $('[data-success-title]', success);
+      var msg = $('[data-success-msg]', success);
+      var note = $('[data-success-storage]', success);
+      if (result.mode === 'remote') {
+        title.textContent = 'You’re on the waitlist';
+        msg.textContent = 'Thanks, ' + first + '. You’re on the Vayora waitlist. We’ll be in touch at ' + entry.email + ' with launch updates and early access information.';
+        note.textContent = '';
+      } else {
+        // Prototype mode: no backend is connected, so say plainly that nothing was sent.
+        title.textContent = 'Thanks for your interest';
+        msg.textContent = 'Thanks, ' + first + '. This waitlist is still a prototype, so your name and email were not sent to the Vayora team and you won’t receive emails yet.';
+        note.textContent = result.mode === 'local'
+          ? 'Your entry is kept only in this browser on this device.'
+          : 'Your entry is kept only until you close this page.';
+      }
+      form.hidden = true;
+      success.hidden = false;
+      success.focus();
+    }
+    return { reset: reset, done: function () { return !success.hidden; } };
+  }
+
+  $$('[data-waitlist-scope]').forEach(function (scope) {
+    if (!scope.closest('[data-waitlist-dialog]')) Waitlist(scope);
+  });
 
   /* ---------------------------------------------------------------- waitlist dialog */
   var dialog = $('[data-waitlist-dialog]');
-  var form = $('[data-waitlist-form]');
-  var success = $('[data-success]');
+  var dialogForm = dialog ? Waitlist($('[data-waitlist-scope]', dialog)) : null;
   var lastTrigger = null;
-  var store = window.ClimaPodWaitlist;
 
   function openDialog(trigger) {
     if (!dialog) return;
     lastTrigger = trigger || doc.activeElement;
-    if (success && !success.hidden) resetForm();
-    var concern = trigger && trigger.getAttribute && trigger.getAttribute('data-concern');
-    if (concern && form) {
-      var radio = form.querySelector('input[name="concern"][value="' + concern + '"]');
-      if (radio) radio.checked = true;
-    }
+    if (dialogForm && dialogForm.done()) dialogForm.reset();
     if (typeof dialog.showModal === 'function') {
       if (!dialog.open) dialog.showModal();
     } else {
       dialog.setAttribute('open', '');
     }
-    var first = $('#wl-name', dialog);
+    var first = $('input[name="name"]', dialog);
     if (first && doc.activeElement !== first) first.focus();
   }
   function closeDialog() {
@@ -96,153 +210,9 @@
     dialog.addEventListener('close', function () {
       if (lastTrigger && doc.body.contains(lastTrigger) && lastTrigger.focus) lastTrigger.focus();
     });
-    if (store && store.mode === 'remote') {
-      $$('[data-remote-only]', dialog).forEach(function (el) { el.hidden = false; });
-      var note = $('[data-storage-note] span', dialog);
-      if (note) note.textContent = 'Your details are sent securely to the ClimaPod team. No payment is taken.';
-    }
   }
 
-  /* ---------------------------------------------------------------- form validation */
-  var EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
-  var fields = {
-    name: function (v) {
-      v = v.trim();
-      if (!v) return 'Enter your full name.';
-      if (v.length < 2) return 'Your name needs at least 2 characters.';
-      if (!/[A-Za-zÀ-ɏऀ-ॿ]/.test(v)) return 'Enter your name using letters.';
-      return '';
-    },
-    email: function (v) {
-      v = v.trim();
-      if (!v) return 'Enter your email address.';
-      if (!EMAIL_RE.test(v)) return 'Enter an email address like name@example.com.';
-      if (store && store.has(v)) return 'This email is already on the waitlist.';
-      return '';
-    },
-    city: function (v) {
-      v = v.trim();
-      if (!v) return 'Enter the city you live in.';
-      if (v.length < 2) return 'Enter a city name with at least 2 characters.';
-      return '';
-    },
-    housing: function (v) { return v ? '' : 'Choose your housing type.'; },
-    concern: function (v) { return v ? '' : 'Choose your main concern.'; },
-  };
-  var errIds = { name: 'wl-name-err', email: 'wl-email-err', city: 'wl-city-err', housing: 'wl-housing-err', concern: 'wl-concern-err' };
-  var submitted = false;
-
-  function valueOf(name) {
-    if (name === 'concern') {
-      var c = form.querySelector('input[name="concern"]:checked');
-      return c ? c.value : '';
-    }
-    return form.elements[name].value;
-  }
-  function controlOf(name) {
-    return name === 'concern' ? form.querySelector('[data-concern-group]') : form.elements[name];
-  }
-  function validateField(name) {
-    var msg = fields[name](valueOf(name));
-    var ctl = controlOf(name);
-    var err = doc.getElementById(errIds[name]);
-    if (err) err.textContent = msg;
-    if (ctl) ctl.setAttribute('aria-invalid', msg ? 'true' : 'false');
-    return msg;
-  }
-  function resetForm() {
-    if (!form) return;
-    form.reset();
-    submitted = false;
-    Object.keys(fields).forEach(function (n) {
-      var ctl = controlOf(n);
-      if (ctl) ctl.removeAttribute('aria-invalid');
-      var err = doc.getElementById(errIds[n]);
-      if (err) err.textContent = '';
-    });
-    var summary = $('[data-form-summary]', form);
-    if (summary) summary.textContent = '';
-    form.hidden = false;
-    if (success) success.hidden = true;
-  }
-
-  if (form) {
-    Object.keys(fields).forEach(function (n) {
-      var ctl = controlOf(n);
-      var evt = n === 'concern' || n === 'housing' ? 'change' : 'blur';
-      ctl.addEventListener(evt, function () { if (submitted || valueOf(n)) validateField(n); });
-      if (n !== 'concern' && n !== 'housing') {
-        ctl.addEventListener('input', function () { if (ctl.getAttribute('aria-invalid') === 'true') validateField(n); });
-      }
-    });
-
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
-      submitted = true;
-      var errors = Object.keys(fields).map(function (n) { return [n, validateField(n)]; }).filter(function (x) { return x[1]; });
-      var summary = $('[data-form-summary]', form);
-      if (errors.length) {
-        summary.textContent = errors.length === 1 ? 'Please fix 1 field below.' : 'Please fix ' + errors.length + ' fields below.';
-        var first = controlOf(errors[0][0]);
-        (first.tagName === 'FIELDSET' ? first.querySelector('input') : first).focus();
-        return;
-      }
-      summary.textContent = '';
-
-      var entry = {
-        name: valueOf('name').trim(),
-        email: valueOf('email').trim().toLowerCase(),
-        city: valueOf('city').trim(),
-        housing: valueOf('housing'),
-        concern: valueOf('concern'),
-        prototypeTester: !!(form.elements.tester && form.elements.tester.checked),
-        joinedAt: new Date().toISOString(),
-        source: location.pathname + location.hash,
-      };
-      var btn = $('[data-submit]', form);
-      btn.disabled = true;
-      btn.textContent = 'Joining…';
-
-      store.save(entry).then(function (result) {
-        showSuccess(entry, result);
-      }).catch(function () {
-        summary.textContent = "We couldn't reach the waitlist service. Check your connection and try again.";
-      }).then(function () {
-        btn.disabled = false;
-        btn.textContent = 'Join the waitlist';
-      });
-    });
-  }
-
-  function showSuccess(entry, result) {
-    var first = entry.name.split(/\s+/)[0];
-    var title = $('[data-success-title]');
-    var msg = $('[data-success-msg]');
-    if (result.mode === 'remote') {
-      title.textContent = 'You\u2019re on the waitlist';
-      msg.textContent = 'Thanks, ' + first + '. We\u2019ll email ' + entry.email + ' with prototype updates as testing progresses.';
-    } else {
-      // Prototype mode: be explicit that nothing reached the team and no emails will follow.
-      title.textContent = 'Thanks for your interest';
-      msg.textContent = 'Thanks, ' + first + '. This is a prototype form, so your details were not sent to the ClimaPod team and you won\u2019t receive emails yet.';
-    }
-    var dl = $('[data-success-summary]');
-    dl.innerHTML = '';
-    [['City', entry.city], ['Housing', entry.housing], ['Main concern', entry.concern], ['Prototype testing', entry.prototypeTester ? 'Yes, count me in' : 'Not this time']].forEach(function (row) {
-      var dt = doc.createElement('dt'); dt.textContent = row[0];
-      var dd = doc.createElement('dd'); dd.textContent = row[1];
-      dl.appendChild(dt); dl.appendChild(dd);
-    });
-    var note = $('[data-success-storage]');
-    if (result.mode === 'local') note.textContent = 'For this demo, your answers are kept only in this browser on this device. Nothing was sent anywhere.';
-    else if (result.mode === 'memory') note.textContent = 'For this demo, your answers are kept only until you close this page. Nothing was sent anywhere.';
-    else note.textContent = '';
-    form.hidden = true;
-    success.hidden = false;
-    success.focus();
-  }
-
-  /* ---------------------------------------------------------------- airflow stepper (home) */
+  /* ---------------------------------------------------------------- airflow stepper (product) */
   $$('[data-pipeline]').forEach(function (pipe) {
     var tabs = $$('.stage-btn', pipe);
     var numEl = $('[data-step-num]', pipe);
@@ -481,7 +451,7 @@
     var sEmpty = $('[data-search-empty]', searchDialog);
     var sCount = $('[data-search-count]', searchDialog);
     var sSuggest = $('[data-search-suggest]', searchDialog);
-    var index = window.CLIMAPOD_SEARCH || [];
+    var index = window.VAYORA_SEARCH || [];
     var searchTrigger = null;
 
     var norm = function (str) { return String(str || '').toLowerCase().replace(/[^a-z0-9₹.\s-]/g, ' '); };
@@ -605,6 +575,15 @@
       car.classList.add('is-timing');
       timer = setTimeout(function () { go(i + 1); }, DELAY);
     }
+    function syncSlideVideos() {
+      slides.forEach(function (sl, j) {
+        $$('video', sl).forEach(function (v) {
+          v.muted = true;
+          if (j === i && !reduceMotion && !userPaused && inView) { var p = v.play(); if (p && p.catch) p.catch(function () {}); }
+          else if (!v.paused) v.pause();
+        });
+      });
+    }
     function go(n) {
       i = (n + slides.length) % slides.length;
       slides.forEach(function (sl, j) {
@@ -613,6 +592,7 @@
         sl.setAttribute('aria-hidden', String(!on));
         if ('inert' in sl) sl.inert = !on;
       });
+      syncSlideVideos();
       dots.forEach(function (d, j) {
         d.classList.toggle('is-active', j === i);
         if (j === i) d.setAttribute('aria-current', 'true'); else d.removeAttribute('aria-current');
@@ -622,7 +602,7 @@
     dots.forEach(function (d) { d.addEventListener('click', function () { go(Number(d.getAttribute('data-goto'))); }); });
     $('[data-carousel-prev]', car).addEventListener('click', function () { go(i - 1); });
     $('[data-carousel-next]', car).addEventListener('click', function () { go(i + 1); });
-    pauseBtn.addEventListener('click', function () { userPaused = !userPaused; setPauseUI(); restart(); });
+    pauseBtn.addEventListener('click', function () { userPaused = !userPaused; setPauseUI(); restart(); syncSlideVideos(); });
     var slidesWrap = $('.slides', car);
     slidesWrap.addEventListener('mouseenter', function () { held = true; restart(); });
     slidesWrap.addEventListener('mouseleave', function () { held = false; restart(); });
@@ -630,7 +610,7 @@
     slidesWrap.addEventListener('focusout', function () { held = false; restart(); });
     doc.addEventListener('visibilitychange', restart);
     if ('IntersectionObserver' in window) {
-      new IntersectionObserver(function (en) { inView = en[0].isIntersecting; restart(); }, { threshold: 0.3 }).observe(car);
+      new IntersectionObserver(function (en) { inView = en[0].isIntersecting; restart(); syncSlideVideos(); }, { threshold: 0.3 }).observe(car);
     }
     car.classList.add('is-ready');
     setPauseUI();
@@ -706,6 +686,21 @@
       window.addEventListener('load', function () { setTimeout(function () { handleHash(false); }, 0); });
     }
   }
+
+
+  /* ---------------------------------------------------------------- product video */
+  // Muted concept video plays only while visible, and never automatically for reduced-motion users.
+  $$('[data-autoplay-video]').forEach(function (v) {
+    v.muted = true;
+    if (reduceMotion || !('IntersectionObserver' in window)) return;
+    var userPaused = false;
+    v.addEventListener('pause', function () { if (v.dataset.autoPausing !== '1') userPaused = true; });
+    v.addEventListener('play', function () { userPaused = false; });
+    new IntersectionObserver(function (en) {
+      if (en[0].isIntersecting) { if (!userPaused) { var p = v.play(); if (p && p.catch) p.catch(function () {}); } }
+      else if (!v.paused) { v.dataset.autoPausing = '1'; v.pause(); v.dataset.autoPausing = ''; }
+    }, { threshold: 0.4 }).observe(v);
+  });
 
   /* ---------------------------------------------------------------- reveal on scroll */
   var reveals = $$('.reveal');

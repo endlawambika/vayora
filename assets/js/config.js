@@ -1,22 +1,37 @@
 /*
- * ClimaPod site configuration.
+ * Vayora site configuration.
  *
- * waitlistEndpoint: leave as null to run the waitlist as a clearly labelled prototype that
- * stores sign-ups in this browser's localStorage only.
+ * waitlistEndpoint: where waitlist sign-ups are sent (JSON POST).
+ *   Currently FormSubmit (formsubmit.co), which emails every sign-up to the address in the URL.
+ *   First use: the first sign-up triggers an "Activate Form" email to that address. Click it once;
+ *   until then FormSubmit holds sign-ups and the form shows a "couldn't add you" message.
+ *   After activating, FormSubmit offers a random-string alias you can paste here in place of the
+ *   address, so the address no longer appears in the page source.
+ *   Set to null to switch back to the browser-only prototype.
+ * waitlistExtraFields: FormSubmit options sent with every sign-up.
  *
- * To collect real sign-ups, set it to a URL that accepts a JSON POST, for example:
- *   - a Formspree form endpoint            https://formspree.io/f/xxxxxxx
- *   - a Google Apps Script web app          https://script.google.com/macros/s/.../exec
- *   - your own API route                    https://api.example.com/waitlist
- * See README.md › "Connecting a real backend". When an endpoint is set, the form's
- * prototype notice is replaced automatically.
+ * checkout: the Buy Now checkout (see CHECKOUT.md).
+ *   apiBase      Your Supabase Edge Functions URL, e.g. 'https://abcdefgh.supabase.co/functions/v1'.
+ *                While null, the checkout page explains that online payment isn't switched on yet.
+ *   Prices here are for display only. The amount charged is always calculated on the server from
+ *   PRODUCT_PRICE_INR, SHIPPING_FEE_INR and TAX_RATE_PERCENT; keep both in step.
  */
-window.CLIMAPOD_CONFIG = Object.assign(
+window.VAYORA_CONFIG = Object.assign(
   {
-    waitlistEndpoint: null,
-    // Google Apps Script web apps reject JSON preflight requests; use 'text/plain' for them.
+    waitlistEndpoint: 'https://formsubmit.co/ajax/sayantani.pgpm27g@greatlakes.edu.in',
     waitlistContentType: 'application/json',
-    storageKey: 'climapod.waitlist.v1',
+    waitlistExtraFields: { _template: 'table', _captcha: 'false' },
+    storageKey: 'vayora.waitlist.v1',
+    checkout: {
+      apiBase: null,
+      unitPriceInr: 4999,
+      shippingFeeInr: 0,
+      taxRatePercent: 0,
+      maxQuantity: 5,
+      productName: 'Vayora – Portable All-in-One Personal Comfort Device',
+      razorpayScript: 'https://checkout.razorpay.com/v1/checkout.js',
+      supportPhone: '9564910918',
+    },
   },
-  window.CLIMAPOD_CONFIG || {}
+  window.VAYORA_CONFIG || {}
 );
