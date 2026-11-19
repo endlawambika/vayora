@@ -1719,6 +1719,88 @@ body { background: var(--paper); }
 .co-pay .pay-plan legend { font-size: .96rem; font-weight: 700; color: var(--ink); margin-bottom: 10px; }
 .co-pay .bank-list legend { font-size: .94rem; font-weight: 600; color: var(--ink); margin-bottom: 8px; }
 
+/* ---------- Warranty, replacement & servicing ---------- */
+.wr-hero { display: grid; grid-template-columns: 1.1fr .9fr; gap: clamp(28px, 5vw, 72px); align-items: center; }
+.wr-hero h1 { max-width: 14ch; }
+.wr-hero .btn .icon { width: 18px; height: 18px; }
+.wr-promise { position: relative; overflow: hidden; padding: clamp(26px, 3vw, 38px); border-radius: var(--r-xl); background: var(--gradient); color: #fff; box-shadow: 0 40px 80px -40px rgba(13, 66, 109, .7); }
+.wr-promise::after { content: ""; position: absolute; right: -70px; top: -70px; width: 230px; height: 230px; border-radius: 50%; border: 28px solid rgba(255, 255, 255, .08); pointer-events: none; }
+.wr-promise-label { font-weight: 700; color: #CFF3EF; font-size: .95rem; }
+.wr-days { display: flex; align-items: baseline; gap: 10px; margin-top: 6px; font-family: var(--font-display); font-weight: 800; line-height: 1; }
+.wr-num { font-size: clamp(4.4rem, 3.2rem + 5vw, 6.6rem); letter-spacing: -0.05em; }
+.wr-unit { font-size: 1.8rem; }
+.wr-promise-title { margin-top: 10px; font-family: var(--font-display); font-weight: 800; font-size: 1.5rem; }
+.wr-promise-sub { margin-top: 8px; color: #DDF3F1; max-width: 36ch; }
+.wr-promise-list { list-style: none; margin: 22px 0 0; padding: 18px 0 0; border-top: 1px solid rgba(255, 255, 255, .2); display: grid; gap: 10px; }
+.wr-promise-list li { display: grid; grid-template-columns: 22px 1fr; gap: 10px; align-items: start; }
+.wr-promise-list .icon { width: 18px; height: 18px; margin-top: 3px; color: var(--teal-bright); }
+@media (max-width: 900px) { .wr-hero { grid-template-columns: 1fr; } }
+
+/* Timeline: purchase → 15-day replacement → servicing */
+.wr-timeline { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: .8fr 1.25fr 1fr; gap: 0; position: relative; }
+.wr-step { position: relative; display: grid; gap: 16px; padding: 0 22px 0 0; }
+.wr-step::before { content: ""; position: absolute; top: 27px; left: 56px; right: 0; height: 6px; border-radius: 6px; background: var(--line); }
+.wr-replace::before { background: linear-gradient(90deg, var(--teal-bright), var(--teal)); }
+.wr-service::before { background: repeating-linear-gradient(90deg, var(--blue-mid) 0 14px, transparent 14px 22px); right: 10%; }
+.wr-dot { position: relative; z-index: 1; display: grid; place-items: center; width: 60px; height: 60px; border-radius: 18px; background: #fff; border: 1.5px solid var(--line); color: var(--navy); }
+.wr-dot .icon { width: 26px; height: 26px; }
+.wr-replace .wr-dot { background: var(--teal); border-color: var(--teal); color: #fff; box-shadow: 0 14px 30px -14px rgba(11, 122, 115, .8); }
+.wr-service .wr-dot { background: var(--navy); border-color: var(--navy); color: #fff; }
+.wr-when { font-weight: 800; font-size: .95rem; color: var(--teal-dark); }
+.wr-service .wr-when { color: var(--blue); }
+.wr-start .wr-when { color: var(--ink-2); }
+.wr-step h3 { margin-top: 4px; font-size: 1.3rem; color: var(--navy); }
+.wr-step p:not(.wr-when) { margin-top: 6px; color: var(--ink-2); max-width: 34ch; }
+.wr-replace > div { padding: 18px 20px; margin-top: -2px; border-radius: var(--r-md); background: #EFFAF9; border: 1px solid #BEE7E3; }
+@media (max-width: 820px) {
+  .wr-timeline { grid-template-columns: 1fr; gap: 26px; }
+  .wr-step { grid-template-columns: 60px 1fr; padding: 0; align-items: start; }
+  .wr-step::before { top: 60px; bottom: -26px; left: 27px; right: auto; width: 6px; height: auto; }
+  .wr-service::before { display: none; }
+  .wr-replace::before { background: linear-gradient(180deg, var(--teal-bright), var(--teal)); }
+  .wr-replace > div { margin-top: 0; }
+}
+
+/* How to claim */
+.wr-claim-steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; counter-reset: claim; }
+.wr-claim-steps li { counter-increment: claim; position: relative; padding: 26px 24px; border-radius: var(--r-lg); background: #fff; border: 1px solid var(--line); }
+.wr-claim-steps li::after { content: counter(claim); position: absolute; top: 20px; right: 22px; font-family: var(--font-display); font-weight: 800; font-size: 2.2rem; line-height: 1; color: #E3EAF0; }
+.wr-claim-ico { display: grid; place-items: center; width: 48px; height: 48px; border-radius: 14px; background: var(--teal-soft); color: var(--teal); margin-bottom: 16px; }
+.wr-claim-ico .icon { width: 24px; height: 24px; }
+.wr-claim-steps h3 { font-size: 1.15rem; color: var(--navy); }
+.wr-claim-steps p { margin-top: 8px; color: var(--ink-2); }
+.wr-call { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; margin-top: 22px; padding: 20px 24px; border-radius: var(--r-lg); background: var(--navy); color: #fff; }
+.wr-call-ico { display: grid; place-items: center; width: 52px; height: 52px; border-radius: 16px; background: rgba(255, 255, 255, .1); color: var(--teal-bright); flex: none; }
+.wr-call-ico .icon { width: 26px; height: 26px; }
+.wr-call > div { flex: 1; min-width: 160px; }
+.wr-call-label { color: #CFE3F2; font-size: .92rem; }
+.wr-call-num { font-family: var(--font-display); font-weight: 800; font-size: 1.7rem; color: #fff; text-decoration: none; letter-spacing: .01em; }
+.wr-call-num:hover { text-decoration: underline; }
+.wr-call .btn .icon { width: 18px; height: 18px; }
+@media (max-width: 820px) { .wr-claim-steps { grid-template-columns: 1fr; } }
+
+/* Short policy notes used on product, checkout and confirmation */
+.wr-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.wr-strip li { list-style: none; display: grid; grid-template-columns: 48px 1fr; gap: 14px; align-items: start; padding: 22px; border-radius: var(--r-lg); background: #fff; border: 1px solid var(--line); }
+.wr-strip .wr-claim-ico { margin: 0; }
+.wr-strip h3 { font-size: 1.1rem; color: var(--navy); }
+.wr-strip p { margin-top: 6px; color: var(--ink-2); font-size: .96rem; }
+.wr-strip-wrap { margin: 0; padding: 0; }
+@media (max-width: 900px) { .wr-strip { grid-template-columns: 1fr; } }
+.os-guarantee { display: flex; gap: 10px; align-items: flex-start; margin-top: 12px; padding: 12px 14px; border-radius: 14px; border: 1px solid var(--line); background: #fff; font-size: .9rem; color: var(--ink-2); line-height: 1.45; }
+.os-guarantee .icon { width: 20px; height: 20px; flex: none; color: var(--teal); margin-top: 1px; }
+.os-guarantee strong { color: var(--ink); }
+.os-guarantee a { color: var(--teal); font-weight: 600; }
+.or-cover { display: flex; gap: 10px; align-items: flex-start; justify-content: center; margin: 10px auto 0; max-width: 60ch; color: var(--ink); }
+.or-cover .icon { width: 20px; height: 20px; color: var(--teal); flex: none; margin-top: 2px; }
+.or-cover a { color: var(--teal); font-weight: 600; }
+.wr-in-specs { margin-top: clamp(40px, 5vw, 64px); }
+.wr-in-title { font-size: clamp(1.4rem, 1.1rem + 1vw, 1.8rem); color: var(--blue); margin-bottom: 18px; }
+.wr-in-more { margin-top: 18px; }
+.link-arrow { font-weight: 700; color: var(--teal); text-decoration: underline; text-underline-offset: 3px; }
+.link-arrow:hover { color: var(--teal-dark); }
+.price-card .price-wr-link { color: #fff; font-weight: 600; text-decoration: underline; text-underline-offset: 2px; }
+
 </style>
 </head>
 <body data-page="home">
@@ -1768,6 +1850,7 @@ body { background: var(--paper); }
                     <li><a href="#mosquitoguard">MosquitoGuard technology</a></li>
                     <li><a href="#specs">Specifications</a></li>
                     <li><a href="#reviews">Customer reviews</a></li>
+                    <li><a href="#warranty">Warranty &amp; servicing</a></li>
                     <li><a href="#faq">FAQs</a></li>
                   </ul>
                 </div>
@@ -2546,8 +2629,19 @@ body { background: var(--paper); }
               <tr><th scope="row">Battery run time</th><td>Depends on the final battery and the functions in use; measured during prototype testing</td></tr>
               <tr><th scope="row">Size and weight</th><td>Confirmed with the final design</td></tr>
               <tr><th scope="row">Price</th><td>₹4,999. <a href="#pricing">See pricing</a></td></tr>
+              <tr><th scope="row">Replacement guarantee</th><td>Complete replacement for any issue within 15 days of purchase. <a href="#warranty">See policy</a></td></tr>
+              <tr><th scope="row">Servicing</th><td>Available after the first 15 days. Call <a href="tel:+919999555555">9999555555</a></td></tr>
             </tbody>
           </table>
+        </div>
+        <div class="wr-in-specs" id="warranty" data-keywords="warranty guarantee replacement servicing repair 15 days support">
+          <h3 class="wr-in-title">Warranty and servicing</h3>
+          <ul class="wr-strip">
+            <li><span class="wr-claim-ico"><svg class="icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8" /> <path d="M21 3v5h-5" /> <path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16" /> <path d="M8 16H3v5" /> </svg></span><div><h3>15-day complete replacement</h3><p>Any issue within 15 days of purchase and we replace the whole device with a new one.</p></div></li>
+            <li><span class="wr-claim-ico"><svg class="icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.106-3.105c.32-.322.863-.22.983.218a6 6 0 0 1-8.259 7.057l-7.91 7.91a1 1 0 0 1-2.999-3l7.91-7.91a6 6 0 0 1 7.057-8.259c.438.12.54.662.219.984z" /> </svg></span><div><h3>Servicing after that</h3><p>After the first 15 days, we offer servicing for your Vayora.</p></div></li>
+            <li><span class="wr-claim-ico"><svg class="icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M13 2a9 9 0 0 1 9 9" /> <path d="M13 6a5 5 0 0 1 5 5" /> <path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384" /> </svg></span><div><h3>One number to call</h3><p>For a replacement or servicing, call <a href="tel:+919999555555">9999555555</a>.</p></div></li>
+          </ul>
+          <p class="wr-in-more"><a class="link-arrow" href="#warranty">Read the full warranty and replacement policy</a></p>
         </div>
       </div>
     </section>
@@ -2638,6 +2732,8 @@ body { background: var(--paper); }
             <div class="answer"><p>No. Set it on a table, desk or any flat surface, aim the vents and switch it on.</p></div></details>
           <details class="faq-item" id="faq-price" data-keywords="cost rupees price how much 4999"><summary>How much does it cost?<span class="plus"><svg class="icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="m6 9 6 6 6-6" /> </svg></span></summary>
             <div class="answer"><p>Vayora is priced at ₹4,999. Select <a href="#checkout">Buy Now</a> to order and pay securely with Razorpay, or see the <a href="#pricing">pricing page</a> for what's included.</p></div></details>
+          <details class="faq-item" id="faq-warranty" data-keywords="warranty guarantee replacement servicing repair defect 15 days"><summary>What if something goes wrong with my Vayora?<span class="plus"><svg class="icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="m6 9 6 6 6-6" /> </svg></span></summary>
+            <div class="answer"><p>If there's any issue within 15 days of purchase, we replace the complete device. After that, we offer servicing. For either, call <a href="tel:+919999555555">9999555555</a>. See the <a href="#warranty">warranty and replacement policy</a>.</p></div></details>
         </div>
       </div>
     </section>
@@ -2774,6 +2870,7 @@ body { background: var(--paper); }
             <li><svg class="icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M20 6 9 17l-5-5" /> </svg><span>Humidity reading and comfort modes</span></li>
             <li><svg class="icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M20 6 9 17l-5-5" /> </svg><span>MosquitoGuard active mosquito capture</span></li>
             <li><svg class="icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M20 6 9 17l-5-5" /> </svg><span>Rechargeable battery and carry handle</span></li>
+            <li><svg class="icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M20 6 9 17l-5-5" /> </svg><span>15-day complete replacement guarantee, then servicing. <a class="price-wr-link" href="#warranty">See policy</a></span></li>
           </ul>
                     <a class="btn btn-mint btn-block" href="#checkout">Buy Now</a>
           <button class="btn btn-ghost-light btn-block price-wl" type="button" data-waitlist>Join the Waitlist</button>
@@ -2853,6 +2950,152 @@ body { background: var(--paper); }
           </div>
           <div class="btn-row">
             <button class="btn btn-mint" type="button" data-waitlist>Join the Waitlist</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+</div>
+<div class="route" data-route="warranty" data-title="Warranty, Replacement &amp; Servicing | Vayora" hidden>
+    <!-- WARRANTY HERO -->
+    <section class="page-hero" aria-labelledby="warranty-title">
+      <div class="container wr-hero">
+        <div>
+          <p class="crumb"><a href="#home">Home</a> <span aria-hidden="true">/</span> <span>Warranty &amp; Servicing</span></p>
+          <h1 id="warranty-title">Warranty, Replacement and Servicing</h1>
+          <p class="lead">Every Vayora comes with a 15-day complete replacement guarantee. After that, our team is one phone call away for servicing.</p>
+          <div class="btn-row mt-m">
+            <a class="btn" href="tel:+919999555555"><svg class="icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384" /> </svg>Call 9999555555</a>
+            <a class="btn btn-ghost" href="#claim">How to claim</a>
+          </div>
+        </div>
+        <div class="wr-promise" aria-labelledby="wr-promise-label">
+          <p class="wr-promise-label" id="wr-promise-label">Our promise</p>
+          <p class="wr-days"><span class="wr-num">15</span><span class="wr-unit">days</span></p>
+          <p class="wr-promise-title">Complete replacement</p>
+          <p class="wr-promise-sub">If your Vayora has any issue within 15 days of purchase, we replace the whole device.</p>
+          <ul class="wr-promise-list">
+            <li><svg class="icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8" /> <path d="M21 3v5h-5" /> <path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16" /> <path d="M8 16H3v5" /> </svg><span>A new device, not a repaired one</span></li>
+            <li><svg class="icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.106-3.105c.32-.322.863-.22.983.218a6 6 0 0 1-8.259 7.057l-7.91 7.91a1 1 0 0 1-2.999-3l7.91-7.91a6 6 0 0 1 7.057-8.259c.438.12.54.662.219.984z" /> </svg><span>Servicing after the first 15 days</span></li>
+            <li><svg class="icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M13 2a9 9 0 0 1 9 9" /> <path d="M13 6a5 5 0 0 1 5 5" /> <path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384" /> </svg><span>One number for both: 9999555555</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- COVER OVER TIME -->
+    <section class="section bg-white" id="cover" aria-labelledby="cover-title" data-keywords="warranty guarantee cover period days replacement servicing timeline">
+      <div class="container">
+        <div class="section-head">
+          <h2 id="cover-title">How you're covered.</h2>
+          <p>What happens if something goes wrong depends on how long ago you bought your Vayora.</p>
+        </div>
+        <ol class="wr-timeline">
+          <li class="wr-step wr-start">
+            <span class="wr-dot"><svg class="icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M12 17V7" /> <path d="M16 8h-6a2 2 0 0 0 0 4h4a2 2 0 0 1 0 4H8" /> <path d="M4 3a1 1 0 0 1 1-1 1.3 1.3 0 0 1 .7.2l.933.6a1.3 1.3 0 0 0 1.4 0l.934-.6a1.3 1.3 0 0 1 1.4 0l.933.6a1.3 1.3 0 0 0 1.4 0l.933-.6a1.3 1.3 0 0 1 1.4 0l.934.6a1.3 1.3 0 0 0 1.4 0l.933-.6A1.3 1.3 0 0 1 19 2a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1 1.3 1.3 0 0 1-.7-.2l-.933-.6a1.3 1.3 0 0 0-1.4 0l-.934.6a1.3 1.3 0 0 1-1.4 0l-.933-.6a1.3 1.3 0 0 0-1.4 0l-.933.6a1.3 1.3 0 0 1-1.4 0l-.934-.6a1.3 1.3 0 0 0-1.4 0l-.933.6a1.3 1.3 0 0 1-.7.2 1 1 0 0 1-1-1z" /> </svg></span>
+            <div>
+              <p class="wr-when">Day 0</p>
+              <h3>You buy Vayora</h3>
+              <p>Your date of purchase is on your order confirmation. Your 15 days start here.</p>
+            </div>
+          </li>
+          <li class="wr-step wr-replace" id="replacement">
+            <span class="wr-dot"><svg class="icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8" /> <path d="M21 3v5h-5" /> <path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16" /> <path d="M8 16H3v5" /> </svg></span>
+            <div>
+              <p class="wr-when">Days 1 to 15</p>
+              <h3>Complete replacement</h3>
+              <p>Any issue with your Vayora in this period and we replace the complete device with a new one.</p>
+            </div>
+          </li>
+          <li class="wr-step wr-service" id="servicing">
+            <span class="wr-dot"><svg class="icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.106-3.105c.32-.322.863-.22.983.218a6 6 0 0 1-8.259 7.057l-7.91 7.91a1 1 0 0 1-2.999-3l7.91-7.91a6 6 0 0 1 7.057-8.259c.438.12.54.662.219.984z" /> </svg></span>
+            <div>
+              <p class="wr-when">After 15 days</p>
+              <h3>Servicing</h3>
+              <p>We offer servicing for Vayora. Call us and our team will arrange it.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- HOW TO CLAIM -->
+    <section class="section" id="claim" aria-labelledby="claim-title" data-keywords="claim replacement servicing request call support how to contact">
+      <div class="container wr-claim">
+        <div class="section-head">
+          <h2 id="claim-title">How to claim a replacement or book servicing.</h2>
+          <p>Both start with the same phone call.</p>
+        </div>
+        <ol class="wr-claim-steps">
+          <li>
+            <span class="wr-claim-ico"><svg class="icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M13 2a9 9 0 0 1 9 9" /> <path d="M13 6a5 5 0 0 1 5 5" /> <path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384" /> </svg></span>
+            <h3>Call 9999555555</h3>
+            <p>For a replacement, call within 15 days of purchase. For servicing, call any time after that.</p>
+          </li>
+          <li>
+            <span class="wr-claim-ico"><svg class="icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M12 17V7" /> <path d="M16 8h-6a2 2 0 0 0 0 4h4a2 2 0 0 1 0 4H8" /> <path d="M4 3a1 1 0 0 1 1-1 1.3 1.3 0 0 1 .7.2l.933.6a1.3 1.3 0 0 0 1.4 0l.934-.6a1.3 1.3 0 0 1 1.4 0l.933.6a1.3 1.3 0 0 0 1.4 0l.933-.6a1.3 1.3 0 0 1 1.4 0l.934.6a1.3 1.3 0 0 0 1.4 0l.933-.6A1.3 1.3 0 0 1 19 2a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1 1.3 1.3 0 0 1-.7-.2l-.933-.6a1.3 1.3 0 0 0-1.4 0l-.934.6a1.3 1.3 0 0 1-1.4 0l-.933-.6a1.3 1.3 0 0 0-1.4 0l-.933.6a1.3 1.3 0 0 1-1.4 0l-.934-.6a1.3 1.3 0 0 0-1.4 0l-.933.6a1.3 1.3 0 0 1-.7.2 1 1 0 0 1-1-1z" /> </svg></span>
+            <h3>Share your order ID</h3>
+            <p>It's on your order confirmation page and email. Then tell us what's happening with your Vayora.</p>
+          </li>
+          <li>
+            <span class="wr-claim-ico"><svg class="icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M12 22V12" /> <path d="m16 17 2 2 4-4" /> <path d="M21 11.127V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.729l7 4a2 2 0 0 0 2 .001l1.32-.753" /> <path d="M3.29 7 12 12l8.71-5" /> <path d="m7.5 4.27 8.997 5.148" /> </svg></span>
+            <h3>We sort it out</h3>
+            <p>Within 15 days, our team arranges your replacement Vayora. After that, we arrange servicing.</p>
+          </li>
+        </ol>
+        <div class="wr-call">
+          <span class="wr-call-ico"><svg class="icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M3 11h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-5Zm0 0a9 9 0 1 1 18 0m0 0v5a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3Z" /> <path d="M21 16v2a4 4 0 0 1-4 4h-5" /> </svg></span>
+          <div>
+            <p class="wr-call-label">Vayora support</p>
+            <a class="wr-call-num" href="tel:+919999555555">9999555555</a>
+          </div>
+          <a class="btn btn-mint" href="tel:+919999555555"><svg class="icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384" /> </svg>Call now</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section bg-white" id="warranty-faq" aria-labelledby="wfaq-title">
+      <div class="container faq">
+        <div>
+          <h2 id="wfaq-title">Questions about cover.</h2>
+          <p class="lead mt-s">Anything else? Call <a href="tel:+919999555555">9999555555</a>.</p>
+        </div>
+        <div class="faq-list">
+          <details class="faq-item" id="wfaq-issue" data-keywords="defect problem fault not working broken replacement"><summary>What counts as an issue?<span class="plus"><svg class="icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="m6 9 6 6 6-6" /> </svg></span></summary>
+            <div class="answer"><p>Any problem with your Vayora within 15 days of purchase. Call 9999555555, tell us what's happening and we'll replace the complete device.</p></div></details>
+          <details class="faq-item" id="wfaq-start" data-keywords="when start date purchase 15 days count"><summary>When do the 15 days start?<span class="plus"><svg class="icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="m6 9 6 6 6-6" /> </svg></span></summary>
+            <div class="answer"><p>On your date of purchase, which is shown on your order confirmation.</p></div></details>
+          <details class="faq-item" id="wfaq-new" data-keywords="new device repaired refurbished replacement complete"><summary>Will I get a new device or a repaired one?<span class="plus"><svg class="icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="m6 9 6 6 6-6" /> </svg></span></summary>
+            <div class="answer"><p>Within the first 15 days, you get a complete replacement: a new Vayora, not a repaired one.</p></div></details>
+          <details class="faq-item" id="wfaq-after" data-keywords="after 15 days servicing repair service support"><summary>What if something goes wrong after 15 days?<span class="plus"><svg class="icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="m6 9 6 6 6-6" /> </svg></span></summary>
+            <div class="answer"><p>We offer servicing. Call 9999555555 and our team will arrange it.</p></div></details>
+          <details class="faq-item" id="wfaq-contact" data-keywords="contact phone number call support customer care"><summary>How do I contact the Vayora team?<span class="plus"><svg class="icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="m6 9 6 6 6-6" /> </svg></span></summary>
+            <div class="answer"><p>Call <a href="tel:+919999555555">9999555555</a>. It's the same number for replacements, servicing and any other questions.</p></div></details>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section" aria-labelledby="warranty-cta-title">
+      <div class="container">
+        <div class="cta-panel">
+          <svg class="lines" viewBox="0 0 600 400" preserveAspectRatio="xMaxYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+  <g fill="none" stroke="#71C8C2" stroke-width="1.6" stroke-linecap="round">
+    <path d="M-20 300 C 120 240 240 330 380 250 S 560 160 640 200"/>
+    <path d="M-20 320 C 130 262 250 352 390 272 S 570 182 640 222" opacity=".8"/>
+    <path d="M-20 340 C 140 284 260 374 400 294 S 580 204 640 244" opacity=".6"/>
+    <path d="M-20 360 C 150 306 270 396 410 316 S 590 226 640 266" opacity=".4"/>
+    <path class="flow-line slow" d="M-20 280 C 110 218 230 308 370 228 S 550 138 640 178" stroke="#C1EDEA" stroke-width="2"/>
+  </g>
+</svg>
+          <div>
+            <h2 id="warranty-cta-title">Buy with confidence.</h2>
+            <p>₹4,999 with free shipping, delivery in 7 days and a 15-day complete replacement guarantee.</p>
+          </div>
+          <div class="btn-row">
+            <a class="btn btn-mint" href="#checkout">Buy Now</a>
+            <a class="btn btn-ghost-light" href="#product">Explore Vayora</a>
           </div>
         </div>
       </div>
@@ -3145,6 +3388,7 @@ body { background: var(--paper); }
               <div data-os-tax-row hidden><dt data-os-tax-label>Taxes</dt><dd data-os-tax>₹0</dd></div>
               <div class="os-total"><dt>Total payable</dt><dd data-os-total>₹4,999</dd></div>
             </dl>
+            <p class="os-guarantee"><svg class="icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" /> <path d="m9 12 2 2 4-4" /> </svg><span><strong>15-day complete replacement</strong> if anything goes wrong, then servicing on call. <a href="#warranty" target="_blank" rel="noopener">See policy<span class="visually-hidden"> (opens in a new tab)</span></a></span></p>
             <p class="os-emi" data-os-emi><svg class="icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M16 14v2.2l1.6 1" /> <path d="M16 2v3" /> <path d="M21 7.338V5a2 2 0 00-2-2H5a2 2 0 00-2 2v14a2 2 0 002 2h2.338" /> <path d="M3 9h5.859" /> <path d="M8 2v3" /> <circle cx="16" cy="16" r="6" /> </svg><span>EMI available from <strong data-emi-from>₹417</strong>/month</span></p>
             <p class="os-secure" data-real-only><svg class="icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" /> <path d="m9 12 2 2 4-4" /> </svg><span>Secure payment by Razorpay</span></p>
           </aside>
@@ -3185,6 +3429,7 @@ body { background: var(--paper); }
             </div>
           </div>
           <p class="or-delivery"><svg class="icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2" /> <path d="M15 18H9" /> <path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14" /> <circle cx="17" cy="18" r="2" /> <circle cx="7" cy="18" r="2" /> </svg><span>Get your product delivered in <strong data-delivery-days>7</strong> days. Expected by <strong data-delivery-date></strong>.</span></p>
+          <p class="or-cover"><svg class="icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" /> <path d="m9 12 2 2 4-4" /> </svg><span>Covered by our 15-day complete replacement guarantee. For a replacement or servicing, call <a href="tel:+919999555555">9999555555</a>. <a href="#warranty">See policy</a></span></p>
           <dl class="or-details">
             <div><dt>Order ID</dt><dd data-f="orderId"></dd></div>
             <div><dt>Customer Name</dt><dd data-f="customerName"></dd></div>
@@ -3218,6 +3463,7 @@ body { background: var(--paper); }
             </div>
           </div>
           <p class="or-delivery"><svg class="icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2" /> <path d="M15 18H9" /> <path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14" /> <circle cx="17" cy="18" r="2" /> <circle cx="7" cy="18" r="2" /> </svg><span>Get your product delivered in <strong data-d-days>7</strong> days. Expected by <strong data-d-date></strong>.</span></p>
+          <p class="or-cover"><svg class="icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" /> <path d="m9 12 2 2 4-4" /> </svg><span>Covered by our 15-day complete replacement guarantee. For a replacement or servicing, call <a href="tel:+919999555555">9999555555</a>. <a href="#warranty">See policy</a></span></p>
           <dl class="or-details">
             <div><dt>Booking ID</dt><dd data-d="orderId"></dd></div>
             <div><dt>Customer Name</dt><dd data-d="customerName"></dd></div>
@@ -3303,6 +3549,7 @@ body { background: var(--paper); }
             <li><a href="#features">Features</a></li>
             <li><a href="#pricing">Pricing</a></li>
             <li><a href="#reviews">Reviews</a></li>
+            <li><a href="#warranty">Warranty &amp; Servicing</a></li>
             <li><a href="#faq">FAQs</a></li>
           </ul>
         </nav>
@@ -3402,6 +3649,7 @@ body { background: var(--paper); }
         <li><button type="button" data-search-open data-help-close><svg class="icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="m21 21-4.34-4.34" /> <circle cx="11" cy="11" r="8" /> </svg><span>Search the site</span></button></li>
         <li><a href="#faq" data-help-close><svg class="icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <circle cx="12" cy="12" r="10" /> <path d="M9 9.5a3 2.5 0 016 0c0 2-2 2-3 3.5" /> <path d="M12 17h.01" /> </svg><span>Read the FAQs</span></a></li>
         <li><a href="tel:+919999555555" data-help-close><svg class="icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384" /> </svg><span>Call 9999555555</span></a></li>
+        <li><a href="#warranty" data-help-close><svg class="icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" /> <path d="m9 12 2 2 4-4" /> </svg><span>Warranty and servicing</span></a></li>
         <li><a href="#why-vayora" data-help-close><svg class="icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M12 3v18" /> <path d="m19 8 3 8a5 5 0 0 1-6 0zV7" /> <path d="M3 7h1a17 17 0 0 0 8-2 17 17 0 0 0 8 2h1" /> <path d="m5 8 3 8a5 5 0 0 1-6 0zV7" /> <path d="M7 21h10" /> </svg><span>Why Vayora</span></a></li>
         <li><button type="button" data-waitlist data-help-close><svg class="icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7" /> <rect x="2" y="4" width="20" height="16" rx="2" /> </svg><span>Join the Waitlist</span></button></li>
         <li><button type="button" data-back-to-top data-help-close><svg class="icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="m5 12 7-7 7 7" /> <path d="M12 19V5" /> </svg><span>Back to top</span></button></li>
@@ -3627,7 +3875,7 @@ window.VAYORA_CONFIG = Object.assign(
 
 ;
 /* Generated by build.mjs: do not edit by hand. */
-window.VAYORA_SEARCH = [{"p":"home","r":"index.html","l":"Home","id":"","t":"Vayora","s":"Vayora is a portable all-in-one personal climate comfort device that combines cooling, air purification, humidity management and MosquitoGuard active mosquito protection in one compact, rechargeable unit.","k":""},{"p":"home","r":"index.html","l":"Home","id":"features","t":"Multiple Functions. One Smart Device.","s":"Vayora brings together the comfort functions you'd usually need several appliances for.","k":"features functions cooling purification humidity mosquito battery rechargeable"},{"p":"home","r":"index.html","l":"Home","id":"comfort-anywhere","t":"Comfort Wherever You Go","s":"No installation and no fixed spot. Pick it up by the handle and set it down wherever you need it.","k":"home office work study travel hotel balcony terrace outdoor use cases"},{"p":"home","r":"index.html","l":"Home","id":"why-vayora","t":"Why Carry Multiple Devices When One Can Do More?","s":"A fan for the heat, a purifier for the dust, a repellent for the mosquitoes. Vayora replaces that pile with one portable device.","k":"why vayora usp benefits compare devices"},{"p":"home","r":"index.html","l":"Home","id":"feel","t":"Because comfort shouldn't stay behind in one room.","s":"About us","k":""},{"p":"home","r":"index.html","l":"Home","id":"about","t":"About Vayora","s":"Vayora is an innovative personal comfort brand focused on redefining everyday comfort through portable technology.","k":"company team contact phone call mission vision"},{"p":"home","r":"index.html","l":"Home","id":"join","t":"The Future of Personal Comfort Is Almost Here.","s":"Be among the first to discover Vayora. Join our waitlist to receive product launch updates and early access information.","k":""},{"p":"product","r":"product.html","l":"Product","id":"","t":"The Product","s":"How Vayora works: air purification, cooling, humidity management, MosquitoGuard active mosquito attraction and capture, and a portable rechargeable design.","k":""},{"p":"product","r":"product.html","l":"Product","id":"overview","t":"Meet Vayora.","s":"A compact, rechargeable device you carry by its handle and set down wherever you are. Vayora combines personal air cooling, air purification, humidity…","k":"overview what is vayora portable personal climate comfort device"},{"p":"product","r":"product.html","l":"Product","id":"key-features","t":"Key features.","s":"Five comfort functions in one portable device. Select one to read how it works.","k":""},{"p":"product","r":"product.html","l":"Product","id":"how-it-works","t":"How Vayora works.","s":"Two separate airflows. The main one is filtered, cooled and aimed at you. MosquitoGuard runs its own, on the side of the device. Select a stage, or let it play.","k":"how it works airflow stages modules inside"},{"p":"product","r":"product.html","l":"Product","id":"purification","t":"Air purification system.","s":"An integrated filtration mechanism designed to help reduce dust and airborne particles. Air passes through three layers before it is cooled.","k":"filter filtration purification purifier dust particles hepa carbon odour"},{"p":"product","r":"product.html","l":"Product","id":"cooling","t":"Cooling mechanism.","s":"Provides directed airflow to help users stay comfortable in warm environments. It cools the space around you, not the whole room, which keeps Vayora small…","k":"cool cooler cooling airflow water tank fill heat summer fan pad outlet"},{"p":"product","r":"product.html","l":"Product","id":"mosquitoguard","t":"MosquitoGuard technology.","s":"An active mosquito attraction and capture system. Instead of a mesh that only keeps mosquitoes out, MosquitoGuard draws them in and holds them in a…","k":"mosquito mosquitoguard insects bugs trap capture uv lure scent chamber suction funnel"},{"p":"product","r":"product.html","l":"Product","id":"humidity","t":"Humidity management.","s":"A humidity-management function designed to help improve personal comfort.","k":"humidity humid moisture rh sensor display comfort dry"},{"p":"product","r":"product.html","l":"Product","id":"portability","t":"Portability and design.","s":"A compact rechargeable design that allows users to carry the device across different environments. No installation and no fixed spot.","k":"design portable handle carry compact rechargeable battery colours size"},{"p":"product","r":"product.html","l":"Product","id":"where","t":"Where you can use Vayora.","s":"Anywhere you need personal cooling and air comfort.","k":"where use home office travel hotel balcony terrace outdoor"},{"p":"product","r":"product.html","l":"Product","id":"specs","t":"Specifications.","s":"What Vayora includes. Measured figures such as run time and weight will be published after prototype testing.","k":"specifications specs details battery weight size"},{"p":"product","r":"product.html","l":"Product","id":"reviews","t":"Customer ratings and reviews","s":"–","k":"reviews ratings customer feedback stars opinions write a review"},{"p":"product","r":"product.html","l":"Product","id":"faq","t":"Questions, answered honestly.","s":"Cooling, filters, MosquitoGuard, battery and price, answered plainly.","k":""},{"p":"product","r":"product.html","l":"Product","id":"faq-what","t":"What is Vayora?","s":"Vayora is a portable all-in-one personal climate comfort device. It combines personal air cooling, air purification, humidity management and MosquitoGuard…","k":"about product"},{"p":"product","r":"product.html","l":"Product","id":"faq-ac","t":"Is it an air conditioner?","s":"No. Vayora is a personal comfort device: it aims cooler, cleaner airflow at you rather than cooling a whole room. That's what keeps it small, easy to carry…","k":"ac air conditioner cooler compressor room"},{"p":"product","r":"product.html","l":"Product","id":"faq-mosquito","t":"How does MosquitoGuard work?","s":"A scent lure cartridge and a UV-A light attract mosquitoes towards an intake on the side of the device. A dedicated low-power suction fan pulls them in, and…","k":"mosquito mosquitoguard insects bugs trap capture uv lure"},{"p":"product","r":"product.html","l":"Product","id":"faq-chamber","t":"How do I empty the collection chamber?","s":"Slide the chamber out from the side of the device, empty it, wash it and slide it back. You don't need to take the device apart.","k":"empty clean chamber collection maintenance dispose"},{"p":"product","r":"product.html","l":"Product","id":"faq-lure","t":"How often does the scent lure cartridge need replacing?","s":"The cartridge is replaceable from the side compartment. Its replacement interval depends on the final lure formulation and will be confirmed after prototype…","k":"lure cartridge replace scent refill"},{"p":"product","r":"product.html","l":"Product","id":"faq-separate","t":"Does the mosquito airflow mix with the air I breathe?","s":"No. MosquitoGuard has its own suction fan and exhaust behind a sealed partition. The main cooling fan is never used for mosquito trapping, and the two…","k":"airflow separate cooling fan mosquito mix"},{"p":"product","r":"product.html","l":"Product","id":"faq-cooling","t":"How does the cooling work?","s":"Water from a small top-fill tank keeps a cooling pad damp. Filtered air passes through the pad and is cooled, and the front vents direct it towards you.","k":"cool cooling water heat summer"},{"p":"product","r":"product.html","l":"Product","id":"faq-filtration","t":"How does the filtration work?","s":"Air passes through a washable pre-filter for larger dust, a HEPA-type filter for finer particles and an activated carbon filter for certain odours, before…","k":"filter purification dust pollution particles hepa carbon"},{"p":"product","r":"product.html","l":"Product","id":"faq-humidity","t":"How does humidity management work?","s":"A sensor shows the humidity around you on the display. Comfort modes let you use plain airflow when it's already humid, and cooling with the damp pad when…","k":"humidity humid moisture rh"},{"p":"product","r":"product.html","l":"Product","id":"faq-battery","t":"How long does the battery last?","s":"Run time depends on the final battery capacity and on which functions you use, so it will be published once measured in prototype testing. MosquitoGuard…","k":"battery power socket charge rechargeable run time hours"},{"p":"product","r":"product.html","l":"Product","id":"faq-install","t":"Does it need installing?","s":"No. Set it on a table, desk or any flat surface, aim the vents and switch it on.","k":"install setup assemble fixed place"},{"p":"product","r":"product.html","l":"Product","id":"faq-price","t":"How much does it cost?","s":"Vayora is priced at ₹4,999. Select Buy Now to order and pay securely with Razorpay, or see the pricing page for what's included.","k":"cost rupees price how much 4999"},{"p":"product","r":"product.html","l":"Product","id":"product-join","t":"Join the Waitlist.","s":"Order Vayora now for ₹4,999, or join the waitlist for product launch updates and early access information.","k":""},{"p":"pricing","r":"pricing.html","l":"Pricing","id":"","t":"Pricing","s":"Vayora costs ₹4,999 for cooling, air purification, humidity management, MosquitoGuard active mosquito capture and a portable rechargeable design in one device. Join the waitlist for early access.","k":""},{"p":"pricing","r":"pricing.html","l":"Pricing","id":"value","t":"What ₹4,999 covers.","s":"Vayora does the jobs of several separate devices. The price reflects that combination, not any single feature.","k":"value what included package"},{"p":"pricing","r":"pricing.html","l":"Pricing","id":"roadmap","t":"From here to early access.","s":"What happens before Vayora reaches waitlist members.","k":"roadmap launch timeline when available early access"},{"p":"pricing","r":"pricing.html","l":"Pricing","id":"price-faq","t":"Questions about price.","s":"More answers on the product FAQ .","k":""},{"p":"pricing","r":"pricing.html","l":"Pricing","id":"pfaq-final","t":"What do I get for ₹4,999?","s":"The Vayora device with all four modules: air purification (pre-filter, HEPA-type and activated carbon filters), cooling, electronics with the rechargeable…","k":"cost rupees price how much 4999 included"},{"p":"pricing","r":"pricing.html","l":"Pricing","id":"pfaq-preorder","t":"Can I buy Vayora now?","s":"Yes. Select Buy Now , enter your delivery details and pay ₹4,999 securely with Razorpay using UPI, a debit or credit card, or net banking. Prefer to wait?…","k":"buy payment order pay now upi card net banking razorpay"},{"p":"pricing","r":"pricing.html","l":"Pricing","id":"pfaq-ongoing","t":"Will there be running costs?","s":"Most likely replacement filters, replacement scent lure cartridges for MosquitoGuard, water for cooling and the electricity used for charging. We'll publish…","k":"filter replacement maintenance running costs refill"}];
+window.VAYORA_SEARCH = [{"p":"home","r":"index.html","l":"Home","id":"","t":"Vayora","s":"Vayora is a portable all-in-one personal climate comfort device that combines cooling, air purification, humidity management and MosquitoGuard active mosquito protection in one compact, rechargeable unit.","k":""},{"p":"home","r":"index.html","l":"Home","id":"features","t":"Multiple Functions. One Smart Device.","s":"Vayora brings together the comfort functions you'd usually need several appliances for.","k":"features functions cooling purification humidity mosquito battery rechargeable"},{"p":"home","r":"index.html","l":"Home","id":"comfort-anywhere","t":"Comfort Wherever You Go","s":"No installation and no fixed spot. Pick it up by the handle and set it down wherever you need it.","k":"home office work study travel hotel balcony terrace outdoor use cases"},{"p":"home","r":"index.html","l":"Home","id":"why-vayora","t":"Why Carry Multiple Devices When One Can Do More?","s":"A fan for the heat, a purifier for the dust, a repellent for the mosquitoes. Vayora replaces that pile with one portable device.","k":"why vayora usp benefits compare devices"},{"p":"home","r":"index.html","l":"Home","id":"feel","t":"Because comfort shouldn't stay behind in one room.","s":"About us","k":""},{"p":"home","r":"index.html","l":"Home","id":"about","t":"About Vayora","s":"Vayora is an innovative personal comfort brand focused on redefining everyday comfort through portable technology.","k":"company team contact phone call mission vision"},{"p":"home","r":"index.html","l":"Home","id":"join","t":"The Future of Personal Comfort Is Almost Here.","s":"Be among the first to discover Vayora. Join our waitlist to receive product launch updates and early access information.","k":""},{"p":"product","r":"product.html","l":"Product","id":"","t":"The Product","s":"How Vayora works: air purification, cooling, humidity management, MosquitoGuard active mosquito attraction and capture, and a portable rechargeable design.","k":""},{"p":"product","r":"product.html","l":"Product","id":"overview","t":"Meet Vayora.","s":"A compact, rechargeable device you carry by its handle and set down wherever you are. Vayora combines personal air cooling, air purification, humidity…","k":"overview what is vayora portable personal climate comfort device"},{"p":"product","r":"product.html","l":"Product","id":"key-features","t":"Key features.","s":"Five comfort functions in one portable device. Select one to read how it works.","k":""},{"p":"product","r":"product.html","l":"Product","id":"how-it-works","t":"How Vayora works.","s":"Two separate airflows. The main one is filtered, cooled and aimed at you. MosquitoGuard runs its own, on the side of the device. Select a stage, or let it play.","k":"how it works airflow stages modules inside"},{"p":"product","r":"product.html","l":"Product","id":"purification","t":"Air purification system.","s":"An integrated filtration mechanism designed to help reduce dust and airborne particles. Air passes through three layers before it is cooled.","k":"filter filtration purification purifier dust particles hepa carbon odour"},{"p":"product","r":"product.html","l":"Product","id":"cooling","t":"Cooling mechanism.","s":"Provides directed airflow to help users stay comfortable in warm environments. It cools the space around you, not the whole room, which keeps Vayora small…","k":"cool cooler cooling airflow water tank fill heat summer fan pad outlet"},{"p":"product","r":"product.html","l":"Product","id":"mosquitoguard","t":"MosquitoGuard technology.","s":"An active mosquito attraction and capture system. Instead of a mesh that only keeps mosquitoes out, MosquitoGuard draws them in and holds them in a…","k":"mosquito mosquitoguard insects bugs trap capture uv lure scent chamber suction funnel"},{"p":"product","r":"product.html","l":"Product","id":"humidity","t":"Humidity management.","s":"A humidity-management function designed to help improve personal comfort.","k":"humidity humid moisture rh sensor display comfort dry"},{"p":"product","r":"product.html","l":"Product","id":"portability","t":"Portability and design.","s":"A compact rechargeable design that allows users to carry the device across different environments. No installation and no fixed spot.","k":"design portable handle carry compact rechargeable battery colours size"},{"p":"product","r":"product.html","l":"Product","id":"where","t":"Where you can use Vayora.","s":"Anywhere you need personal cooling and air comfort.","k":"where use home office travel hotel balcony terrace outdoor"},{"p":"product","r":"product.html","l":"Product","id":"specs","t":"Specifications.","s":"What Vayora includes. Measured figures such as run time and weight will be published after prototype testing.","k":"specifications specs details battery weight size"},{"p":"product","r":"product.html","l":"Product","id":"reviews","t":"Customer ratings and reviews","s":"–","k":"reviews ratings customer feedback stars opinions write a review"},{"p":"product","r":"product.html","l":"Product","id":"faq","t":"Questions, answered honestly.","s":"Cooling, filters, MosquitoGuard, battery and price, answered plainly.","k":""},{"p":"product","r":"product.html","l":"Product","id":"faq-what","t":"What is Vayora?","s":"Vayora is a portable all-in-one personal climate comfort device. It combines personal air cooling, air purification, humidity management and MosquitoGuard…","k":"about product"},{"p":"product","r":"product.html","l":"Product","id":"faq-ac","t":"Is it an air conditioner?","s":"No. Vayora is a personal comfort device: it aims cooler, cleaner airflow at you rather than cooling a whole room. That's what keeps it small, easy to carry…","k":"ac air conditioner cooler compressor room"},{"p":"product","r":"product.html","l":"Product","id":"faq-mosquito","t":"How does MosquitoGuard work?","s":"A scent lure cartridge and a UV-A light attract mosquitoes towards an intake on the side of the device. A dedicated low-power suction fan pulls them in, and…","k":"mosquito mosquitoguard insects bugs trap capture uv lure"},{"p":"product","r":"product.html","l":"Product","id":"faq-chamber","t":"How do I empty the collection chamber?","s":"Slide the chamber out from the side of the device, empty it, wash it and slide it back. You don't need to take the device apart.","k":"empty clean chamber collection maintenance dispose"},{"p":"product","r":"product.html","l":"Product","id":"faq-lure","t":"How often does the scent lure cartridge need replacing?","s":"The cartridge is replaceable from the side compartment. Its replacement interval depends on the final lure formulation and will be confirmed after prototype…","k":"lure cartridge replace scent refill"},{"p":"product","r":"product.html","l":"Product","id":"faq-separate","t":"Does the mosquito airflow mix with the air I breathe?","s":"No. MosquitoGuard has its own suction fan and exhaust behind a sealed partition. The main cooling fan is never used for mosquito trapping, and the two…","k":"airflow separate cooling fan mosquito mix"},{"p":"product","r":"product.html","l":"Product","id":"faq-cooling","t":"How does the cooling work?","s":"Water from a small top-fill tank keeps a cooling pad damp. Filtered air passes through the pad and is cooled, and the front vents direct it towards you.","k":"cool cooling water heat summer"},{"p":"product","r":"product.html","l":"Product","id":"faq-filtration","t":"How does the filtration work?","s":"Air passes through a washable pre-filter for larger dust, a HEPA-type filter for finer particles and an activated carbon filter for certain odours, before…","k":"filter purification dust pollution particles hepa carbon"},{"p":"product","r":"product.html","l":"Product","id":"faq-humidity","t":"How does humidity management work?","s":"A sensor shows the humidity around you on the display. Comfort modes let you use plain airflow when it's already humid, and cooling with the damp pad when…","k":"humidity humid moisture rh"},{"p":"product","r":"product.html","l":"Product","id":"faq-battery","t":"How long does the battery last?","s":"Run time depends on the final battery capacity and on which functions you use, so it will be published once measured in prototype testing. MosquitoGuard…","k":"battery power socket charge rechargeable run time hours"},{"p":"product","r":"product.html","l":"Product","id":"faq-install","t":"Does it need installing?","s":"No. Set it on a table, desk or any flat surface, aim the vents and switch it on.","k":"install setup assemble fixed place"},{"p":"product","r":"product.html","l":"Product","id":"faq-price","t":"How much does it cost?","s":"Vayora is priced at ₹4,999. Select Buy Now to order and pay securely with Razorpay, or see the pricing page for what's included.","k":"cost rupees price how much 4999"},{"p":"product","r":"product.html","l":"Product","id":"faq-warranty","t":"What if something goes wrong with my Vayora?","s":"If there's any issue within 15 days of purchase, we replace the complete device. After that, we offer servicing. For either, call 9999555555 . See the…","k":"warranty guarantee replacement servicing repair defect 15 days"},{"p":"product","r":"product.html","l":"Product","id":"product-join","t":"Join the Waitlist.","s":"Order Vayora now for ₹4,999, or join the waitlist for product launch updates and early access information.","k":""},{"p":"pricing","r":"pricing.html","l":"Pricing","id":"","t":"Pricing","s":"Vayora costs ₹4,999 for cooling, air purification, humidity management, MosquitoGuard active mosquito capture and a portable rechargeable design in one device. Join the waitlist for early access.","k":""},{"p":"pricing","r":"pricing.html","l":"Pricing","id":"value","t":"What ₹4,999 covers.","s":"Vayora does the jobs of several separate devices. The price reflects that combination, not any single feature.","k":"value what included package"},{"p":"pricing","r":"pricing.html","l":"Pricing","id":"roadmap","t":"From here to early access.","s":"What happens before Vayora reaches waitlist members.","k":"roadmap launch timeline when available early access"},{"p":"pricing","r":"pricing.html","l":"Pricing","id":"price-faq","t":"Questions about price.","s":"More answers on the product FAQ .","k":""},{"p":"pricing","r":"pricing.html","l":"Pricing","id":"pfaq-final","t":"What do I get for ₹4,999?","s":"The Vayora device with all four modules: air purification (pre-filter, HEPA-type and activated carbon filters), cooling, electronics with the rechargeable…","k":"cost rupees price how much 4999 included"},{"p":"pricing","r":"pricing.html","l":"Pricing","id":"pfaq-preorder","t":"Can I buy Vayora now?","s":"Yes. Select Buy Now , enter your delivery details and pay ₹4,999 securely with Razorpay using UPI, a debit or credit card, or net banking. Prefer to wait?…","k":"buy payment order pay now upi card net banking razorpay"},{"p":"pricing","r":"pricing.html","l":"Pricing","id":"pfaq-ongoing","t":"Will there be running costs?","s":"Most likely replacement filters, replacement scent lure cartridges for MosquitoGuard, water for cooling and the electricity used for charging. We'll publish…","k":"filter replacement maintenance running costs refill"},{"p":"warranty","r":"warranty.html","l":"Warranty","id":"","t":"Warranty, Replacement & Servicing","s":"Every Vayora comes with a 15-day complete replacement guarantee and servicing after that. Call 9999555555.","k":""},{"p":"warranty","r":"warranty.html","l":"Warranty","id":"cover","t":"How you're covered.","s":"What happens if something goes wrong depends on how long ago you bought your Vayora.","k":"warranty guarantee cover period days replacement servicing timeline"},{"p":"warranty","r":"warranty.html","l":"Warranty","id":"claim","t":"How to claim a replacement or book servicing.","s":"Both start with the same phone call.","k":"claim replacement servicing request call support how to contact"},{"p":"warranty","r":"warranty.html","l":"Warranty","id":"warranty-faq","t":"Questions about cover.","s":"Anything else? Call 9999555555 .","k":""},{"p":"warranty","r":"warranty.html","l":"Warranty","id":"wfaq-issue","t":"What counts as an issue?","s":"Any problem with your Vayora within 15 days of purchase. Call 9999555555, tell us what's happening and we'll replace the complete device.","k":"defect problem fault not working broken replacement"},{"p":"warranty","r":"warranty.html","l":"Warranty","id":"wfaq-start","t":"When do the 15 days start?","s":"On your date of purchase, which is shown on your order confirmation.","k":"when start date purchase 15 days count"},{"p":"warranty","r":"warranty.html","l":"Warranty","id":"wfaq-new","t":"Will I get a new device or a repaired one?","s":"Within the first 15 days, you get a complete replacement: a new Vayora, not a repaired one.","k":"new device repaired refurbished replacement complete"},{"p":"warranty","r":"warranty.html","l":"Warranty","id":"wfaq-after","t":"What if something goes wrong after 15 days?","s":"We offer servicing. Call 9999555555 and our team will arrange it.","k":"after 15 days servicing repair service support"},{"p":"warranty","r":"warranty.html","l":"Warranty","id":"wfaq-contact","t":"How do I contact the Vayora team?","s":"Call 9999555555 . It's the same number for replacements, servicing and any other questions.","k":"contact phone number call support customer care"}];
 
 ;
 /*

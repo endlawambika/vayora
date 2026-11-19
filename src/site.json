@@ -24,6 +24,13 @@
       "description": "Vayora costs ₹4,999 for cooling, air purification, humidity management, MosquitoGuard active mosquito capture and a portable rechargeable design in one device. Join the waitlist for early access."
     },
     {
+      "slug": "warranty",
+      "file": "warranty.html",
+      "route": "warranty.html",
+      "title": "Warranty, Replacement & Servicing | Vayora",
+      "description": "Every Vayora comes with a 15-day complete replacement guarantee and servicing after that. Call 9999555555."
+    },
+    {
       "slug": "checkout",
       "file": "checkout.html",
       "route": "checkout.html",
