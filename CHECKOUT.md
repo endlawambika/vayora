@@ -90,7 +90,7 @@ The amount charged is calculated on the server from `PRODUCT_PRICE_INR`, `SHIPPI
 
 **Free shipping.** With `shippingFeeInr` at 0 (and `SHIPPING_FEE_INR` at 0 on the server), the checkout shows Shipping as **FREE** and a "Free shipping on every order, delivered anywhere in India" note. If you ever set a fee, the note disappears and the amount is shown instead.
 
-**Original price and discount.** The site shows ₹7,999 struck through next to the ₹4,999 you charge, with "Save ₹3,000 · 37% off" and a "You save" line at checkout. Customers are always charged `unitPriceInr` (₹4,999); `mrpInr` (7999) is only for display. If the discount ends, set `mrpInr: null` in `assets/js/config.js` to hide it at checkout, and update the struck-through ₹7,999 on the Home, Product and Pricing pages, the menu and the announcement bar. Only show an original price you genuinely sell at, or have sold at.
+**Original price and discount.** The site shows ₹6,999 struck through next to the ₹4,999 you charge, with "Save ₹2,000 · 28% off" and a "You save" line at checkout. Customers are always charged `unitPriceInr` (₹4,999); `mrpInr` (6999) is only for display. If the discount ends, set `mrpInr: null` in `assets/js/config.js` to hide it at checkout, and update the struck-through ₹6,999 on the Home, Product and Pricing pages, the menu and the announcement bar. Only show an original price you genuinely sell at, or have sold at.
 
 ## EMI
 
