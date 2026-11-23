@@ -38,6 +38,12 @@
     var whole = r === Math.round(r);
     return '₹' + r.toLocaleString('en-IN', { minimumFractionDigits: whole ? 0 : 2, maximumFractionDigits: 2 });
   }
+  // Original price (struck through) vs the discounted unit price. Only shown when it's higher.
+  var MRP_P = Math.round((Number(CFG.mrpInr) || 0) * 100);
+  var UNIT_P = Math.round((Number(CFG.unitPriceInr) || 0) * 100);
+  var HAS_MRP = MRP_P > UNIT_P && UNIT_P > 0;
+  var SAVE_PCT = HAS_MRP ? Math.floor((MRP_P - UNIT_P) / MRP_P * 100) : 0;
+  function savingFor(q) { return HAS_MRP ? (MRP_P - UNIT_P) * q : 0; }
   function amounts(qty) {
     var unit = Math.round((Number(CFG.unitPriceInr) || 0) * 100);
     var sub = unit * qty;
@@ -91,6 +97,14 @@
     function render() {
       var a = amounts(qty);
       $('[data-os-unit]', root).textContent = inr(a.unit);
+      $$('[data-mrp-only]', root).forEach(function (el) { el.hidden = !HAS_MRP; });
+      if (HAS_MRP) {
+        $$('[data-mrp]', root).forEach(function (el) { el.textContent = inr(MRP_P); });
+        $$('[data-offer]', root).forEach(function (el) { el.textContent = inr(a.unit); });
+        $$('[data-save-badge]', root).forEach(function (el) { el.textContent = 'Save ' + inr(MRP_P - UNIT_P) + ' · ' + SAVE_PCT + '% off'; });
+        $('[data-os-saving]', root).textContent = inr(savingFor(qty));
+        $('[data-os-saving-pct]', root).textContent = SAVE_PCT;
+      }
       $('[data-os-subtotal]', root).textContent = inr(a.subtotal);
       var shipEl = $('[data-os-shipping]', root);
       if (a.shipping) shipEl.textContent = inr(a.shipping);
@@ -473,6 +487,7 @@
       var booking = {
         orderId: id, customerName: c.name, email: c.email,
         productName: CFG.productName || 'Vayora', quantity: qty, totalAmount: inr(a.total), method: label,
+        saved: HAS_MRP ? inr(savingFor(qty)) + ' (' + SAVE_PCT + '% off ' + inr(MRP_P) + ')' : '',
         orderDate: now.toISOString(),
         shippingAddress: [c.house, c.street, c.city, c.state + ' ' + c.pinCode, c.country].filter(Boolean).join(', '),
       };
@@ -532,6 +547,9 @@
         orderDate: isNaN(date) ? '' : date.toLocaleString('en-IN', { timeZone: 'Asia/Kolkata', dateStyle: 'medium', timeStyle: 'short' }) + ' IST',
         shippingAddress: o.shippingAddress,
       };
+      var oq = parseInt(o.quantity, 10) || 0;
+      if (HAS_MRP && oq > 0) fields.saved = inr(savingFor(oq)) + ' (' + SAVE_PCT + '% off ' + inr(MRP_P) + ')';
+      $('[data-or-success] [data-saved-row]', result).hidden = !fields.saved;
       Object.keys(fields).forEach(function (k) { var el = $('[data-f="' + k + '"]', result); if (el) el.textContent = fields[k]; });
       var succ = $('[data-or-success]', result);
       $('[data-delivery-days]', succ).textContent = DELIVERY_DAYS;
@@ -574,10 +592,11 @@
         var d = new Date(bk.orderDate);
         var vals = {
           orderId: bk.orderId, customerName: bk.customerName, email: bk.email, productName: bk.productName,
-          quantity: String(bk.quantity), totalAmount: bk.totalAmount, method: bk.method, shippingAddress: bk.shippingAddress,
+          quantity: String(bk.quantity), totalAmount: bk.totalAmount, method: bk.method, shippingAddress: bk.shippingAddress, saved: bk.saved || '',
           orderDate: d.toLocaleString('en-IN', { timeZone: 'Asia/Kolkata', dateStyle: 'medium', timeStyle: 'short' }) + ' IST',
         };
         Object.keys(vals).forEach(function (k) { var el = $('[data-d="' + k + '"]', card); if (el) el.textContent = vals[k]; });
+        $('[data-saved-row]', card).hidden = !vals.saved;
         $('[data-d-days]', card).textContent = DELIVERY_DAYS;
         $('[data-d-date]', card).textContent = deliveryDate(d);
         show('demo');

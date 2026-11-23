@@ -25,6 +25,8 @@ window.VAYORA_CONFIG = Object.assign(
     checkout: {
       apiBase: null,
       unitPriceInr: 4999,
+      // Original price shown struck through next to unitPriceInr. Set to null to hide the discount.
+      mrpInr: 7999,
       shippingFeeInr: 0,
       taxRatePercent: 0,
       // EMI is offered through Razorpay. Tenures shown on the checkout page; interest is set by the bank.

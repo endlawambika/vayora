@@ -17,6 +17,7 @@ pricing.html        Pricing
 checkout.html       Checkout (Buy Now)
 order-success.html  Order confirmation
 unsubscribe.html    Leave the waitlist
+warranty.html       Warranty, replacement and servicing
 404.html            Shown for any address that doesn't exist
 .nojekyll           Tells GitHub Pages to publish files exactly as they are (hidden file, optional)
 robots.txt          Search engine instructions
