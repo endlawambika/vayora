@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     if (!variant) return;
 
-    document.querySelectorAll('button[data-waitlist]').forEach(function (button) {
+    document.querySelectorAll('button[data-ab-hero]').forEach(function (button) {
       button.textContent = variant === 'test'
         ? 'Get Early Access'
         : 'Join the Waitlist';
