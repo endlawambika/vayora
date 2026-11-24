@@ -29,5 +29,31 @@
   {{> search}}
   {{> help}}
   {{scripts}}
+  <script>
+document.addEventListener('DOMContentLoaded', function () {
+  posthog.onFeatureFlags(function () {
+    const variant = posthog.getFeatureFlag('vayora-hero-cta-ab-test');
+
+    if (!variant) return;
+
+    document.querySelectorAll('button[data-waitlist]').forEach(function (button) {
+      button.textContent = variant === 'test'
+        ? 'Get Early Access'
+        : 'Join the Waitlist';
+
+      if (!button.dataset.abTracked) {
+        button.dataset.abTracked = 'true';
+
+        button.addEventListener('click', function () {
+          posthog.capture('vayora_hero_cta_clicked', {
+            variant: variant,
+            button_text: button.textContent
+          });
+        });
+      }
+    });
+  });
+});
+</script>
 </body>
 </html>
