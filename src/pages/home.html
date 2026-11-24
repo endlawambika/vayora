@@ -13,7 +13,10 @@
                 <div class="btn-row">
                   <a class="btn btn-buy" href="{{link:checkout}}">{{icon:wallet}}Buy Now · ₹4,999</a>
                   <a class="btn btn-ghost" href="{{link:product}}">Explore Vayora</a>
-                  <button class="btn btn-ghost" type="button" data-waitlist>Join the Waitlist</button>
+                  <button class="btn btn-block" type="submit" data-submit
+  onclick="posthog.capture('vayora_hero_cta_clicked', {button_text: this.innerText})">
+  Join Waitlist
+</button>
                 </div>
               </div>
               <div class="hero-stage hero-stage-art">
